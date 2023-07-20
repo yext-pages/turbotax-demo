@@ -1,6 +1,6 @@
 {
   "bundlePaths": {
-    "professionals": "assets/server/professionals.952cbecd.js"
+    "professionals": "assets/server/professionals.2966583e.js"
   },
   "projectFilepaths": {
     "templatesRoot": "src/templates",
@@ -14,7 +14,7 @@
       "src": "node_modules/@yext/pages/dist/vite-plugin/build/buildStart/rendering/renderer.js",
       "isEntry": true,
       "imports": [
-        "_index-e5b0c1c7.js"
+        "_index-1e8b7549.js"
       ]
     },
     "src/assets/images/tacos-1.avif": {
@@ -22,30 +22,30 @@
       "src": "src/assets/images/tacos-1.avif"
     },
     "dist/hydration_templates/professionals.tsx": {
-      "file": "assets/hydrate/professionals.af931715.js",
+      "file": "assets/hydrate/professionals.01209937.js",
       "src": "dist/hydration_templates/professionals.tsx",
       "isEntry": true,
       "imports": [
-        "_professionals-ba4b36c8.js",
-        "_index-e5b0c1c7.js"
+        "_professionals-cdbef7b0.js",
+        "_index-1e8b7549.js"
       ]
     },
     "src/templates/professionals.tsx": {
-      "file": "assets/server/professionals.952cbecd.js",
+      "file": "assets/server/professionals.2966583e.js",
       "src": "src/templates/professionals.tsx",
       "isEntry": true,
       "imports": [
-        "_professionals-ba4b36c8.js",
-        "_index-e5b0c1c7.js"
+        "_professionals-cdbef7b0.js",
+        "_index-1e8b7549.js"
       ]
     },
-    "_index-e5b0c1c7.js": {
-      "file": "assets/static/index-e5b0c1c7.js"
+    "_index-1e8b7549.js": {
+      "file": "assets/static/index-1e8b7549.js"
     },
-    "_professionals-ba4b36c8.js": {
-      "file": "assets/static/professionals-ba4b36c8.js",
+    "_professionals-cdbef7b0.js": {
+      "file": "assets/static/professionals-cdbef7b0.js",
       "imports": [
-        "_index-e5b0c1c7.js"
+        "_index-1e8b7549.js"
       ],
       "css": [
         "assets/static/professionals-d3f9c072.css"

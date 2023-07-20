@@ -20,24 +20,17 @@
       },
       "filter": {
         "entityTypes": [
-          "financialProfessional"
+          "location"
         ]
       },
       "fields": [
         "name",
-        "description",
-        "headshot",
+        "address",
+        "c_advisorPhoto",
         "slug",
         "photoGallery",
-        "fins_jobTitle",
-        "logo",
-        "fins_relatedServices.name",
-        "emails",
-        "address",
         "mainPhone",
-        "geocodedCoordinate",
-        "fins_relatedServices.description",
-        "fins_relatedServices.fins_servicesImage"
+        "geocodedCoordinate"
       ]
     }
   ]

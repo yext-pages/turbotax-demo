@@ -36,7 +36,8 @@
         "c_yearsOfExperience",
         "c_role",
         "mainPhone",
-        "emails"
+        "emails",
+        "logo"
       ]
     }
   ]

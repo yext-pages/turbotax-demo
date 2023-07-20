@@ -29,8 +29,14 @@
         "c_advisorPhoto",
         "slug",
         "photoGallery",
+        "geocodedCoordinate",
+        "c_backgroundImage",
+        "keywords",
+        "services",
+        "c_yearsOfExperience",
+        "c_role",
         "mainPhone",
-        "geocodedCoordinate"
+        "emails"
       ]
     }
   ]

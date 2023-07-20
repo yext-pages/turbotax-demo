@@ -1,6 +1,6 @@
 {
   "bundlePaths": {
-    "professionals": "assets/server/professionals.2966583e.js"
+    "professionals": "assets/server/professionals.7a8dcc8a.js"
   },
   "projectFilepaths": {
     "templatesRoot": "src/templates",
@@ -14,48 +14,53 @@
       "src": "node_modules/@yext/pages/dist/vite-plugin/build/buildStart/rendering/renderer.js",
       "isEntry": true,
       "imports": [
-        "_index-1e8b7549.js"
+        "_index-dc0286d9.js"
       ]
     },
-    "src/assets/images/tacos-1.avif": {
-      "file": "assets/static/tacos-1-06a03ffb.avif",
-      "src": "src/assets/images/tacos-1.avif"
+    "src/assets/fonts/Lato-Bold.ttf": {
+      "file": "assets/static/Lato-Bold-d7f0b7f2.ttf",
+      "src": "src/assets/fonts/Lato-Bold.ttf"
+    },
+    "src/assets/fonts/Lato-Regular.ttf": {
+      "file": "assets/static/Lato-Regular-e82542ae.ttf",
+      "src": "src/assets/fonts/Lato-Regular.ttf"
     },
     "dist/hydration_templates/professionals.tsx": {
-      "file": "assets/hydrate/professionals.01209937.js",
+      "file": "assets/hydrate/professionals.764a7523.js",
       "src": "dist/hydration_templates/professionals.tsx",
       "isEntry": true,
       "imports": [
-        "_professionals-cdbef7b0.js",
-        "_index-1e8b7549.js"
+        "_professionals-df81b170.js",
+        "_index-dc0286d9.js"
       ]
     },
     "src/templates/professionals.tsx": {
-      "file": "assets/server/professionals.2966583e.js",
+      "file": "assets/server/professionals.7a8dcc8a.js",
       "src": "src/templates/professionals.tsx",
       "isEntry": true,
       "imports": [
-        "_professionals-cdbef7b0.js",
-        "_index-1e8b7549.js"
+        "_professionals-df81b170.js",
+        "_index-dc0286d9.js"
       ]
     },
-    "_index-1e8b7549.js": {
-      "file": "assets/static/index-1e8b7549.js"
+    "_index-dc0286d9.js": {
+      "file": "assets/static/index-dc0286d9.js"
     },
-    "_professionals-cdbef7b0.js": {
-      "file": "assets/static/professionals-cdbef7b0.js",
+    "_professionals-df81b170.js": {
+      "file": "assets/static/professionals-df81b170.js",
       "imports": [
-        "_index-1e8b7549.js"
+        "_index-dc0286d9.js"
       ],
       "css": [
-        "assets/static/professionals-d3f9c072.css"
+        "assets/static/professionals-5de40a19.css"
       ],
       "assets": [
-        "assets/static/tacos-1-06a03ffb.avif"
+        "assets/static/Lato-Bold-d7f0b7f2.ttf",
+        "assets/static/Lato-Regular-e82542ae.ttf"
       ]
     },
     "professionals.css": {
-      "file": "assets/static/professionals-d3f9c072.css",
+      "file": "assets/static/professionals-5de40a19.css",
       "src": "professionals.css"
     }
   }

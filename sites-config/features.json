@@ -37,7 +37,8 @@
         "c_role",
         "mainPhone",
         "emails",
-        "logo"
+        "logo",
+        "c_advisorBio"
       ]
     }
   ]

@@ -38,6 +38,7 @@ export const config: TemplateConfig = {
       "mainPhone",
       "emails",
       "logo",
+      "c_advisorBio",
     ],
   },
 };
@@ -78,7 +79,7 @@ export default function Professional({ document }: TemplateProps) {
               name={document.name}
               title={document.c_role}
               address={document.address}
-              email={document.emails[0]}
+              email={document.emails?.[0]}
               phone={document.mainPhone}
               textColor="white"
             ></ContactInfo>
@@ -90,7 +91,7 @@ export default function Professional({ document }: TemplateProps) {
             outerContainerClassname="scroll-mt-24"
           >
             <BodyText
-              text={document.c_description}
+              text={document.c_advisorBio}
               className="whitespace-pre-line"
             />
           </ScrollableSection>

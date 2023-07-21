@@ -18,6 +18,7 @@ import { ScrollableContainer } from "../components/ScrollingContainer";
 import { ScrollableSection } from "../components/ScrollableSection";
 import BodyText from "../components/atoms/BodyText";
 import Specialities from "../components/Specialties";
+import Articles from "../components/Articles";
 
 export const config: TemplateConfig = {
   stream: {
@@ -42,6 +43,9 @@ export const config: TemplateConfig = {
       "c_advisorBio",
       "hours",
       "specialities",
+      "c_featuredArticles.name",
+      "c_featuredArticles.shortDescription",
+      "c_featuredArticles.c_coverPhoto",
     ],
   },
 };
@@ -102,6 +106,11 @@ export default function Professional({ document }: TemplateProps) {
           <ScrollableSection title="Specialities">
             <Specialities specialties={document.specialities} />
           </ScrollableSection>
+          {document.c_featuredArticles?.length > 0 && (
+            <ScrollableSection title="Featured Articles">
+              <Articles articles={document.c_featuredArticles} />
+            </ScrollableSection>
+          )}
         </ScrollableContainer>
       </CenteredContainer>
     </PageLayout>

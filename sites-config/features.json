@@ -47,7 +47,9 @@
         "logo",
         "c_advisorBio",
         "hours",
-        "specialities"
+        "specialities",
+        "c_featuredArticles.name",
+        "c_featuredArticles.description"
       ]
     }
   ]

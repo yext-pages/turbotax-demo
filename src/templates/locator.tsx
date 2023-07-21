@@ -14,7 +14,7 @@ export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
   return {
-    title: "Locator",
+    title: "TurboTax Pro Locator",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };

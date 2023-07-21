@@ -22,7 +22,7 @@ import Articles from "../components/Articles";
 
 export const config: TemplateConfig = {
   stream: {
-    $id: "professionals",
+    $id: "tax-pros",
     localization: { locales: ["en"], primary: false },
     filter: { entityTypes: ["location"] },
     fields: [

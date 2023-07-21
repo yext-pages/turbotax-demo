@@ -64,14 +64,14 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "description",
-          content: document?.c_metaDescription,
+          content: document?.c_metaDescription ?? "",
         },
       },
       {
         type: "meta",
         attributes: {
           name: "keywords",
-          content: document?.c_metaKeywords,
+          content: document?.c_metaKeywords ?? "",
         },
       },
     ],

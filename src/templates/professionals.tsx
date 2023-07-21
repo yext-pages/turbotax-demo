@@ -46,6 +46,8 @@ export const config: TemplateConfig = {
       "c_featuredArticles.name",
       "c_featuredArticles.shortDescription",
       "c_featuredArticles.c_coverPhoto",
+      "c_metaDescription",
+      "c_metaKeywords",
     ],
   },
 };
@@ -53,12 +55,26 @@ export const config: TemplateConfig = {
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   document,
 }): HeadConfig => {
-  const pro = document;
-
   return {
-    title: pro.name,
+    title: document.name,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
+    tags: [
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: document.c_metaDescription,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "keywords",
+          content: document.c_metaKeywords,
+        },
+      },
+    ],
   };
 };
 

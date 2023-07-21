@@ -1,6 +1,13 @@
 {
   "features": [
     {
+      "name": "locator",
+      "templateType": "JS",
+      "staticPage": {
+        "plugin": {}
+      }
+    },
+    {
       "name": "professionals",
       "streamId": "professionals",
       "templateType": "JS",
@@ -38,7 +45,9 @@
         "mainPhone",
         "emails",
         "logo",
-        "c_advisorBio"
+        "c_advisorBio",
+        "hours",
+        "specialities"
       ]
     }
   ]

@@ -17,6 +17,7 @@ import Avatar from "../components/Avatar";
 import { ScrollableContainer } from "../components/ScrollingContainer";
 import { ScrollableSection } from "../components/ScrollableSection";
 import BodyText from "../components/atoms/BodyText";
+import Specialities from "../components/Specialties";
 
 export const config: TemplateConfig = {
   stream: {
@@ -39,6 +40,8 @@ export const config: TemplateConfig = {
       "emails",
       "logo",
       "c_advisorBio",
+      "hours",
+      "specialities",
     ],
   },
 };
@@ -60,6 +63,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 };
 
 export default function Professional({ document }: TemplateProps) {
+  console.log(document);
   return (
     <PageLayout backgroundColor="#FFFFFF">
       <CenteredContainer>
@@ -94,6 +98,9 @@ export default function Professional({ document }: TemplateProps) {
               text={document.c_advisorBio}
               className="whitespace-pre-line"
             />
+          </ScrollableSection>
+          <ScrollableSection title="Specialities">
+            <Specialities specialties={document.specialities} />
           </ScrollableSection>
         </ScrollableContainer>
       </CenteredContainer>

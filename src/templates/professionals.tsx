@@ -57,31 +57,26 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 }): HeadConfig => {
   const tags = [];
 
-  if (document.c_metaDescription) {
-    tags.push({
-      type: "meta",
-      attributes: {
-        name: "description",
-        content: document.c_metaDescription,
-      },
-    });
-  }
-
-  if (document.c_metaKeywords) {
-    tags.push({
-      type: "meta",
-      attributes: {
-        name: "keywords",
-        content: document.c_metaKeywords,
-      },
-    });
-  }
-
   return {
     title: document.name,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
-    tags: tags,
+    // tags: [
+    //   {
+    //     type: "meta",
+    //     attributes: {
+    //       name: "description",
+    //       content: document?.c_metaDescription ?? "",
+    //     },
+    //   },
+    //   {
+    //     type: "meta",
+    //     attributes: {
+    //       name: "keywords",
+    //       content: document?.c_metaKeywords ?? "",
+    //     },
+    //   },
+    // ],
   };
 };
 

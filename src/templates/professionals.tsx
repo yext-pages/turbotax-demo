@@ -83,12 +83,11 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 };
 
 export default function Professional({ document }: TemplateProps) {
-  console.log(document);
   return (
     <PageLayout backgroundColor="#FFFFFF">
       <CenteredContainer>
         <HeaderSimple logo={document.logo} backgroundColor="#fff" />
-        <Hero>
+        <Hero backgroundImage={document.c_backgroundImage}>
           <HorizontalStack
             spacing="10"
             topMargin="0"

@@ -12,7 +12,7 @@ export default function Hero({ backgroundImage, children }: HeroProps) {
         <img
           src={
             backgroundImage
-              ? backgroundImage.image.url
+              ? backgroundImage.image?.url
               : "https://images.unsplash.com/photo-1634312944845-72e0075cf500?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2FuJTIwZGllZ28lMjBza3lsaW5lfGVufDB8fDB8fHww&w=1000&q=80"
           }
           alt=""

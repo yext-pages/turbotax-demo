@@ -23,30 +23,26 @@ import Articles from "../components/Articles";
 export const config: TemplateConfig = {
   stream: {
     $id: "tax-pros",
-    localization: { locales: ["en"], primary: false },
-    filter: { entityTypes: ["location"] },
+    localization: { locales: ["en"] },
+    filter: { entityTypes: ["financialProfessional"] },
     fields: [
       "name",
       "address",
-      "c_advisorPhoto",
       "slug",
       "photoGallery",
       "geocodedCoordinate",
       "c_backgroundImage",
+      "headshot",
       "keywords",
       "services",
-      "c_yearsOfExperience",
-      "c_role",
       "mainPhone",
       "emails",
       "logo",
       "c_advisorBio",
       "hours",
       "specialities",
-      "c_featuredArticles.name",
-      "c_featuredArticles.shortDescription",
-      "c_featuredArticles.c_coverPhoto",
       "c_metaDescription",
+      "c_title",
       "c_metaKeywords",
     ],
   },
@@ -97,10 +93,10 @@ export default function Professional({ document }: TemplateProps) {
             alignment="center"
             verticalOnMobile="false"
           >
-            <Avatar image={document.c_advisorPhoto} />
+            <Avatar image={document.headshot} />
             <ContactInfo
               name={document.name}
-              title={document.c_role}
+              title={document.c_title}
               address={document.address}
               email={document.emails?.[0]}
               phone={document.mainPhone}
@@ -118,14 +114,14 @@ export default function Professional({ document }: TemplateProps) {
               className="whitespace-pre-line"
             />
           </ScrollableSection>
-          <ScrollableSection title="Specialities">
+          {/* <ScrollableSection title="Specialities">
             <Specialities specialties={document.specialities} />
-          </ScrollableSection>
-          {document.c_featuredArticles?.length > 0 && (
+          </ScrollableSection> */}
+          {/* {document.c_featuredArticles?.length > 0 && (
             <ScrollableSection title="Featured Articles">
               <Articles articles={document.c_featuredArticles} />
             </ScrollableSection>
-          )}
+          )} */}
         </ScrollableContainer>
       </CenteredContainer>
     </PageLayout>

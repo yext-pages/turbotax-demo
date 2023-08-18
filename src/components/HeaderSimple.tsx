@@ -4,7 +4,7 @@ import {
   ComplexImage as ComplexImageType,
   Image as ImageType,
 } from "../types/autogen";
-import { Image } from "@yext/pages/components";
+import { Image } from "@yext/sites-components";
 
 export interface HeaderSimpleProps {
   logo?: ComplexImageType | ImageType;

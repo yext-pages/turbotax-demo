@@ -6,8 +6,10 @@
   "type": "module",
   "license": "BSD-3-Clause",
   "scripts": {
-    "dev": "pages dev",
-    "prod": "pages prod"
+    "dev": "yext pages build && yext pages generate-test-data && pages dev",
+    "prod": "pages prod",
+    "features": "pages generate features",
+    "ci": "pages generate ci"
   },
   "engines": {
     "node": "18"
@@ -34,7 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "@vitejs/plugin-react": "^3.1.0",
-    "@yext/pages": "^1.0.0-rc.0",
+    "@yext/pages": "^1.0.0-beta.26",
     "@yext/studio": "^0.12.0",
     "@yext/studio-plugin": "^0.12.0",
     "autoprefixer": "^10.4.8",

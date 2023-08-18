@@ -44,6 +44,7 @@ export const config: TemplateConfig = {
       "c_metaDescription",
       "c_title",
       "c_metaKeywords",
+      "c_taxProName",
     ],
   },
 };
@@ -95,7 +96,7 @@ export default function Professional({ document }: TemplateProps) {
           >
             <Avatar image={document.headshot} />
             <ContactInfo
-              name={document.name}
+              name={document.c_taxProName}
               title={document.c_title}
               address={document.address}
               email={document.emails?.[0]}

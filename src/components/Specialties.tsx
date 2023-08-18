@@ -68,6 +68,10 @@ function classNames(...classes) {
 }
 
 export default function Specialties({ specialties }: SpecialtiesProps) {
+  if (specialties && specialties.length < 1) {
+    return null;
+  }
+
   return (
     <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
       {actions.map((action, actionIdx) => (

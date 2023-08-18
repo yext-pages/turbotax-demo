@@ -40,7 +40,7 @@ export const config: TemplateConfig = {
       "logo",
       "c_advisorBio",
       "hours",
-      "specialities",
+      "c_areasOfExpertise",
       "c_metaDescription",
       "c_title",
       "c_metaKeywords",
@@ -114,9 +114,9 @@ export default function Professional({ document }: TemplateProps) {
               className="whitespace-pre-line"
             />
           </ScrollableSection>
-          {/* <ScrollableSection title="Specialities">
-            <Specialities specialties={document.specialities} />
-          </ScrollableSection> */}
+          <ScrollableSection title="Specialities">
+            <Specialities specialties={document.c_areasOfExpertise ?? []} />
+          </ScrollableSection>
           {/* {document.c_featuredArticles?.length > 0 && (
             <ScrollableSection title="Featured Articles">
               <Articles articles={document.c_featuredArticles} />

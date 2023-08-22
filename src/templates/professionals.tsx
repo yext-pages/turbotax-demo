@@ -24,7 +24,7 @@ export const config: TemplateConfig = {
   stream: {
     $id: "tax-pros",
     localization: { locales: ["en"] },
-    filter: { entityTypes: ["financialProfessional"] },
+    filter: { savedFilterIds: ["1339059980"] },
     fields: [
       "name",
       "address",

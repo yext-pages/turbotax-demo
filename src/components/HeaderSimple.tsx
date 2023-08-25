@@ -23,7 +23,7 @@ const HeaderSimple = (props: HeaderSimpleProps) => {
               <div className="flex h-20 justify-between">
                 <div className="flex">
                   {logo && (
-                    <Image image={logo} layout="fixed" height={80} width={80} />
+                    <Image image={logo} layout="fixed" height={80} width={220} />
                   )}
                 </div>
               </div>

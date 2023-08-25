@@ -24,7 +24,7 @@ export default function BodyText({
     <p
       className={twMerge(
         `text-base ${textColors[color ?? "gray-dark"]} ${
-          weight === "Bold" ? "font-lato-bold" : "font-lato-regular"
+          weight === "Bold" ? "font-bold" : "font-regular"
         }`,
         className
       )}

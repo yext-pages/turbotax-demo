@@ -88,7 +88,7 @@ const HorizontalStack = ({
     <div
       className={`flex content-center bg-center bg-cover ${responsiveVariants[verticalOnMobile]} ${alignmentVariants[alignment]} ${spacingVariants[spacing]} ${topMarginVariants[topMargin]} ${bottomMarginVariants[bottomMargin]} ${leftMarginVariants[leftMargin]} ${rightMarginVariants[rightMargin]}`}
       style={{
-        backgroundColor, backgroundImage: `url(${backgroundImage})`}}
+        backgroundColor, backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined }}
     >
       {children}
     </div>

@@ -8,7 +8,7 @@ export const initialProps: LinkProps = {
 
 export default function Link({ url }: LinkProps) {
   return (
-    <a className="font-lato-bold text-blue underline hover:no-underline">
+    <a className="font-bold text-blue underline hover:no-underline">
       {url ?? initialProps.url}
     </a>
   );

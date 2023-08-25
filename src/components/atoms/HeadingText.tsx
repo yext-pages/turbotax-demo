@@ -36,7 +36,7 @@ export default function HeadingText({
       return (
         <h2
           className={twMerge(
-            `text-2xl font-lato-bold ${textColors[color ?? "gray-dark"]}`,
+            `text-2xl font-bold ${textColors[color ?? "gray-dark"]}`,
             classname
           )}
         >
@@ -47,7 +47,7 @@ export default function HeadingText({
       return (
         <h3
           className={twMerge(
-            `text-xl font-lato-bold ${textColors[color ?? "gray-dark"]}`,
+            `text-xl font-bold ${textColors[color ?? "gray-dark"]}`,
             classname
           )}
         >
@@ -58,7 +58,7 @@ export default function HeadingText({
       return (
         <h1
           className={twMerge(
-            `text-3xl font-lato-bold ${textColors[color ?? "gray-dark"]}`,
+            `text-3xl font-bold ${textColors[color ?? "gray-dark"]}`,
             classname
           )}
         >

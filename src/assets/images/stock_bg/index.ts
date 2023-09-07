@@ -1,0 +1,12 @@
+import jpeg_1920 from './1920.jpeg';
+import webp_1920 from './1920.webp';
+import jpeg_1440 from './1440.jpeg';
+import webp_1440 from './1440.webp';
+import jpeg_1200 from './1200.jpeg';
+import webp_1200 from './1200.webp';
+import jpeg_1024 from './1024.jpeg';
+import webp_1024 from './1024.webp';
+import jpeg_768 from './768.jpeg';
+import webp_768 from './768.webp';
+export const jpegSrcSet = `${jpeg_1920} 1920w,${jpeg_1440} 1440w,${jpeg_1200} 1200w,${jpeg_1024} 1024w,${jpeg_768} 768w`;
+export const webpSrcSet = `${webp_1920} 1920w,${webp_1440} 1440w,${webp_1200} 1200w,${webp_1024} 1024w,${webp_768} 768w`;

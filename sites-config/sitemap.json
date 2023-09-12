@@ -1,3 +1,4 @@
 {
-  "disableSitemapGeneration": false
+  "disableSitemapGeneration": false,
+  "fileName": "sitemap.xml"
 }

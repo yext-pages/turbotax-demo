@@ -26,9 +26,10 @@ export const ScrollableContext = createContext<ScrollableContext | undefined>(
 
 interface ScrollableContainerProps {
   children: ReactNode;
+  className?: string;
 }
 
-export const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
+export const ScrollableContainer = ({ children, className }: ScrollableContainerProps) => {
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
   const [sectionTitles, setSectionTitles] = useState<{ [key: string]: string }>(
     {}
@@ -48,7 +49,8 @@ export const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
   };
 
   return (
-    <ScrollableContext.Provider
+    <div className={className}>
+      <ScrollableContext.Provider
       value={{ sectionRefs, sectionTitles, registerSection, scrollToSection }}
     >
       <NavBar
@@ -60,5 +62,6 @@ export const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
       />
       {children}
     </ScrollableContext.Provider>
+    </div>
   );
 };

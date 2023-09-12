@@ -1,16 +1,31 @@
 import {fontSizeMap, TypeScale} from "./TypeScale";
+import {PolymorphicComponentPropWithRef, PolymorphicRef} from "../../types/polymorphic";
+import {forwardRef} from "react";
 
 type Priority = 'primary' | "secondary" | "tertiary";
 type Purpose = "standard" | 'passive' | 'destructive' | 'special';
 type Size = 'small' | 'medium' | 'large';
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {
-  priority?: Priority;
-  purpose?: Purpose;
-  size?: Size;
-  iconBefore?: React.ReactChild;
-  iconAfter?: React.ReactChild;
-}
+type ButtonElement = 'button' | 'a';
+
+type Props<C extends ButtonElement> = PolymorphicComponentPropWithRef<
+  C,
+  {
+    priority?: Priority;
+    purpose?: Purpose;
+    size?: Size;
+    iconBefore?: React.ReactChild;
+    iconAfter?: React.ReactChild;
+  }
+>;
+
+// interface Props extends React.HTMLAttributes<HTMLButtonElement> {
+//   priority?: Priority;
+//   purpose?: Purpose;
+//   size?: Size;
+//   iconBefore?: React.ReactChild;
+//   iconAfter?: React.ReactChild;
+// }
 
 const btnStyle: Record<Priority, Record<Purpose, string>> = {
   primary: {
@@ -51,15 +66,33 @@ const btnTypeScale: Record<Size, TypeScale> = {
   large: TypeScale.Body01,
 }
 
-const Button: React.FC<Props> = ({children, priority = 'primary', purpose = 'standard', size = 'medium', className = '', iconBefore, iconAfter, ...html}) => {
+type ButtonComponent = <C extends ButtonElement = 'button'>(props: Props<C>) => React.ReactElement | null;
+
+// @ts-ignore
+const Button: ButtonComponent = forwardRef(<C extends ButtonElement = 'button'>(
+  {
+    children,
+    priority = 'primary',
+    purpose = 'standard',
+    size = 'medium',
+    className = '',
+    iconBefore,
+    iconAfter,
+    as,
+    ...html
+  }: Props<C>,
+  ref?: PolymorphicRef<C>,
+) => {
   const typeScale = btnTypeScale[size];
   const fullClassName = `flex font-semibold items-center justify-center rounded-small outline-offset-2 outline-blue02 outline-2 ${fontSizeMap[typeScale]} ${btnStyle[priority][purpose]} ${btnSizes[size]} ${className} ${iconBefore ? '' : btnPadding[size].left} ${iconAfter ? '' : btnPadding[size].right}`;
 
+  const Element = as || 'button';
   return (
-    <button {...html} className={fullClassName}>
+    // @ts-ignore
+    <Element {...html} ref={ref} className={fullClassName}>
       {iconBefore}{children}{iconAfter}
-    </button>
+    </Element>
   )
-};
+});
 
 export default Button;

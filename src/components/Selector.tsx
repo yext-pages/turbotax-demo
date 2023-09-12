@@ -6,6 +6,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
 } from "@radix-ui/react-icons";
+import type {SelectIconProps} from "@radix-ui/react-select";
 
 export interface SelectorProps {
   items: {
@@ -54,7 +55,7 @@ const Selector = ({ items, onSelect }: SelectorProps) => {
   );
 };
 
-const SelectItem = React.forwardRef(
+const SelectItem = React.forwardRef<HTMLDivElement, { className?: string, value: string } & SelectIconProps>(
   ({ children, className, ...props }, forwardedRef) => {
     return (
       <Select.Item

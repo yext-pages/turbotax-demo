@@ -2,6 +2,7 @@ import { twMerge } from "tailwind-merge";
 import { Coordinate } from "../types/autogen";
 import BodyText from "./atoms/BodyText";
 import { ThemeColors } from "../types/tailwind";
+import {B3} from "./atoms/Typography";
 
 export interface AddressProps {
   address: {
@@ -40,16 +41,14 @@ export default function Address({
   geocodedCoordinates,
   showDirectionsLink,
   containerClassname,
-  textColor,
 }: AddressProps) {
   return (
     <div className={twMerge("text-sm", containerClassname)}>
-      {address.line1 && <BodyText text={address.line1} color={textColor} />}
-      {address.line2 && <BodyText text={address.line2} color={textColor} />}
+      {address.line1 && <B3 children={address.line1} />}
+      {address.line2 && <B3 children={address.line2} />}
       {address.city && address.region && (
-        <BodyText
-          text={`${address.city}, ${address.region} ${address.postalCode}`}
-          color={textColor}
+        <B3
+          children={`${address.city}, ${address.region} ${address.postalCode}`}
         />
       )}
 

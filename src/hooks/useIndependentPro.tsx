@@ -1,32 +1,13 @@
 import React, { useContext } from "react";
+import type {TaxProsDev} from "../types/autogen";
 
-export interface IndependentPro {
-	fullName: string;
-	businessName: string;
-	tagline: string;
-	yearsOfExperience: number;
-	businessAddress: {
-		addressLine1: string;
-		addressLine2?: string;
-		city: string;
-		state: string;
-		zipCode: string;
-	};
-	// geoCoordinates: [number, number];
-	links: Partial<Record<"website" | "linkedin", string>>;
-	taxSpecialty: "business" | "individual";
-	servicesOffered: string[];
-	languagesSpoken: string[];
-	areasOfExpertise: string[];
-	aboutMe: string;
-	howWeWillWork: string;
-	profileHeadshotUrl: string;
-	additionalPhotosUrls: string[];
-}
+export type TaxProsDevExtended = Omit<TaxProsDev, 'c_signedMapUrlPreProd' | 'c_signedMapUrlProd'> & {
+	c_signedMapUrl: string;
+};
 
-export const IndependentProContext = React.createContext({} as IndependentPro);
+export const IndependentProContext = React.createContext({} as TaxProsDevExtended);
 
-const useIndependentPro = (): IndependentPro => {
+const useIndependentPro = (): TaxProsDevExtended => {
 	return useContext(IndependentProContext);
 };
 

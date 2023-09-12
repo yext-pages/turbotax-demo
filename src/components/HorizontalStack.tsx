@@ -80,7 +80,7 @@ const HorizontalStack = ({
   };
 
   const responsiveVariants = {
-    true: "flex-col sm:flex-row",
+    true: "flex-col s:flex-row",
     false: "",
   };
 

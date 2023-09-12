@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import CenteredContainer from "./CenteredContainer";
 import HeadingText from "./atoms/HeadingText";
 import { v4 as uuid } from "uuid";
+import {H2, H3} from "./atoms/Typography";
 
 export interface ScrollableSectionProps {
   title: string;
@@ -42,7 +43,7 @@ export const ScrollableSection = ({
         classname={twMerge(`max-w-5xl`, innerContainerClassname)}
       >
         {title && (
-          <HeadingText text={title} type="Heading 2" classname="pb-16" />
+          <H3 as={'h2'} weight={'bold'} className={'pb-8'}>{title}</H3>
         )}
         {children}
       </CenteredContainer>

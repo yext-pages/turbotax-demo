@@ -1,3 +1,15 @@
+export interface Address {
+	line1?: string,
+	line2?: string,
+	line3?: string,
+	sublocality?: string,
+	city?: string,
+	region?: string,
+	postalCode?: string,
+	extraDescription?: string,
+	countryCode?: string,
+}
+
 export interface ImageThumbnail {
 	url: string,
 	width: number,
@@ -19,39 +31,90 @@ export interface ComplexImage {
 	clickthroughUrl?: string,
 }
 
-export interface EntityReference {
-	entityId: string,
-	name: string,
-}
-
-export interface Address {
-	line1?: string,
-	line2?: string,
-	line3?: string,
-	sublocality?: string,
-	city?: string,
-	region?: string,
-	postalCode?: string,
-	extraDescription?: string,
-	countryCode?: string,
-}
-
 export interface Coordinate {
 	latitude?: number,
 	longitude?: number,
 }
 
-export default interface Professionals {
+export interface Interval {
+	start: any,
+	end: any,
+}
+
+export interface DayHour {
+	openIntervals?: Interval[],
+	isClosed?: boolean,
+}
+
+export interface HolidayHours {
+	date: string,
+	openIntervals?: Interval[],
+	isClosed?: boolean,
+	isRegularHours?: boolean,
+}
+
+export interface Hours {
+	monday?: DayHour,
+	tuesday?: DayHour,
+	wednesday?: DayHour,
+	thursday?: DayHour,
+	friday?: DayHour,
+	saturday?: DayHour,
+	sunday?: DayHour,
+	holidayHours?: HolidayHours[],
+	reopenDate?: string,
+}
+
+export interface TaxPros {
 	name: string,
-	description: string,
-	headshot: Image,
+	address: Address,
 	slug: string,
 	photoGallery: ComplexImage[],
-	fins_jobTitle: string,
-	logo: ComplexImage,
-	fins_relatedServices: EntityReference[],
-	emails: string[],
-	address: Address,
-	mainPhone: any,
 	geocodedCoordinate: Coordinate,
+	c_backgroundImage: Image,
+	headshot: Image,
+	keywords: string[],
+	services: string[],
+	mainPhone: any,
+	emails: string[],
+	logo: ComplexImage,
+	c_advisorBio: string,
+	hours: Hours,
+	c_areasOfExpertise: string[],
+	c_metaDescription: string,
+	c_title: string,
+	c_metaKeywords: string,
+	c_taxProName: string,
+}
+
+export interface TaxProsDev {
+	name: string,
+	address: Address,
+	slug: string,
+	photoGallery: ComplexImage[],
+	geocodedCoordinate: Coordinate,
+	c_backgroundImage: Image,
+	headshot: Image,
+	keywords: string[],
+	services: string[],
+	mainPhone: any,
+	emails: string[],
+	logo: ComplexImage,
+	c_advisorBio: string,
+	c_uRLName: string,
+	hours: Hours,
+	c_areasOfExpertise: string[],
+	c_metaDescription: string,
+	c_title: string,
+	c_metaKeywords: string,
+	c_taxProName: string,
+	c_officeLocationName: string,
+	certifications: string[],
+	yearsOfExperience: number,
+	languages: string[],
+	c_jotFormId: string,
+	googlePlaceId: string,
+	c_signedMapUrlPreProd: string,
+	c_signedMapUrlProd: string,
+	id: string,
 }

@@ -7,7 +7,7 @@ export interface CenteredContainerProps {
 }
 
 const CenteredContainer = ({ children, classname }: CenteredContainerProps) => {
-  return <div className={twMerge(`mx-auto px-5`, classname)}>{children}</div>;
+  return <div className={twMerge(`mx-auto`, classname)}>{children}</div>;
 };
 
 export default CenteredContainer;

@@ -5,6 +5,7 @@ import { ThemeColors } from "../types/tailwind";
 import GridContainer from "./GridContainer";
 import VerticalStack from "./VerticalStack";
 import BodyText from "./atoms/BodyText";
+import {B3, H1, H2, H4, H6} from "./atoms/Typography";
 
 export interface ContactInfoProps {
   children?: React.ReactNode;
@@ -49,13 +50,13 @@ const ContactInfo = ({
   textColor,
 }: ContactInfoProps) => {
   return (
-    <div className="rounded-lg w-96">
-      <HeadingText text={name} color={textColor} />
-      <h2 className="text-lg font-semibold mb-2" style={{ color: textColor }}>
+    <div className="w-96 text-white">
+      <H1 weight={'bold'}>{name}</H1>
+      <H6 as={'h2'} weight={'demi'}>
         {title}
-      </h2>
+      </H6>
       <div className="grid grid-cols-2 gap-x-6">
-        <Address address={address} textColor={textColor} />
+        <Address address={address} />
         <VerticalStack
           spacing="0"
           topMargin="0"
@@ -64,8 +65,8 @@ const ContactInfo = ({
           bottomMargin="0"
           alignment="left"
         >
-          <BodyText color="white" text={phone} />
-          <BodyText color="white" text={email} />
+          <B3 children={phone} />
+          <B3 children={email} />
         </VerticalStack>
       </div>
       {/* <button className="bg-white hover:bg-slate-100 text-blue border-blue font-semibold py-2 px-4 rounded">

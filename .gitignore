@@ -7,3 +7,5 @@ dist/
 sites-config/features.json
 
 .DS_Store
+.env
+.idea

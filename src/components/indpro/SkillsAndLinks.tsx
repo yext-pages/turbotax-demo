@@ -34,12 +34,12 @@ const SkillsAndLinks: React.FC = () => {
 
     const items: ListItem[] = [years, location, location2];
 
-    if (pro.emails?.length > 0)
-      items.push({
-        Icon: LinkIcon,
-        children: "Business website",
-        href: 'https://' + pro.emails[0].split('@')[1],
-      });
+    // if (pro.emails?.length > 0)
+    //   items.push({
+    //     Icon: LinkIcon,
+    //     children: "Business website",
+    //     href: 'https://' + pro.emails[0].split('@')[1],
+    //   });
     // if (pro.links.linkedin)
     // 	items.push({
     // 		Icon: LinkedInIcon,

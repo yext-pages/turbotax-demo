@@ -1,19 +1,31 @@
-import {IconProps} from "../../assets/icons";
-import {B1, B2, H6} from "../atoms/Typography";
+import { IconProps } from "../../assets/icons";
+import { B2, H6 } from "../atoms/Typography";
+import Link from "../atoms/Link";
 
-export interface ListItem {
+export type ListItem = {
   Icon?: React.FC<IconProps>;
   children: React.ReactNode;
-  href?: string;
-}
+} & (
+  | { href: string; action: string; object: string; objectDetail?: string }
+  | { href?: never; action?: never; object?: never; objectDetail?: never }
+);
 
-const LineItem: React.FC<ListItem> = ({Icon, children, href}) => {
+const LineItem: React.FC<ListItem> = ({ Icon, children, href, action, object, objectDetail }) => {
   return (
     <li className="flex gap-3">
-      {Icon && <Icon/>}
+      {Icon && <Icon />}
       {href ? (
-        <B2 weight="medium" as={'a'} href={href} target={'_blank'} rel={'noreferrer noopener'}
-            className={'text-blue02 hover:underline outline-blue02 outline-offset-2'}>{children}</B2>
+        <Link
+          href={href}
+          action={action}
+          object={object}
+          objectDetail={objectDetail}
+          target={"_blank"}
+          rel={"noreferrer noopener"}
+          className={"text-blue02 hover:underline outline-blue02 outline-offset-2 font-medium"}
+        >
+          {children}
+        </Link>
       ) : (
         <B2 weight="medium">{children}</B2>
       )}
@@ -26,7 +38,7 @@ interface ItemListProps {
   title?: string;
 }
 
-const ItemList: React.FC<ItemListProps> = ({items, title}) => {
+const ItemList: React.FC<ItemListProps> = ({ items, title }) => {
   return (
     <div className="flex flex-col gap-5">
       {title && <H6 weight="demi">{title}:</H6>}

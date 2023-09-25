@@ -4,4 +4,7 @@ import yextSSG from "@yext/pages/vite-plugin";
 
 export default defineConfig({
   plugins: [react(), yextSSG()],
+  define: {
+    APP_VERSION: JSON.stringify(process.env.npm_package_version),
+  },
 });

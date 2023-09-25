@@ -6,7 +6,7 @@
  * @return {string}
  */
 function removeWebSafe(safeEncodedString: string): string {
-  return safeEncodedString.replace(/-/g, '+').replace(/_/g, '/');
+  return safeEncodedString.replace(/-/g, "+").replace(/_/g, "/");
 }
 
 /**
@@ -18,7 +18,7 @@ function removeWebSafe(safeEncodedString: string): string {
  */
 function webMakeWebSafe(encodedString: ArrayBuffer): string {
   const stringified = btoa(String.fromCharCode(...new Uint8Array(encodedString)));
-  return stringified.replace(/\+/g, '-').replace(/\//g, '_');
+  return stringified.replace(/\+/g, "-").replace(/\//g, "_");
 }
 
 /**
@@ -28,7 +28,7 @@ function webMakeWebSafe(encodedString: ArrayBuffer): string {
  * @return {string}
  */
 function webDecodeBase64Hash(code: string): Uint8Array {
-  return Uint8Array.from(atob(code), c => c.charCodeAt(0))
+  return Uint8Array.from(atob(code), (c) => c.charCodeAt(0));
 }
 
 /**
@@ -39,8 +39,18 @@ function webDecodeBase64Hash(code: string): Uint8Array {
  * @return {string}
  */
 async function webEncodeBase64Hash(key: Uint8Array, data: string): Promise<ArrayBuffer> {
-  const importedKey = await crypto.subtle.importKey('raw', key, { name: "HMAC", hash: 'SHA-1' }, false, ['sign']);
-  return crypto.subtle.sign({ name: "HMAC", hash: 'SHA-1' }, importedKey, Uint8Array.from(data, c => c.charCodeAt(0)));
+  const importedKey = await crypto.subtle.importKey(
+    "raw",
+    key,
+    { name: "HMAC", hash: "SHA-1" },
+    false,
+    ["sign"]
+  );
+  return crypto.subtle.sign(
+    { name: "HMAC", hash: "SHA-1" },
+    importedKey,
+    Uint8Array.from(data, (c) => c.charCodeAt(0))
+  );
 }
 
 /**
@@ -53,6 +63,8 @@ async function webEncodeBase64Hash(key: Uint8Array, data: string): Promise<Array
 export async function webSign(path: string, secret: string): Promise<string> {
   const uri = new URL(path);
   const safeSecret = webDecodeBase64Hash(removeWebSafe(secret));
-  const hashedSignature = webMakeWebSafe(await webEncodeBase64Hash(safeSecret, uri.pathname + uri.search));
-  return uri.toString() + '&signature=' + hashedSignature;
+  const hashedSignature = webMakeWebSafe(
+    await webEncodeBase64Hash(safeSecret, uri.pathname + uri.search)
+  );
+  return uri.toString() + "&signature=" + hashedSignature;
 }

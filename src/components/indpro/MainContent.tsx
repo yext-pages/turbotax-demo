@@ -1,5 +1,4 @@
 import AboutMe from "./AboutMe";
-import HowWeWillWork from "./HowWeWillWork";
 import Map from "./Map";
 import IntakeForm from "./IntakeForm";
 
@@ -11,15 +10,13 @@ const MainContent: React.FC = () => {
          Typically, we would conditionally render based on screen size, but in this case we want to have it in the
          static HTML, so it doesn't require the javascript bundle to load before it can render.
          */}
-        <div className={'hidden s:contents'}>
-          <Map className="s:float-right s:ml-16 mb-8"/>
+        <div className={"hidden s:contents"}>
+          <Map className="s:float-right s:ml-16 mb-8" />
         </div>
 
-
-        <AboutMe/>
+        <AboutMe />
       </div>
-      {/*<HowWeWillWork />*/}
-      <IntakeForm/>
+      <IntakeForm />
     </div>
   );
 };

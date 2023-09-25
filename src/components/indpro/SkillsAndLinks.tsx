@@ -4,19 +4,24 @@ import DollarSignIcon from "../../assets/icons/DollarSign";
 import MapIcon from "../../assets/icons/Map";
 import LinkIcon from "../../assets/icons/Link";
 import LinkedInIcon from "../../assets/icons/LinkedIn";
-import ItemList, {ListItem} from "./ItemList";
+import ItemList, { ListItem } from "./ItemList";
 import useIndependentPro from "../../hooks/useIndependentPro";
-import {useMemo} from "react";
-import {TaxProsDev} from "../../types/autogen";
+import { useMemo } from "react";
+import { TaxProsDevExtended } from "../../hooks/useIndependentPro";
+import { makeGoogleMapSearchUrl } from "../../utils/googleMaps";
 
 const SkillsAndLinks: React.FC = () => {
   const pro = useIndependentPro();
   const items = useMemo(() => {
     const years: ListItem = {
       Icon: ShieldCheckIcon,
-      children: pro.certifications ? `${pro.certifications[0]} with ${pro.yearsOfExperience} ${
-        pro.yearsOfExperience === 1 ? "year" : "years"
-      } of experience` : `${pro.yearsOfExperience} ${pro.yearsOfExperience === 1 ? "year" : "years"} of experience`,
+      children: pro.certifications
+        ? `${pro.certifications[0]} with ${pro.yearsOfExperience} ${
+            pro.yearsOfExperience === 1 ? "year" : "years"
+          } of experience`
+        : `${pro.yearsOfExperience} ${
+            pro.yearsOfExperience === 1 ? "year" : "years"
+          } of experience`,
     };
     const location: ListItem = {
       Icon: LocationArrowIcon,
@@ -30,6 +35,9 @@ const SkillsAndLinks: React.FC = () => {
       Icon: MapIcon,
       children: `${pro.address.city}, ${pro.address.region}`,
       href: makeGoogleMapSearchUrl(pro),
+      action: "engaged",
+      object: "sidebar link",
+      objectDetail: "pro location",
     };
 
     const items: ListItem[] = [years, location, location2];
@@ -50,19 +58,7 @@ const SkillsAndLinks: React.FC = () => {
     return items;
   }, [pro]);
 
-  return <ItemList items={items}/>;
+  return <ItemList items={items} />;
 };
-
-function makeGoogleMapSearchUrl(pro: TaxProsDev): string {
-  const params = new URLSearchParams();
-
-  params.set('api', '1');
-  params.set('query', `${pro.address.line1}, ${pro.address.city} ${pro.address.region} ${pro.address.postalCode}`);
-  if (pro.googlePlaceId) {
-    params.set('query_place_id', pro.googlePlaceId);
-  }
-
-  return `https://www.google.com/maps/search/?${params.toString()}`;
-}
 
 export default SkillsAndLinks;

@@ -1,0 +1,6 @@
+sites-rendered-output
+localData
+.artifact-output
+platform-config
+dist
+node_modules

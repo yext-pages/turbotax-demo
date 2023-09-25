@@ -2,7 +2,7 @@
 
 ## What is Studio?
 
-Studio is a tool that lets Admins and Developers alike build React Applications with ease. For now, we're focused on Applications corresponding to a Site. But, that may change in the future. It provides a no-code, visual editor that allows users to add and remove Components to pages, and configure Components on a page. 
+Studio is a tool that lets Admins and Developers alike build React Applications with ease. For now, we're focused on Applications corresponding to a Site. But, that may change in the future. It provides a no-code, visual editor that allows users to add and remove Components to pages, and configure Components on a page.
 
 As users perform operations in the Editor, Studio is writing human-readable, well formulated TSX files to the repo. Developers can easily work with, and directly modify, these TSX files outside Studio, as need be.
 
@@ -13,11 +13,10 @@ As users perform operations in the Editor, Studio is writing human-readable, wel
 
 1. Make sure you're using node 18.
 1. Run `npm install`.
-1. Connect to your yext account with `yext init <acount_id>` or `yext init -u sandbox <account_id>` if using a sandbox account. 
+1. Connect to your yext account with `yext init <acount_id>` or `yext init -u sandbox <account_id>` if using a sandbox account.
 1. Cd into the starter repo and run `yext resources apply platform-config`. This will add some dummy data to your sandbox account.
-1. Run `npm run studio` and follow the login prompts. 
+1. Run `npm run studio` and follow the login prompts.
 1. You should now see Yext Studio appear in the browser
-
 
 ## Adding and Removing Pages
 

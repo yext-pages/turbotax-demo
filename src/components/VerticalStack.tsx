@@ -8,7 +8,7 @@ export interface VerticalStackProps {
   leftMargin: "0" | "2" | "4" | "6" | "8" | "10";
   rightMargin: "0" | "2" | "4" | "6" | "8" | "10";
   alignment: "left" | "center" | "right";
-  backgroundColor?: HexColor
+  backgroundColor?: HexColor;
 }
 
 const VerticalStack = ({
@@ -80,7 +80,8 @@ const VerticalStack = ({
   return (
     <div
       className={`flex flex-col ${spacingVariants[spacing]} ${topMarginVariants[topMargin]} ${bottomMarginVariants[bottomMargin]} ${leftMarginVariants[leftMargin]} ${rightMarginVariants[rightMargin]}`}
-      style={{backgroundColor}}>
+      style={{ backgroundColor }}
+    >
       {children}
     </div>
   );

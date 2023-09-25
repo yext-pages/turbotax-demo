@@ -7,7 +7,7 @@
     "jsx": "react-jsx",
     "outDir": "./dist",
     "module": "esnext",
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"]
 }

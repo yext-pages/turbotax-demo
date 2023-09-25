@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 type Env = "local" | "qa" | "prod";
-type Page = "independentPro" | "matchingPreview";
+type Page = "independentPro" | "matchingPreview" | "faq";
 
 export interface Config {
   env: Env;

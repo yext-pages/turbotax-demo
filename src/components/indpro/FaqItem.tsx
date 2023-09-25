@@ -107,18 +107,15 @@ const FaqItem: React.FC<FaqItemProps> = (props) => {
 
   return (
     <details
-      id={props.title.replace(/\s/g, "-").toLowerCase()}
       ref={detailsRef}
-      className={
-        // the "before" css is to offset the element when the page loads, so that the FAQ item isn't hidden by the header.
-        "group border-b-1 border-b-gray05 last:border-none box-content before:content-[''] before:block before:h-[100px] before:mt-[-100px]"
-      }
+      className={"group border-b-1 border-b-gray05 last:border-none box-content"}
     >
       <summary
         ref={summaryRef}
         onClick={toggle}
+        id={props.title.replace(/\s/g, "-").toLowerCase()}
         className={
-          "list-none flex justify-between hover:bg-gray01/10 active:bg-gray01/20 outline-blue02 outline-2 p-4 cursor-pointer group-target:bg-blue02/10"
+          "list-none flex justify-between hover:bg-gray01/10 active:bg-gray01/20 outline-blue02 outline-2 p-4 cursor-pointer scroll-mt-20"
         }
       >
         <B2 weight={"demi"}>{props.title}</B2>{" "}

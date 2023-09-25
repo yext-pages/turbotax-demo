@@ -65,7 +65,7 @@ export interface Hours {
   reopenDate?: string;
 }
 
-export default interface TaxProsDev {
+export interface TaxProsDev {
   name: string;
   address: Address;
   slug: string;
@@ -95,6 +95,9 @@ export default interface TaxProsDev {
   c_signedMapUrlPreProd: string;
   c_signedMapUrlProd: string;
   id: string;
+}
+
+export interface TaxProsPreview {
   name: string;
   address: Address;
   slug: string;

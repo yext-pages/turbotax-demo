@@ -15,6 +15,9 @@ import { createAnalyticsScripts } from "../utils/analytics";
 import "../index.css";
 import FaqList from "../components/indpro/FaqList";
 import { useMemo } from "react";
+import { createFaqStructuredData } from "../utils/structuredData";
+import faqContent from "../assets/content/faqContent";
+import indProHeader from "../assets/content/indProHeader";
 
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
@@ -29,15 +32,20 @@ export const getPath: GetPath<TemplateProps> = () => {
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
   const config = createConfig("faq");
-  const scripts = createAnalyticsScripts({
+  let scripts = createAnalyticsScripts({
     scopeArea: "faq",
     screen: "faq",
     config,
   });
 
+  scripts += `<script type="application/ld+json">${JSON.stringify(
+    createFaqStructuredData(faqContent)
+  )}</script>`;
+
   return {
     title: "TurboTax® Verified Pro FAQ",
     other: scripts,
+    tags: indProHeader,
   };
 };
 

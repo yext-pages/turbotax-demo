@@ -1,4 +1,4 @@
-import { Tag } from "@yext/pages";
+import type { Tag } from "@yext/pages";
 
 const tags: Tag[] = [
   {
@@ -87,6 +87,7 @@ const tags: Tag[] = [
       href: "https://digitalasset.intuit.com/IMAGE/A4EFQzEN2/tt-favicon.png",
     },
   },
+  // Preconnect to CDN
   {
     type: "link",
     attributes: {

@@ -16,6 +16,7 @@ import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
 import { normalizeName } from "../utils/normalizeNames";
 import indProHeader from "../assets/content/indProHeader";
+import { createLocalBusinessStructuredData } from "../utils/structuredData";
 
 export const config: TemplateConfig = {
   stream: {
@@ -69,7 +70,7 @@ export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = ({ document }
 // Add a title to the page
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended>> = (data) => {
   const config = createConfig("independentPro");
-  const scripts = createAnalyticsScripts({
+  let scripts = createAnalyticsScripts({
     scopeArea: "verified_pro_profile_pages",
     screen: "pro profile pages",
     options: {
@@ -77,6 +78,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended
     },
     config,
   });
+
+  scripts += `<script type="application/ld+json">${JSON.stringify(
+    createLocalBusinessStructuredData(data.document)
+  )}</script>`;
 
   const headConfig: HeadConfig = {
     title: "TurboTax® Verified Pro",

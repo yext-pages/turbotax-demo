@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 export interface FaqItemProps {
   title: string;
-  children: React.ReactNode;
+  children: React.ReactElement;
 }
 
 const FaqItem: React.FC<FaqItemProps> = (props) => {

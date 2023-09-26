@@ -175,8 +175,6 @@ const Footer: React.FC = () => {
                   objectDetail={"Manage cookies"}
                 >
                   {isInCalifornia ? (
-                    "Manage Cookies"
-                  ) : (
                     <>
                       Your California Privacy Rights
                       <img
@@ -187,6 +185,8 @@ const Footer: React.FC = () => {
                         }
                       />
                     </>
+                  ) : (
+                    "Manage Cookies"
                   )}
                 </Link>
               </section>

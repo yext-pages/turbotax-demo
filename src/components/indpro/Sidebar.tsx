@@ -4,7 +4,6 @@ import LanguagesSpoken from "./LanguagesSpoken";
 import NameAndReviews from "./NameAndReviews";
 import ServicesOffered from "./ServicesOffered";
 import SkillsAndLinks from "./SkillsAndLinks";
-import Tagline from "./Tagline";
 import Map from "./Map";
 
 const Sidebar: React.FC = () => {

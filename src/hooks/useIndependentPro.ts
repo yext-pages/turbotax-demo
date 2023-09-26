@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import type TaxProsDev from "../types/autogen";
+import type { TaxProsDev } from "../types/autogen";
 
 export type TaxProsDevExtended = Omit<
   TaxProsDev,

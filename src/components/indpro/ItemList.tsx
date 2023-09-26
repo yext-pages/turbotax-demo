@@ -41,7 +41,11 @@ interface ItemListProps {
 const ItemList: React.FC<ItemListProps> = ({ items, title }) => {
   return (
     <div className="flex flex-col gap-5">
-      {title && <H6 weight="demi">{title}:</H6>}
+      {title && (
+        <H6 as={"h2"} weight="demi">
+          {title}:
+        </H6>
+      )}
       <ul className="flex flex-col gap-5">
         {items.map((item, i) => (
           <LineItem key={i} {...item} />

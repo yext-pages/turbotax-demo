@@ -17,7 +17,8 @@ type TextElement =
   | "h6"
   | "label"
   | "legend"
-  | "caption";
+  | "caption"
+  | "aside";
 
 const defaultElement: Record<TypeScale, TextElement> = {
   [TypeScale.Display01]: "h1",

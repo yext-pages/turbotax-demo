@@ -1,4 +1,4 @@
-import {
+import type {
   GetHeadConfig,
   GetPath,
   Template,
@@ -6,8 +6,8 @@ import {
   TemplateProps,
   TemplateRenderProps,
   TransformProps,
+  HeadConfig,
 } from "@yext/pages";
-import * as React from "react";
 import "../index.css";
 import { TaxProsDevExtended } from "../hooks/useIndependentPro";
 import { createConfig } from "../hooks/useConfig";
@@ -15,6 +15,7 @@ import { createAnalyticsScripts } from "../utils/analytics";
 import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
 import { normalizeName } from "../utils/normalizeNames";
+import indProHeader from "../assets/content/indProHeader";
 
 export const config: TemplateConfig = {
   stream: {
@@ -77,10 +78,13 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended
     config,
   });
 
-  return {
-    title: "TurboTax® Independent Pro",
+  const headConfig: HeadConfig = {
+    title: "TurboTax® Verified Pro",
     other: scripts,
+    tags: indProHeader,
   };
+
+  return headConfig;
 };
 
 export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> = async (data) => {

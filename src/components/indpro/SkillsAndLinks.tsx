@@ -1,13 +1,9 @@
 import ShieldCheckIcon from "../../assets/icons/ShieldCheck";
 import LocationArrowIcon from "../../assets/icons/LocationArrow";
-import DollarSignIcon from "../../assets/icons/DollarSign";
 import MapIcon from "../../assets/icons/Map";
-import LinkIcon from "../../assets/icons/Link";
-import LinkedInIcon from "../../assets/icons/LinkedIn";
 import ItemList, { ListItem } from "./ItemList";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import { useMemo } from "react";
-import { TaxProsDevExtended } from "../../hooks/useIndependentPro";
 import { makeGoogleMapSearchUrl } from "../../utils/googleMaps";
 
 const SkillsAndLinks: React.FC = () => {

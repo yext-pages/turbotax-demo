@@ -254,7 +254,7 @@ module.exports = {
       skin190: "#4a2411",
     },
     fontFamily: {
-      sans: ["Avenir Next forINTUIT", "helvetica", "sans-serif"],
+      sans: ["Avenir Next forINTUIT", "Avenir Next", "Avenir", "helvetica", "sans-serif"],
     },
     screens: {
       xs: "480px",

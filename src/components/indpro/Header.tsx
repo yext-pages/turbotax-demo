@@ -3,6 +3,7 @@ import Search from "../../assets/icons/Search";
 import Lock from "../../assets/icons/Lock";
 import useConfig from "../../hooks/useConfig";
 import Link from "../atoms/Link";
+import type React from "react";
 
 interface Props {}
 
@@ -21,14 +22,21 @@ const Header: React.FC<Props> = () => {
         objectDetail={"Verified Pro logo"}
         href={"https://turbotax.intuit.com/"}
       >
-        <img
-          src={"https://lib.intuitcdn.net/img/nav/3.0/intuit-tt-verified-pro.png"}
-          height={32}
-          className={"h-8 w-auto"}
-          alt={"Intuit TurboTax Verified Pro"}
-        />
-        {/*<img src={'https://digitalasset.intuit.com/IMAGE/A1Ess9OMc/turbo-checkball.svg'} height={32}*/}
-        {/*     className={'h-8 w-auto visible s:hidden'} alt={'TurboTax'}/>*/}
+        <picture>
+          <source
+            srcSet={"https://lib.intuitcdn.net/img/nav/3.0/intuit-tt-verified-pro.png"}
+            media={"(min-width: 480px)"}
+            width={225}
+            height={32}
+          />
+          <img
+            src={"https://digitalasset.intuit.com/IMAGE/A1Ess9OMc/turbo-checkball.svg"}
+            height={32}
+            width={32}
+            className={"h-8 w-auto"}
+            alt={"Intuit TurboTax Verified Pro"}
+          />
+        </picture>
       </Link>
 
       {config.showWIP && (

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import ItemList, { ListItem } from "./ItemList";
+import type React from "react";
 
 const ServicesOffered: React.FC = () => {
   const pro = useIndependentPro();

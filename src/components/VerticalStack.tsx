@@ -1,4 +1,4 @@
-import { HexColor } from "@yext/studio";
+import type { HexColor } from "@yext/studio";
 
 export interface VerticalStackProps {
   children: React.ReactNode;

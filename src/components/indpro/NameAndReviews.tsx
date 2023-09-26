@@ -12,9 +12,9 @@ const NameAndReviews = () => {
       <B2 weight={"medium"} color={TextColor.gray02} className={"uppercase"}>
         {c_officeLocationName}
       </B2>
-      <H3>{c_taxProName}</H3>
+      <H3 as={"h1"}>{c_taxProName}</H3>
       {config.showMatchingCTAs && (
-        <div className={"flex gap-2 mt-2"}>
+        <div className={"flex flex-wrap gap-2 mt-2"}>
           <Button
             action={"engaged"}
             object={"Schedule a meeting"}
@@ -23,6 +23,7 @@ const NameAndReviews = () => {
               "https://myturbotax.intuit.com/?uroute=pro-matching&verified-pro-name=" +
               encodeURIComponent(c_taxProName)
             }
+            className={"grow xs:grow-0"}
           >
             Schedule a meeting
           </Button>
@@ -33,6 +34,7 @@ const NameAndReviews = () => {
             purpose={"passive"}
             as={"a"}
             href={"https://myturbotax.intuit.com/?uroute=pro-matching"}
+            className={"grow xs:grow-0"}
           >
             Find a pro
           </Button>

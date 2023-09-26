@@ -9,7 +9,7 @@ const IntakeForm: React.FC = () => {
 
   return (
     <div>
-      <H5 weight={"demi"} color={TextColor.pepper130} className="mb-5">
+      <H5 as={"h2"} weight={"demi"} color={TextColor.pepper130} className="mb-5">
         Contact me
       </H5>
       <JotForm />

@@ -1,4 +1,4 @@
-import {
+import type {
   GetHeadConfig,
   GetPath,
   Template,
@@ -7,7 +7,6 @@ import {
   TemplateRenderProps,
   TransformProps,
 } from "@yext/pages";
-import * as React from "react";
 import "../index.css";
 import { TaxProsDevExtended } from "../hooks/useIndependentPro";
 import { createConfig } from "../hooks/useConfig";

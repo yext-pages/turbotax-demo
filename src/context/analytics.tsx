@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from "react";
+import { createContext, useContext, useEffect, useMemo } from "react";
 
 type AnalyticsScreenType = {
   scope_area: string;
@@ -6,7 +6,7 @@ type AnalyticsScreenType = {
   object_detail?: string;
 };
 
-export const AnalyticsScreenContext = React.createContext({} as AnalyticsScreenType);
+export const AnalyticsScreenContext = createContext({} as AnalyticsScreenType);
 
 export const useAnalyticsScreen = (): AnalyticsScreenType => useContext(AnalyticsScreenContext);
 

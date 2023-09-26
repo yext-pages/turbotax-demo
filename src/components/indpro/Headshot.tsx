@@ -9,8 +9,9 @@ const Headshot: React.FC = () => {
       layout={"fixed"}
       width={330}
       height={330}
+      loading={"eager"}
       className={
-        "rounded-full max-w-[256px] max-h-[256px] s:max-w-[330px] s:max-h-[330px] self-center"
+        "rounded-full max-w-[256px] max-h-[256px] s:max-w-[330px] s:max-h-[330px] self-center bg-gray08"
       }
     />
   );

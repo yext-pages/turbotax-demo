@@ -1,7 +1,7 @@
 import { fontSizeMap, TypeScale } from "./TypeScale";
 import { PolymorphicComponentPropWithRef, PolymorphicRef } from "../../types/polymorphic";
-import { forwardRef, useContext } from "react";
-import { AnalyticsScreen, useAnalytics, useAnalyticsScreen } from "../../context/analytics";
+import { forwardRef } from "react";
+import { useAnalytics } from "../../context/analytics";
 
 type Priority = "primary" | "secondary" | "tertiary";
 type Purpose = "standard" | "passive" | "destructive" | "special";

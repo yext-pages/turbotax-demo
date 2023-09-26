@@ -45,11 +45,11 @@ const Footer: React.FC = () => {
       <hr className={"border-pepper30"} />
 
       <FooterSection>
-        <div className={"flex justify-between"}>
+        <div className={"flex flex-wrap gap-5 justify-between"}>
           <B2>
             <FooterLink href={"/sitemap"}>Sitemap</FooterLink>
           </B2>
-          <div className={"flex space-x-5"}>
+          <div className={"flex flex-wrap space-x-5"}>
             <YouTube />
             <Blog />
             <FaceBook />
@@ -77,6 +77,7 @@ const Footer: React.FC = () => {
                 width={102}
                 height={30}
                 alt={"Intuit"}
+                loading={"lazy"}
               />
             </Link>
 
@@ -85,21 +86,25 @@ const Footer: React.FC = () => {
                 href={"https://turbotax.intuit.com"}
                 name={"TurboTax"}
                 image={"https://digitalasset.intuit.com/IMAGE/A9yqxWvVJ/TT_Color.svg"}
+                width={89}
               />
               <ProductLogo
                 href={"https://www.creditkarma.com/?source=intuit"}
                 name={"Credit Karma"}
                 image={"https://digitalasset.intuit.com/IMAGE/A36wvFGOA/CK_Color.svg"}
+                width={114}
               />
               <ProductLogo
                 href={"https://quickbooks.intuit.com/"}
                 name={"QuickBooks"}
                 image={"https://digitalasset.intuit.com/IMAGE/A8nrdlHev/QB_Color.svg"}
+                width={101}
               />
               <ProductLogo
                 href={"https://mailchimp.com/?utm_source=intuit.com&utm_medium=referral"}
                 name={"Mailchimp"}
                 image={"https://digitalasset.intuit.com/IMAGE/A4zrQzkXj/Group-1.svg"}
+                width={95}
               />
             </div>
           </div>
@@ -127,9 +132,8 @@ const Footer: React.FC = () => {
             </ul>
 
             <section className={"space-y-4 max-w-[500px]"}>
+              <B3>©1997-2023 Intuit, Inc. All rights reserved.</B3>
               <B3>
-                ©1997-2023 Intuit, Inc. All rights reserved.
-                <br />
                 Intuit, QuickBooks, QB, TurboTax, ProConnect, and Mint are registered trademarks of
                 Intuit Inc. Terms and conditions, features, support, pricing, and service options
                 subject to change without notice.
@@ -210,10 +214,11 @@ interface FooterProps {
   children: string;
 }
 
-const ProductLogo: React.FC<{ href: string; name: string; image: string }> = ({
+const ProductLogo: React.FC<{ href: string; name: string; image: string; width: number }> = ({
   href,
   name,
   image,
+  width,
 }) => {
   return (
     <Link
@@ -224,7 +229,14 @@ const ProductLogo: React.FC<{ href: string; name: string; image: string }> = ({
       target={"_blank"}
       className={"mr-4 s:mr-8"}
     >
-      <img src={image} alt={name} height={19} className={"h-[31px] py-[6px]"} />
+      <img
+        src={image}
+        alt={name}
+        height={19}
+        width={width}
+        className={"h-[31px] py-[6px]"}
+        loading={"lazy"}
+      />
     </Link>
   );
 };

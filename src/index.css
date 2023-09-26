@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-gradient {
+  background: #008891;
+  background: linear-gradient(180deg, rgba(14, 40, 101, 0), rgba(14, 40, 101, 0.8)),
+    linear-gradient(90deg, #008891, #c90092);
+}
+
 /** Copied from @appfabric/fonts */
 
 @font-face {

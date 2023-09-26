@@ -28,7 +28,7 @@ const Map: React.FC<Props> = ({ className }) => {
           <img
             width={300}
             height={300}
-            className={"mb-8 rounded-large w-full s:w-[300px] h-auto"}
+            className={"mb-8 rounded-large w-full s:w-[300px] h-auto bg-gray08"}
             src={c_signedMapUrl}
             alt={`Map showing location of ${c_officeLocationName}`}
           />
@@ -36,7 +36,7 @@ const Map: React.FC<Props> = ({ className }) => {
       )}
 
       <figcaption className={"text-pepper110"}>
-        <H5 weight={"demi"} color={TextColor.pepper130} className={"mb-2"}>
+        <H5 as={"h2"} weight={"demi"} color={TextColor.pepper130} className={"mb-2"}>
           Location
         </H5>
         <B3>{line1}</B3>

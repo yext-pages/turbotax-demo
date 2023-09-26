@@ -178,7 +178,9 @@ const Truste = () => (
         "https://privacy-policy.truste.com/privacy-seal/seal?rid=7fc012b5-d53b-42d8-b980-c4f9091a97e1"
       }
       alt={"TRUSTe"}
-      height={33}
+      height={45}
+      width={142}
+      loading={"lazy"}
     />
   </Link>
 );
@@ -186,8 +188,10 @@ const Truste = () => (
 const Efile = () => (
   <img
     height={20}
+    width={53}
     alt={"e-File"}
     src={"https://digitalasset.intuit.com/IMAGE/A8mmjQDsP/IRS-e-file.svg"}
+    loading={"lazy"}
   />
 );
 
@@ -202,6 +206,8 @@ const CLevelSecurity = () => (
       src={"https://digitalasset.intuit.com/IMAGE/A02EvtTZX/something....svg"}
       alt="C-Level Security Certification"
       height={20}
+      width={27}
+      loading={"lazy"}
     />
   </Link>
 );

@@ -1,4 +1,4 @@
-import {
+import type {
   TemplateProps,
   TemplateRenderProps,
   GetHeadConfig,
@@ -6,7 +6,6 @@ import {
   Template,
   TemplateConfig,
 } from "@yext/pages";
-import * as React from "react";
 import VerticalStack from "../components/VerticalStack";
 import "../index.css";
 import PageLayout from "../components/PageLayout";

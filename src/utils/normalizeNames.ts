@@ -1,3 +1,3 @@
 export function normalizeName(name: string) {
-  return encodeURIComponent(name.toLocaleLowerCase().replaceAll(" ", "-").normalize());
+  return name.toLocaleLowerCase().replaceAll(" ", "-").replaceAll(",", "").normalize();
 }

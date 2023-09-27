@@ -16,6 +16,7 @@ interface TrackProps {
   uiAction: TrackingConstants["uiAction"][keyof TrackingConstants["uiAction"]];
   uiObject: string;
   objectDetail?: string;
+  uiObjectDetail: string;
   customProperties?: Record<string, any>;
   event?: React.MouseEvent<any, MouseEvent>;
 }
@@ -43,6 +44,7 @@ export const useAnalytics = () => {
           object: props.object,
           ui_action: props.uiAction,
           ui_object: props.uiObject,
+          ui_object_detail: props.uiObjectDetail,
           custom_properties: props.customProperties,
         },
         clickEvent

@@ -1,6 +1,7 @@
 import ChevronDown from "../../assets/icons/ChevronDown";
 import { B2 } from "../atoms/Typography";
 import { useRef, useState } from "react";
+import { useAnalytics } from "../../context/analytics";
 
 export interface FaqItemProps {
   title: string;
@@ -15,6 +16,8 @@ const FaqItem: React.FC<FaqItemProps> = (props) => {
   const animationRef = useRef<Animation | null>(null);
   const [state, setState] = useState<"opening" | "closing" | null>(null);
 
+  const { track } = useAnalytics();
+
   /**
    * Animation logic modified from https://css-tricks.com/how-to-animate-the-details-element/,
    * modified to match Intuit's design system.
@@ -27,6 +30,13 @@ const FaqItem: React.FC<FaqItemProps> = (props) => {
 
     if (state === "closing" || !details.open) {
       open();
+      track({
+        action: "engaged",
+        object: "faq",
+        uiAction: "toggled",
+        uiObject: "accordion",
+        uiObjectDetail: props.title,
+      });
     } else if (state === "opening" || details.open) {
       close();
     }

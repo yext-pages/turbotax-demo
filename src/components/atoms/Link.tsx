@@ -4,13 +4,22 @@ import { TypeScale } from "./TypeScale";
 import Typography from "./Typography";
 
 export interface LinkProps extends ComponentProps<"a"> {
+  href: string;
   typeScale?: TypeScale;
   action: string;
   object: string;
   objectDetail?: string;
+  uiObjectDetail?: string;
 }
 
-const Link: React.FC<LinkProps> = ({ action, object, objectDetail, typeScale, ...html }) => {
+const Link: React.FC<LinkProps> = ({
+  action,
+  object,
+  objectDetail,
+  uiObjectDetail,
+  typeScale,
+  ...html
+}) => {
   const { track } = useAnalytics();
 
   const onClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -20,6 +29,7 @@ const Link: React.FC<LinkProps> = ({ action, object, objectDetail, typeScale, ..
       objectDetail,
       uiObject: "link",
       uiAction: "clicked",
+      uiObjectDetail: uiObjectDetail || html.href,
       event,
     });
     html.onClick?.(event);

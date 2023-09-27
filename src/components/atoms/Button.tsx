@@ -16,12 +16,14 @@ type Props<C extends ButtonElement> = PolymorphicComponentPropWithRef<
     object: string;
     uiAction?: TrackingConstants["uiAction"][keyof TrackingConstants["uiAction"]];
     uiObject?: string;
+    uiObjectDetail?: string;
 
     priority?: Priority;
     purpose?: Purpose;
     size?: Size;
     iconBefore?: React.ReactChild;
     iconAfter?: React.ReactChild;
+    children: string;
   }
 >;
 
@@ -96,6 +98,7 @@ const Button: ButtonComponent = forwardRef(
       object,
       uiAction = "clicked",
       uiObject = "button",
+      uiObjectDetail,
       ...html
     }: Props<C>,
     ref?: PolymorphicRef<C>
@@ -109,7 +112,14 @@ const Button: ButtonComponent = forwardRef(
 
     const { track } = useAnalytics();
     const onClick = (e: React.MouseEvent<C, MouseEvent>) => {
-      track({ action, object, uiAction, uiObject, event: e });
+      track({
+        action,
+        object,
+        uiAction,
+        uiObject,
+        uiObjectDetail: uiObjectDetail || children,
+        event: e,
+      });
     };
 
     const Element = as || "button";

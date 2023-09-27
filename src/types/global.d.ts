@@ -123,8 +123,10 @@ interface Window {
               screen: string;
               action: string;
               object: string;
+              object_detail?: string;
               ui_action: TrackingConstants["uiAction"][keyof TrackingConstants["uiAction"]];
               ui_object: string;
+              ui_object_detail?: string;
               custom_properties?: Record<string, any>;
             },
             event?: {

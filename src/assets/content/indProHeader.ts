@@ -3,6 +3,8 @@ import type { TaxProsDevExtended } from "../../hooks/useIndependentPro";
 import { getProImageUrl } from "../../utils/taxProStructuredData";
 
 export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
+  if (!pro.address) throw new Error("Pro is missing address");
+
   const metaTags: Tag[] = [
     {
       type: "meta",
@@ -45,7 +47,9 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
         name: "description",
         content: `Looking for a trusted tax preparer in ${pro.address.city}, ${
           pro.address.region
-        }? Meet ${pro.c_taxProName}, a ${pro.certifications[0]} with ${pro.yearsOfExperience} ${
+        }? Meet ${pro.c_taxProName}, a ${pro.certifications?.[0] || "tax preparer"} with ${
+          pro.yearsOfExperience
+        } ${
           pro.yearsOfExperience === 1 ? "year" : "years"
         } of experience. Get expert tax help near you!`,
       },
@@ -82,7 +86,11 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
       type: "meta",
       attributes: {
         name: "og:description",
-        content: `Discover reliable tax preparation services in ${pro.address.city}, ${pro.address.region} with ${pro.c_taxProName}, a non-TurboTax ${pro.certifications[0]} featured on TurboTax’s website.`,
+        content: `Discover reliable tax preparation services in ${pro.address.city}, ${
+          pro.address.region
+        } with ${pro.c_taxProName}, a non-TurboTax ${
+          pro.certifications?.[0] || "tax preparer"
+        } featured on TurboTax’s website.`,
       },
     },
   ];

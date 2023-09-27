@@ -27,17 +27,6 @@ const NameAndReviews = () => {
           >
             Schedule a meeting
           </Button>
-          <Button
-            action={"engaged"}
-            object={"Find a pro"}
-            priority={"secondary"}
-            purpose={"passive"}
-            as={"a"}
-            href={"https://myturbotax.intuit.com/?uroute=pro-matching"}
-            className={"grow xs:grow-0"}
-          >
-            Find a pro
-          </Button>
         </div>
       )}
       {/*<Reviews />*/}

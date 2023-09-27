@@ -1,6 +1,4 @@
 import type { TaxProsDevExtended } from "../hooks/useIndependentPro";
-import type { FaqItemProps } from "../components/indpro/FaqItem";
-import { renderToStaticMarkup } from "react-dom/server";
 
 // https://schema.org/FinancialService
 // https://developers.google.com/search/docs/appearance/structured-data/local-business#structured-data-type-definitions
@@ -37,7 +35,7 @@ export function createLocalBusinessStructuredData(
 ): LocalBusinessStructuredData {
   const data: LocalBusinessStructuredData = {
     "@context": "https://schema.org",
-    "@type": "FinancialService",
+    "@type": "AccountingService",
     name: pro.c_officeLocationName,
     address: {
       "@type": "PostalAddress",
@@ -79,28 +77,16 @@ export function createLocalBusinessStructuredData(
     });
   }
 
-  if (pro.headshot) {
-    const imageId = new URL(pro.headshot.url).pathname.split("/")[2];
-    const imageURL = `https://dynl.mktgcdn.com/p/${imageId}/512x512`;
-    data.image = [imageURL];
+  const headshotUrl = getProImageUrl(pro);
+  if (headshotUrl) {
+    data.image = [headshotUrl];
   }
 
   return data;
 }
 
-export function createFaqStructuredData(items: FaqItemProps[]): object {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.title,
-      acceptedAnswer: {
-        "@type": "Answer",
-        // this isn't ideal, since it forces react-dom/server to be included in the client bundle,
-        // but it's ~20kib, and only gets downloaded on the faq page, so it's not a _massive_ issue
-        text: renderToStaticMarkup(item.children),
-      },
-    })),
-  };
+export function getProImageUrl(pro: TaxProsDevExtended): string | undefined {
+  if (!pro.headshot) return undefined;
+  const imageId = new URL(pro.headshot.url).pathname.split("/")[2];
+  return `https://dynl.mktgcdn.com/p/${imageId}/512x512`;
 }

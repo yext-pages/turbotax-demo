@@ -16,7 +16,7 @@ import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
 import { normalizeName } from "../utils/normalizeNames";
 import indProHeader from "../assets/content/indProHeader";
-import { createLocalBusinessStructuredData } from "../utils/structuredData";
+import { createLocalBusinessStructuredData } from "../utils/taxProStructuredData";
 
 export const config: TemplateConfig = {
   stream: {
@@ -84,9 +84,9 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended
   )}</script>`;
 
   const headConfig: HeadConfig = {
-    title: "TurboTax® Verified Pro",
+    title: `${data.document.c_taxProName} Tax Preparer | ${data.document.address.city}, ${data.document.address.region} - ${data.document.address.postalCode} | TurboTax`,
     other: scripts,
-    tags: indProHeader,
+    tags: indProHeader(data.document),
   };
 
   return headConfig;

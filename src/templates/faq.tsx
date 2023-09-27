@@ -15,9 +15,9 @@ import { createAnalyticsScripts } from "../utils/analytics";
 import "../index.css";
 import FaqList from "../components/indpro/FaqList";
 import { useMemo } from "react";
-import { createFaqStructuredData } from "../utils/structuredData";
+import { createFaqStructuredData } from "../utils/faqStructuredData";
 import faqContent from "../assets/content/faqContent";
-import indProHeader from "../assets/content/indProHeader";
+import faqHeader from "../assets/content/faqHeader";
 
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
@@ -45,7 +45,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
   return {
     title: "TurboTax® Verified Pro FAQ",
     other: scripts,
-    tags: indProHeader,
+    tags: faqHeader(),
   };
 };
 

@@ -1,8 +1,6 @@
 import type { Tag } from "@yext/pages";
-import type { TaxProsDevExtended } from "../../hooks/useIndependentPro";
-import { getProImageUrl } from "../../utils/taxProStructuredData";
 
-export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
+export default function faqHeader(): Tag[] {
   const metaTags: Tag[] = [
     {
       type: "meta",
@@ -43,11 +41,7 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
       type: "meta",
       attributes: {
         name: "description",
-        content: `Looking for a trusted tax preparer in ${pro.address.city}, ${
-          pro.address.region
-        }? Meet ${pro.c_taxProName}, a ${pro.certifications[0]} with ${pro.yearsOfExperience} ${
-          pro.yearsOfExperience === 1 ? "year" : "years"
-        } of experience. Get expert tax help near you!`,
+        content: `Frequently asked questions about Intuit TurboTax Verified Pro`,
       },
     },
     {
@@ -75,28 +69,17 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
       type: "meta",
       attributes: {
         name: "og:title",
-        content: `${pro.c_taxProName} | ${pro.address.city} Tax Preparer`,
+        content: `Frequently asked questions`,
       },
     },
     {
       type: "meta",
       attributes: {
         name: "og:description",
-        content: `Discover reliable tax preparation services in ${pro.address.city}, ${pro.address.region} with ${pro.c_taxProName}, a non-TurboTax ${pro.certifications[0]} featured on TurboTax’s website.`,
+        content: `Frequently asked questions about Intuit TurboTax Verified Pro`,
       },
     },
   ];
-
-  const headshotUrl = getProImageUrl(pro);
-  if (headshotUrl) {
-    metaTags.push({
-      type: "meta",
-      attributes: {
-        name: "og:image",
-        content: headshotUrl,
-      },
-    });
-  }
 
   const linkTags: Tag[] = [
     {
@@ -140,7 +123,7 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
     },
   ];
 
-  const fontsToPreload = ["400", "500", "600", "400-it", "500-it"];
+  const fontsToPreload = ["400", "500", "600"];
 
   fontsToPreload.forEach((weight) => {
     linkTags.push({

@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
       <FooterSection>
         <div className={"flex flex-wrap gap-5 justify-between"}>
           <B2>
-            <FooterLink href={"/sitemap"}>Sitemap</FooterLink>
+            <FooterLink href={"/sitemap.xml"}>Sitemap</FooterLink>
           </B2>
           <div className={"flex flex-wrap space-x-5"}>
             <YouTube />

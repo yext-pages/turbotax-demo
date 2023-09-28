@@ -1,5 +1,6 @@
 import type {
   GetHeadConfig,
+  GetRedirects,
   GetPath,
   Template,
   TemplateConfig,
@@ -63,9 +64,9 @@ export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = ({ document }
   )}`;
 };
 
-// export const getRedirects: GetRedirects<TemplateProps> = ({document}) => {
-//   return [`deeplink/${document.id}`, `local-tax-experts/${document.c_uRLName}/${document.id}`.toLowerCase()];
-// };
+export const getRedirects: GetRedirects<TemplateProps<TaxProsDevExtended>> = ({ document }) => {
+  return [`tax-pro/${document.c_uRLName}`, `local-tax-experts/${document.c_uRLName}`];
+};
 
 // Add a title to the page
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended>> = (data) => {

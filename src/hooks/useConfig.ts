@@ -60,10 +60,10 @@ const ConfigsByEnv: Record<Env, Config> = {
     showWIP: false,
     showMatchingCTAs: false,
     showHeader: true,
-    showFooter: false,
-    loadTealium: false,
+    showFooter: true,
+    loadTealium: true,
     tealiumURL: "https://tags.tiqcdn.com/utag/intuit/cg-turbotax-biz/prod/utag.js",
-    loadAnalytics: false,
+    loadAnalytics: true,
     analyticsConfig: {
       writeKey: YEXT_PUBLIC_TRACKSTAR_WRITE_KEY,
       env: "prod",

@@ -23,7 +23,7 @@ export const config: TemplateConfig = {
   stream: {
     $id: "tax-pros-dev",
     localization: { locales: ["en"] },
-    filter: { savedFilterIds: ["1339059980"] },
+    filter: { savedFilterIds: [YEXT_PUBLIC_FILTER_ID] },
     fields: [
       "name",
       "address",

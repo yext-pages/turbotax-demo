@@ -58,7 +58,7 @@ const ConfigsByEnv: Record<Env, Config> = {
   prod: {
     env: "prod",
     showWIP: false,
-    showMatchingCTAs: false,
+    showMatchingCTAs: true,
     showHeader: true,
     showFooter: true,
     loadTealium: true,

@@ -39,7 +39,7 @@ const Header: React.FC<Props> = () => {
         </picture>
       </Link>
 
-      {config.showWIP && (
+      {config.showMatchingCTAs && (
         <div className={"gap-5 flex"}>
           <Button
             priority={"primary"}
@@ -55,8 +55,8 @@ const Header: React.FC<Props> = () => {
             className={"hidden m:flex"}
             priority={"secondary"}
             iconBefore={<Lock />}
-            // as={"a"}
-            // href={"https://myturbotax.intuit.com/"}
+            as={"a"}
+            href={"https://myturbotax.intuit.com/"}
             action={"sign in"}
             object={"button"}
           >

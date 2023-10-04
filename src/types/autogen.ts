@@ -65,7 +65,7 @@ export interface Hours {
 	reopenDate?: string,
 }
 
-export interface TaxProsPreview {
+export interface TaxProsDev {
 	name: string,
 	address: Address,
 	slug: string,
@@ -75,8 +75,6 @@ export interface TaxProsPreview {
 	headshot: Image,
 	keywords: string[],
 	services: string[],
-	mainPhone: any,
-	emails: string[],
 	logo: ComplexImage,
 	c_advisorBio: string,
 	c_uRLName: string,
@@ -97,7 +95,7 @@ export interface TaxProsPreview {
 	id: string,
 }
 
-export interface TaxProsDev {
+export interface TaxProsPreview {
 	name: string,
 	address: Address,
 	slug: string,
@@ -107,8 +105,6 @@ export interface TaxProsDev {
 	headshot: Image,
 	keywords: string[],
 	services: string[],
-	mainPhone: any,
-	emails: string[],
 	logo: ComplexImage,
 	c_advisorBio: string,
 	c_uRLName: string,

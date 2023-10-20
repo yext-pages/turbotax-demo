@@ -10,6 +10,11 @@ export interface Address {
 	countryCode?: string,
 }
 
+export interface Coordinate {
+	latitude?: number,
+	longitude?: number,
+}
+
 export interface ImageThumbnail {
 	url: string,
 	width: number,
@@ -22,18 +27,6 @@ export interface Image {
 	height: number,
 	thumbnails?: ImageThumbnail[],
 	alternateText?: string,
-}
-
-export interface ComplexImage {
-	image: Image,
-	details?: string,
-	description?: string,
-	clickthroughUrl?: string,
-}
-
-export interface Coordinate {
-	latitude?: number,
-	longitude?: number,
 }
 
 export interface Interval {
@@ -66,16 +59,11 @@ export interface Hours {
 }
 
 export interface TaxProsDev {
-	name: string,
 	address: Address,
 	slug: string,
-	photoGallery: ComplexImage[],
 	geocodedCoordinate: Coordinate,
-	c_backgroundImage: Image,
 	headshot: Image,
-	keywords: string[],
 	services: string[],
-	logo: ComplexImage,
 	c_advisorBio: string,
 	c_uRLName: string,
 	hours: Hours,
@@ -93,6 +81,13 @@ export interface TaxProsDev {
 	c_signedMapUrlPreProd: string,
 	c_signedMapUrlProd: string,
 	id: string,
+}
+
+export interface ComplexImage {
+	image: Image,
+	details?: string,
+	description?: string,
+	clickthroughUrl?: string,
 }
 
 export interface TaxProsPreview {

@@ -25,18 +25,18 @@ export const config: TemplateConfig = {
     localization: { locales: ["en"] },
     filter: { savedFilterIds: [YEXT_PUBLIC_FILTER_ID] },
     fields: [
-      "name",
+      // "name",
       "address",
       "slug",
-      "photoGallery",
+      // "photoGallery",
       "geocodedCoordinate",
-      "c_backgroundImage",
+      // "c_backgroundImage",
       "headshot",
-      "keywords",
+      // "keywords",
       "services",
       // "mainPhone",
       // "emails",
-      "logo",
+      // "logo",
       "c_advisorBio",
       "c_uRLName",
       "hours",
@@ -59,9 +59,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = ({ document }) => {
-  return `local-tax-experts/${normalizeName(document.c_officeLocationName)}/${normalizeName(
-    document.c_taxProName
-  )}`;
+  return document.slug;
 };
 
 export const getRedirects: GetRedirects<TemplateProps<TaxProsDevExtended>> = ({ document }) => {

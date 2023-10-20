@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 type Env = "local" | "qa" | "prod";
-type Page = "independentPro" | "matchingPreview" | "faq";
+type Page = "independentPro" | "matchingPreview" | "faq" | "dynamicPreview";
 
 export interface Config {
   env: Env;
@@ -86,7 +86,7 @@ function getConfigForEnv(): Config {
 export const createConfig = (page: Page = "independentPro"): Config => {
   const config: Config = JSON.parse(JSON.stringify(getConfigForEnv()));
 
-  if (page === "matchingPreview") {
+  if (page === "matchingPreview" || page === "dynamicPreview") {
     config.showHeader = false;
     config.showMatchingCTAs = false;
   }

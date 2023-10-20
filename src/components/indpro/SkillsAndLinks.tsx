@@ -9,47 +9,41 @@ import { makeGoogleMapSearchUrl } from "../../utils/googleMaps";
 const SkillsAndLinks: React.FC = () => {
   const pro = useIndependentPro();
   const items = useMemo(() => {
-    const years: ListItem = {
-      Icon: ShieldCheckIcon,
-      children: pro.certifications
-        ? `${pro.certifications[0]} with ${pro.yearsOfExperience} ${
-            pro.yearsOfExperience === 1 ? "year" : "years"
-          } of experience`
-        : `${pro.yearsOfExperience} ${
-            pro.yearsOfExperience === 1 ? "year" : "years"
-          } of experience`,
-    };
-    const location: ListItem = {
-      Icon: LocationArrowIcon,
-      children: `Experienced with ${pro.address.region} tax code`,
-    };
-    // const expertise: ListItem = {
-    // 	Icon: DollarSignIcon,
-    // 	children: `Expert in ${pro.taxSpecialty} taxes`,
-    // };
-    const location2: ListItem = {
-      Icon: MapIcon,
-      children: `${pro.address.city}, ${pro.address.region}`,
-      href: makeGoogleMapSearchUrl(pro),
-      action: "engaged",
-      object: "sidebar link",
-      objectDetail: "pro location",
-    };
+    const items: ListItem[] = [];
 
-    const items: ListItem[] = [years, location, location2];
+    let years: ListItem = { Icon: ShieldCheckIcon, children: "" };
+    if (pro.certifications?.[0] && pro.yearsOfExperience) {
+      years.children = `${pro.certifications[0]} with ${pro.yearsOfExperience} ${
+        pro.yearsOfExperience === 1 ? "year" : "years"
+      } of experience`;
+    } else if (pro.certifications?.[0]) {
+      years.children = `Experienced ${pro.certifications[0]}`;
+    } else if (pro.yearsOfExperience) {
+      years.children = `${pro.yearsOfExperience} ${
+        pro.yearsOfExperience === 1 ? "year" : "years"
+      } of experience`;
+    } else {
+      years.children = pro.c_title || "Experienced Pro";
+    }
+    items.push(years);
 
-    // if (pro.emails?.length > 0)
-    //   items.push({
-    //     Icon: LinkIcon,
-    //     children: "Business website",
-    //     href: 'https://' + pro.emails[0].split('@')[1],
-    //   });
-    // if (pro.links.linkedin)
-    // 	items.push({
-    // 		Icon: LinkedInIcon,
-    // 		children: "LinkedIn",
-    // 		href: pro.links.linkedin,
-    // 	});
+    if (pro.address?.region) {
+      items.push({
+        Icon: LocationArrowIcon,
+        children: `Experienced with ${pro.address.region} tax code`,
+      });
+
+      if (pro.address.city) {
+        items.push({
+          Icon: MapIcon,
+          children: `${pro.address.city}, ${pro.address.region}`,
+          href: makeGoogleMapSearchUrl(pro),
+          action: "engaged",
+          object: "sidebar link",
+          objectDetail: "pro location",
+        });
+      }
+    }
 
     return items;
   }, [pro]);

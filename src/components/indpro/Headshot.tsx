@@ -15,16 +15,29 @@ const Headshot: React.FC = () => {
     );
   }
 
+  const imgClass =
+    "rounded-full max-w-[256px] max-h-[256px] s:max-w-[330px] s:max-h-[330px] self-center bg-gray08";
+  if (pro.headshot.url.includes("mktgcdn.com/")) {
+    return (
+      <Image
+        image={pro.headshot}
+        layout={"fixed"}
+        width={330}
+        height={330}
+        loading={"eager"}
+        className={imgClass}
+      />
+    );
+  }
+
   return (
-    <Image
-      image={pro.headshot}
-      layout={"fixed"}
+    <img
+      alt={"Headshot of " + pro.c_taxProName}
+      src={pro.headshot.url}
       width={330}
       height={330}
       loading={"eager"}
-      className={
-        "rounded-full max-w-[256px] max-h-[256px] s:max-w-[330px] s:max-h-[330px] self-center bg-gray08"
-      }
+      className={"object-cover " + imgClass}
     />
   );
 };

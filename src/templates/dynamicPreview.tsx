@@ -1,0 +1,108 @@
+import type {
+  GetHeadConfig,
+  GetPath,
+  Template,
+  TemplateConfig,
+  TemplateProps,
+  TemplateRenderProps,
+} from "@yext/pages";
+import matchingPreviewHeader from "../assets/content/matchingPreviewHeader";
+import { TaxProsDevExtended } from "../hooks/useIndependentPro";
+import { useEffect, useMemo, useState } from "react";
+import "../index.css";
+import SpotExpertWorking from "../assets/icons/SpotExpertWorking";
+import { B1, H3 } from "../components/atoms/Typography";
+import { TextColor } from "../components/atoms/TextColor";
+import IndependentProPage from "../components/pages/IndependentProPage";
+import { createConfig } from "../hooks/useConfig";
+
+export const config: TemplateConfig = {
+  name: "Dynamic Preview",
+};
+
+export const getPath: GetPath<TemplateProps> = () => {
+  return "dynamicPreview";
+};
+
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
+  return {
+    title: "Dynamic Preview",
+    tags: matchingPreviewHeader,
+  };
+};
+
+const basePro: () => TaxProsDevExtended = () => ({
+  address: {},
+  headshot: undefined,
+  c_advisorBio: "",
+  c_areasOfExpertise: [],
+  c_jotFormId: "",
+  c_metaDescription: "",
+  c_metaKeywords: "",
+  c_officeLocationName: "",
+  c_taxProName: "",
+  c_title: "",
+  c_uRLName: "",
+  certifications: [],
+  geocodedCoordinate: {},
+  googlePlaceId: "",
+  hours: {},
+  id: "",
+  languages: [],
+  services: [],
+  slug: "",
+  yearsOfExperience: 0,
+});
+
+function isIEP(source: string): boolean {
+  let url: URL;
+  try {
+    url = new URL(source);
+  } catch (e) {
+    return false;
+  }
+
+  return (
+    url.origin === "https://e2e.expert.intuit.com" || url.origin === "https://expert.intuit.com"
+  );
+}
+
+const DynamicPreview: Template<TemplateRenderProps> = () => {
+  const [pro, setPro] = useState<TaxProsDevExtended | null>(null);
+  const config = useMemo(() => createConfig("dynamicPreview"), []);
+
+  useEffect(() => {
+    const listener: (event: MessageEvent) => void = (event) => {
+      console.log("got message", event);
+      if (!event.origin || !isIEP(event.origin)) return;
+      const data = event.data;
+
+      if (!data || typeof data !== "object" || !data.type || data.type !== "profile-preview") {
+        return;
+      }
+
+      setPro({ ...basePro(), ...(data.pro as TaxProsDevExtended) });
+    };
+
+    window.addEventListener("message", listener);
+    return () => window.removeEventListener("message", listener);
+  }, []);
+
+  return (
+    <div>
+      <div
+        className={`bg-white absolute z-10 top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center transition-opacity duration-350 delay-100 ease-transform ${
+          pro ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
+        <SpotExpertWorking />
+        <H3 color={TextColor.gray01}>Hang tight</H3>
+        <B1 color={TextColor.gray02}>We’re building your preview</B1>
+      </div>
+
+      {pro && <IndependentProPage config={config} pro={pro} />}
+    </div>
+  );
+};
+
+export default DynamicPreview;

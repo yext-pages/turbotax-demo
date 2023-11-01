@@ -80,20 +80,30 @@ const DynamicPreview: Template<TemplateRenderProps> = () => {
 
   useEffect(() => {
     const listener: (event: MessageEvent) => void = (event) => {
-      console.log("got message", event);
-      if (!event.origin || !isIEP(event.origin)) return;
-      const data = event.data;
-
-      if (!data || typeof data !== "object" || !data.type || data.type !== "profile-preview") {
+      console.log("Received message", event);
+      if (!event.origin || !isIEP(event.origin)) {
+        console.warn("Message is from unacceptable origin = " + event.origin)
         return;
       }
 
+      const data = event.data;
+
+      if (!data || typeof data !== "object" || !data.type || data.type !== "profile-preview") {
+        console.log("Message has invalid data", data);
+        return;
+      }
+
+      console.log("Setting pro");
       setPro({ ...basePro(), ...(data.pro as TaxProsDevExtended) });
     };
 
     window.addEventListener("message", listener);
     return () => window.removeEventListener("message", listener);
   }, []);
+
+  if (pro) {
+    console.log("Rendering pro", pro);
+  }
 
   return (
     <div>

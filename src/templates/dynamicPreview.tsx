@@ -69,9 +69,7 @@ function isIEP(source: string): boolean {
     "https://expert-onboarding-e2e.intuit.com/"
   ]
 
-  return (
-    url.origin === "https://e2e.expert.intuit.com" || url.origin === "https://expert.intuit.com"
-  );
+  return validUrls.includes(url.origin);
 }
 
 const DynamicPreview: Template<TemplateRenderProps> = () => {

@@ -5,20 +5,18 @@ import Button from "../atoms/Button";
 import useConfig from "../../hooks/useConfig";
 
 const AND = '&';
-const REQUEST_ORIGIN_KEY = '&requestOrigin=';
 const CID_KEY = 'cid';
-const PRO_REFERRED_VALUE = 'pro-referred';
-const CID_KV = CID_KEY + '=' + PRO_REFERRED_VALUE;
-const CHANNEL_URL_KEY = 'channelUrl=';
+const PRO_REFERRED_VALUE = 'pr';
+const CID_KV = AND + CID_KEY + '=' + PRO_REFERRED_VALUE;
+const CHANNEL_URL_KEY = '&channelUrl=';
 
 
 const NameAndReviews = () => {
   const { c_taxProName, c_officeLocationName } = useIndependentPro();
   const config = useConfig();
 
-  const createRequestOriginParam = () => {
-      let paramKey = REQUEST_ORIGIN_KEY;
-      let paramValue = "";
+  const createRequestOriginParams = () => {
+      let paramValue = '';
       let currentParams = (new URL(document.URL)).searchParams;
       let referrer = document.referrer;
       const cidParam = currentParams?.get(CID_KEY)
@@ -28,13 +26,10 @@ const NameAndReviews = () => {
       }
 
       if (referrer != null && referrer.length > 0) {
-          if (paramValue.length > 0) {
-              paramValue = paramValue.concat(AND);
-          }
-          paramValue = paramValue.concat(CHANNEL_URL_KEY + document.referrer);
+          paramValue = paramValue.concat(CHANNEL_URL_KEY + encodeURIComponent(document.referrer));
       }
 
-      return paramValue.length > 0 ? paramKey.concat(encodeURIComponent(paramValue)) : '';
+      return paramValue;
   }
 
   return (

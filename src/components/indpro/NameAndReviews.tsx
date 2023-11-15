@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { B2, H3 } from "../atoms/Typography";
 import { TextColor } from "../atoms/TextColor";
 import useIndependentPro from "../../hooks/useIndependentPro";
@@ -10,12 +11,16 @@ const PRO_REFERRED_VALUE = 'pr';
 const CID_KV = AND + CID_KEY + '=' + PRO_REFERRED_VALUE;
 const CHANNEL_URL_KEY = '&channelUrl=';
 
-
 const NameAndReviews = () => {
   const { c_taxProName, c_officeLocationName } = useIndependentPro();
   const config = useConfig();
+  const [requestOriginParams, setRequestOriginParams] = useState('');
 
-  const createRequestOriginParams = () => {
+  useEffect(() => {
+      if (!document) {
+          return;
+      }
+
       let paramValue = '';
       let currentParams = (new URL(document.URL)).searchParams;
       let referrer = document.referrer;
@@ -29,8 +34,8 @@ const NameAndReviews = () => {
           paramValue = paramValue.concat(CHANNEL_URL_KEY + encodeURIComponent(document.referrer));
       }
 
-      return paramValue;
-  }
+      setRequestOriginParams(paramValue);
+  }, []);
 
   return (
     <div>
@@ -47,7 +52,7 @@ const NameAndReviews = () => {
             href={
               "https://myturbotax.intuit.com/?uroute=pro-matching&verified-pro-name=" +
               encodeURIComponent(c_taxProName) +
-              createRequestOriginParams()
+              requestOriginParams
             }
             className={"grow xs:grow-0"}
           >

@@ -47,7 +47,7 @@ const NameAndReviews = () => {
             href={
               "https://myturbotax.intuit.com/?uroute=pro-matching&verified-pro-name=" +
               encodeURIComponent(c_taxProName) +
-              createRequestOriginParam()
+              createRequestOriginParams()
             }
             className={"grow xs:grow-0"}
           >

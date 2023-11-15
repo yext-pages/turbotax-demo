@@ -4,9 +4,34 @@ import useIndependentPro from "../../hooks/useIndependentPro";
 import Button from "../atoms/Button";
 import useConfig from "../../hooks/useConfig";
 
+const AND = '&';
+const CID_KEY = 'cid';
+const PRO_REFERRED_VALUE = 'pr';
+const CID_KV = AND + CID_KEY + '=' + PRO_REFERRED_VALUE;
+const CHANNEL_URL_KEY = '&channelUrl=';
+
+
 const NameAndReviews = () => {
   const { c_taxProName, c_officeLocationName } = useIndependentPro();
   const config = useConfig();
+
+  const createRequestOriginParams = () => {
+      let paramValue = '';
+      let currentParams = (new URL(document.URL)).searchParams;
+      let referrer = document.referrer;
+      const cidParam = currentParams?.get(CID_KEY)
+
+      if (cidParam != null && cidParam === PRO_REFERRED_VALUE) {
+          paramValue = paramValue.concat(CID_KV);
+      }
+
+      if (referrer != null && referrer.length > 0) {
+          paramValue = paramValue.concat(CHANNEL_URL_KEY + encodeURIComponent(document.referrer));
+      }
+
+      return paramValue;
+  }
+
   return (
     <div>
       <B2 weight={"medium"} color={TextColor.gray02} className={"uppercase"}>
@@ -21,7 +46,8 @@ const NameAndReviews = () => {
             as={"a"}
             href={
               "https://myturbotax.intuit.com/?uroute=pro-matching&verified-pro-name=" +
-              encodeURIComponent(c_taxProName)
+              encodeURIComponent(c_taxProName) +
+              createRequestOriginParam()
             }
             className={"grow xs:grow-0"}
           >

@@ -6,6 +6,8 @@ const VerifiedPro = () => <span className={"font-semibold"}>Intuit TurboTax Veri
 const LinkDestinations = {
   auditSupportGuarantee:
     "https://ttlc.intuit.com/community/charges-and-fees/help/what-is-the-turbotax-audit-support-guarantee/00/26143",
+  turboTaxAccount: "https://myturbotax.intuit.com/",
+  turboTaxGuarantees: "https://turbotax.intuit.com/corp/guarantees/",
 } as const;
 
 const Link: React.FC<{ to: keyof typeof LinkDestinations }> = (props) => (
@@ -28,82 +30,9 @@ const content: FaqItemProps[] = [
       "What’s the difference between Intuit TurboTax Verified Pro and other TurboTax services?",
     children: (
       <p>
-        <VerifiedPro /> matches you with an independent tax professional in your area whose skills
-        match your needs. They can work with you to file your taxes this year and in future years,
-        for as long as you’d like. Intuit screens these tax professionals to ensure they have the
-        necessary qualifications, but they're professionals who run their own practices. They’ll
-        work with you on terms you both agree to.
-      </p>
-    ),
-  },
-
-  {
-    title: "When is my independent tax pro available?",
-    children: (
-      <p>
-        After you’re matched with an <VerifiedPro />, they will share the hours they’re available.
-      </p>
-    ),
-  },
-
-  {
-    title: "How do I communicate with my Intuit TurboTax Verified Pro?",
-    children: (
-      <p>
-        Before talking with an <VerifiedPro />, you’ll connect with an assistant. They will help you
-        confirm which <VerifiedPro /> is the best option for you. Then, we’ll match you with an{" "}
-        <VerifiedPro /> who is perfect for handling your unique tax situation. We’ll help set up the
-        first meeting, but after that, you can meet with your verified professional whenever you
-        like. You’ll have the option to talk on the phone or connect on a video call (It's a one-way
-        video, so they won’t be able to see you.) where you can see your pro. You can work with your
-        independent tax professional to determine if you want to meet in person at their office
-        location And, you’ll have year-round access to your tax pro so you can discuss any life
-        changing-events or material changes in your tax situation.
-      </p>
-    ),
-  },
-
-  {
-    title: "Can I meet my Intuit TurboTax Verified Pro in person?",
-    children: (
-      <p>
-        That’s up to you and your <VerifiedPro /> to arrange. That's a decision best made between
-        you and your pro.
-      </p>
-    ),
-  },
-
-  {
-    title: "What qualifications do the Verified Pros have?",
-    children: (
-      <p>
-        The tax professionals in the Verified Pro program are qualified to handle all kinds of
-        personal tax situations, from simple to complex. When you connect live with a tax
-        professional, you’ll see their profile with their specific years of experience.
-      </p>
-    ),
-  },
-
-  {
-    title: "How does Intuit verify these independent tax professionals?",
-    children: (
-      <p>
-        Intuit confirms each professional’s identity, tax preparer authorization to file returns
-        with the IRS, any state license or other credential. Intuit also conducts a basic criminal
-        background check.
-      </p>
-    ),
-  },
-
-  {
-    title: "How do I know my return is accurate?",
-    children: (
-      <p>
-        Intuit’s TurboTax platform runs automated accuracy checks as a final check and Intuit
-        provides and accuracy guarantee and back them by our Intuit guarantee. We can help you find
-        the best tax professional for your situation and preferences, whether you’re looking for
-        someone with CPA or Enrolled Agent credentials, or someone with experience in a tax
-        specialty like crypto transactions, rental properties, or business tax.
+          TurboTax offers a variety of products and services to suit your tax-prep needs. There are a few key differences between Intuit TurboTax Verified Pro and our other live tax-prep help.
+          With TurboTax Verified Pro, you match with independent tax preparers, qualified to handle your tax returns, no matter how complex. It's important to know that tax preparers on TurboTax Verified Pro run their own tax practices, and are not TurboTax employees. That means you get to work directly with your tax pro to create the agreements of your working relationship.
+          Just like other TurboTax tax prep services, your tax return is backed by <Link to={"turboTaxGuarantees"}>TurboTax guarantees</Link>, so you get peace of mind that your taxes are done right.
       </p>
     ),
   },
@@ -112,61 +41,25 @@ const content: FaqItemProps[] = [
     title: "What’s the process like?",
     children: (
       <p>
-        First, you’ll choose your independent tax pro. From there, we’ll create your personalized
-        tax planner to securely collect the right docs, and you’ll schedule your first meeting with
-        your local tax professional. When your appointment or call is scheduled with your local pro,
-        you can talk to them over the phone or connect on a one-way video call (you’ll see the pro,
-        but they won’t see you). They’ll ask questions, get the details they need, and prepare your
-        return. After they’ve completed your tax return, they’ll review it with you and answer any
-        questions you have. When you’re ready to file and pay, they’ll sign and file your taxes on
-        your behalf.
+          First, tell us a bit about you and your taxes. Then, match with a Verified Pro who can handle your unique situation and understands your local or state tax laws. Next, schedule an intro call to get to know your tax pro and learn if it’s a good fit. After your intro call, securely share your tax documents with your Verified Pro online or in person, where available. Once they’ve completed your tax return, your tax pro reviews it with you and answers any questions you have. Finally, you can relax while your pro prepares, signs and files your return for you.
       </p>
     ),
   },
 
   {
-    title: "What do I need to do to prepare?",
+    title: "What qualifications do the tax preparers on TurboTax Verified Pro have?",
     children: (
       <p>
-        Not much. We’ll ask you some questions to learn about your tax situation and create a
-        personalized tax planner for you. This tax planner tells you what docs you’ll need, so you
-        can gather them and start uploading them to your TurboTax account.
+          Every tax preparer found on TurboTax Verified Pro is authorized to file with the IRS. Each tax pro has a profile page that shows their credentials and specialized tax expertise. We can help you find the best tax professional for your situation and preferences, whether you’re looking for someone with CPA or Enrolled Agent credentials, or someone with experience in a tax specialties like crypto transactions, rental properties, or business tax.
       </p>
     ),
   },
 
   {
-    title: "Will a tax professional understand the complexities of my personal tax situation?",
+    title: "How does Intuit verify each independent tax professional?",
     children: (
       <p>
-        We use information about your tax situation to match you with a professional who has
-        experience with taxes like yours. During the process, they’ll also learn more about your
-        unique situation, so they can make sure your taxes are 100% accurate backed by our guarantee
-        before filing. This requires you to share all information as accurately as possible with the
-        Pro.
-      </p>
-    ),
-  },
-
-  {
-    title: "How will my documents be securely transferred to my tax professional?",
-    children: (
-      <p>
-        Our software allows you to securely upload your tax documents to our system, so they’re
-        available to your tax pro. You may be able to import them directly from your employer or
-        your financial institutions, or you can snap photos of the documents and upload them to
-        TurboTax. We use bank-level encryption technology to ensure your information is protected.
-      </p>
-    ),
-  },
-
-  {
-    title: "How long will the process take?",
-    children: (
-      <p>
-        The independent Local Pro will work with you to complete your return as quickly as possible.
-        The time to complete your return may vary based on your tax situation and desired working
-        model between you and your tax pro.
+          Your security is built into everything we do. Intuit confirms each tax preparer’s identity, tax preparer authorization, as well as any state licenses and credentials before they’re listed on TurboTax Verified Pro. TurboTax also screens for criminal, banned, or illegal activity, so that you can trust every Verified Pro with your sensitive information.
       </p>
     ),
   },
@@ -175,11 +68,89 @@ const content: FaqItemProps[] = [
     title: "How are fees/prices determined?",
     children: (
       <p>
-        Pricing depends on the complexity of your tax return, the amount of tax forms required to
-        complete your return, and on the <VerifiedPro /> you match with. Your specific price can
-        also take into account factors such as your location and the time of year. Your tax expert
-        will set the final price for filing after getting to know more about you and your tax
-        situation. You’ll know exactly what the final price is before any work is done.
+          Your Verified Pro sets the price to file your return, based on the complexity of your tax return and the amount of tax forms required to complete your return. Your location and the time of year may also influence the price to complete your tax return. Your tax pro will set the price for filing after they learn more about you and before they prepare your return.
+      </p>
+    ),
+  },
+
+  {
+    title: "Will a Verified Pro understand the complexities of my personal tax situation?",
+    children: (
+      <p>
+          We use information about your tax situation to match you with a professional who has experience with taxes like yours. During the process, your Verified Pro will learn more about your taxes, so they can make sure your return is 100% accurate. Be sure to share all information as accurately as possible with your tax pro.
+      </p>
+    ),
+  },
+
+  {
+    title: "When is my independent tax pro available?",
+    children: (
+      <p>
+          Every Verified Pro has a profile page that shows their business hours and availability for an intro call. We recommend discussing your tax pro’s ongoing availability during your intro call.
+      </p>
+    ),
+  },
+
+  {
+    title: "Can I meet my Intuit TurboTax Verified Pro in person?",
+    children: (
+      <>
+        <p>
+          Yes, you can meet with your tax preparer in person, if they are available. When you start TurboTax Verified Pro, we'll ask if you'd like to meet in person. If you choose "I want to meet in person," we will match you with a Verified Pro who is available to meet in person.
+        </p>
+        <p>
+          Keep in mind, a Verified Pro is an independent tax preparer who sets their own work preferences. Meeting in person might not be available in all cases.
+        </p>
+      </>
+    ),
+  },
+
+  {
+    title: "How do I communicate with my Verified Pro?",
+    children: (
+      <>
+        <p>
+          After you match with a Verified Pro, book an intro call to discuss your taxes and what you're looking for in a tax preparer.
+        </p>
+        <p>
+          You can then chat with your tax pro through phone, one-way video, or in-person, where available. Stay connected at a rate that suits you. Get year-round tax advice, keep your tax pro up to date on changes in your life and tax situation.
+        </p>
+      </>
+    ),
+  },
+
+  {
+    title: "What do I need to do to prepare?",
+    children: (
+      <p>
+          Not much. We’ll ask you some questions about your tax situation and match you with a Verified Pro. After you engage your tax pro, they’ll tell you what docs they need to prepare your return. Sign into TurboTax to securely share your tax documents.
+      </p>
+    ),
+  },
+
+  {
+    title: "How will my documents be securely transferred to my tax professional?",
+    children: (
+      <p>
+          Our software allows you to securely upload your tax documents to your <Link to={"turboTaxAccount"}>TurboTax account</Link>, so they’re available to your tax pro. You can also snap photos of your documents to upload to your account. You may be able to import your docs directly from your employer or financial institutions. We use industry standard encryption technology to make sure your information is protected.
+      </p>
+    ),
+  },
+
+  {
+    title: "How long will the process take?",
+    children: (
+      <p>
+          Your independent Verified Pro will work to complete your tax return as quickly as possible. The exact time can vary, depending on your unique tax situation and your work agreement with your tax pro. While we've seen some returns processed in as little as 4 days, other returns may take longer.
+      </p>
+    ),
+  },
+
+  {
+    title: "How do I know my return is accurate?",
+    children: (
+      <p>
+          Your Verified Pro processes your return with TurboTax software for experts. Rest assured we’ll automatically check your tax return for accuracy. Every tax return filed by a Verified Pro is backed by <Link to={"turboTaxGuarantees"}>TurboTax guarantees</Link>.
       </p>
     ),
   },

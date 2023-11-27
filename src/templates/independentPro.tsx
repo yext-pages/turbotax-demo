@@ -54,6 +54,7 @@ export const config: TemplateConfig = {
       "c_signedMapUrlPreProd",
       "c_signedMapUrlProd",
       "id",
+      "labels",
     ],
   },
 };

@@ -4,37 +4,40 @@ import { TextColor } from "../atoms/TextColor";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import Button from "../atoms/Button";
 import useConfig from "../../hooks/useConfig";
+import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
 
-const AND = '&';
-const CID_KEY = 'cid';
-const PRO_REFERRED_VALUE = 'pr';
-const CID_KV = AND + CID_KEY + '=' + PRO_REFERRED_VALUE;
-const CHANNEL_URL_KEY = '&channelUrl=';
+const AND = "&";
+const CID_KEY = "cid";
+const PRO_REFERRED_VALUE = "pr";
+const CID_KV = AND + CID_KEY + "=" + PRO_REFERRED_VALUE;
+const CHANNEL_URL_KEY = "&channelUrl=";
 
 const NameAndReviews = () => {
   const { c_taxProName, c_officeLocationName } = useIndependentPro();
   const config = useConfig();
-  const [requestOriginParams, setRequestOriginParams] = useState('');
+  const isOffboarding = useProHasLabel(Label.OffboardInProgress);
+  const showCTAs = config.showMatchingCTAs && !isOffboarding;
+  const [requestOriginParams, setRequestOriginParams] = useState("");
 
   useEffect(() => {
-      if (!document) {
-          return;
-      }
+    if (!document) {
+      return;
+    }
 
-      let paramValue = '';
-      let currentParams = (new URL(document.URL)).searchParams;
-      let referrer = document.referrer;
-      const cidParam = currentParams?.get(CID_KEY)
+    let paramValue = "";
+    let currentParams = new URL(document.URL).searchParams;
+    let referrer = document.referrer;
+    const cidParam = currentParams?.get(CID_KEY);
 
-      if (cidParam != null && cidParam === PRO_REFERRED_VALUE) {
-          paramValue = paramValue.concat(CID_KV);
-      }
+    if (cidParam != null && cidParam === PRO_REFERRED_VALUE) {
+      paramValue = paramValue.concat(CID_KV);
+    }
 
-      if (referrer != null && referrer.length > 0) {
-          paramValue = paramValue.concat(CHANNEL_URL_KEY + encodeURIComponent(document.referrer));
-      }
+    if (referrer != null && referrer.length > 0) {
+      paramValue = paramValue.concat(CHANNEL_URL_KEY + encodeURIComponent(document.referrer));
+    }
 
-      setRequestOriginParams(paramValue);
+    setRequestOriginParams(paramValue);
   }, []);
 
   return (
@@ -43,7 +46,7 @@ const NameAndReviews = () => {
         {c_officeLocationName}
       </B2>
       <H3 as={"h1"}>{c_taxProName}</H3>
-      {config.showMatchingCTAs && (
+      {showCTAs && (
         <div className={"flex flex-wrap gap-2 mt-2"}>
           <Button
             action={"engaged"}

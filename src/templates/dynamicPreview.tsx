@@ -66,8 +66,8 @@ function isIEP(source: string): boolean {
     "https://e2e.expert.intuit.com",
     "https://expert.intuit.com",
     "https://expert-onboarding.intuit.com",
-    "https://expert-onboarding-e2e.intuit.com/"
-  ]
+    "https://expert-onboarding-e2e.intuit.com/",
+  ];
 
   return validUrls.includes(url.origin);
 }
@@ -80,7 +80,7 @@ const DynamicPreview: Template<TemplateRenderProps> = () => {
     const listener: (event: MessageEvent) => void = (event) => {
       console.log("Received message", event);
       if (!event.origin || !isIEP(event.origin)) {
-        console.warn("Message is from unacceptable origin = " + event.origin)
+        console.warn("Message is from unacceptable origin = " + event.origin);
         return;
       }
 

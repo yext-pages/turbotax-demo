@@ -88,6 +88,7 @@ type TrackingConstants = {
 declare const YEXT_PUBLIC_ENVIRONMENT: string;
 declare const YEXT_PUBLIC_TRACKSTAR_WRITE_KEY: string;
 declare const YEXT_PUBLIC_FILTER_ID: string;
+declare const YEXT_PUBLIC_LABEL_LOOKUP_MAP: string;
 declare const APP_VERSION: string;
 
 interface Window {

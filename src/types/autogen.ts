@@ -93,7 +93,7 @@ export interface TaxProsPreview {
   c_signedMapUrlPreProd: string;
   c_signedMapUrlProd: string;
   id: string;
-  labels: string[];
+  labels: any;
 }
 
 export interface TaxProsDev {
@@ -119,5 +119,5 @@ export interface TaxProsDev {
   c_signedMapUrlPreProd: string;
   c_signedMapUrlProd: string;
   id: string;
-  labels: string[];
+  labels: any;
 }

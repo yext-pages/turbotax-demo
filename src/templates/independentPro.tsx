@@ -18,6 +18,7 @@ import IndependentProPage from "../components/pages/IndependentProPage";
 import { normalizeName } from "../utils/normalizeNames";
 import indProHeader from "../assets/content/indProHeader";
 import { createLocalBusinessStructuredData } from "../utils/taxProStructuredData";
+import { cleanPseudonym } from "../utils/pseudonym";
 
 export const config: TemplateConfig = {
   stream: {
@@ -74,7 +75,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended
     scopeArea: "verified_pro_profile_pages",
     screen: "pro profile pages",
     options: {
-      object_detail: data.document.id,
+      object_detail: cleanPseudonym(data.document.id), // pseudonym ID
     },
     config,
   });

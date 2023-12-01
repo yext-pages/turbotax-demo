@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { B2, H3 } from "../atoms/Typography";
 import { TextColor } from "../atoms/TextColor";
 import useIndependentPro from "../../hooks/useIndependentPro";
@@ -6,39 +5,33 @@ import Button from "../atoms/Button";
 import useConfig from "../../hooks/useConfig";
 import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
 
-const AND = "&";
 const CID_KEY = "cid";
-const PRO_REFERRED_VALUE = "pr";
-const CID_KV = AND + CID_KEY + "=" + PRO_REFERRED_VALUE;
-const CHANNEL_URL_KEY = "&channelUrl=";
+const CHANNEL_URL_KEY = "channelUrl";
+
+function enrichCtaQueryParams(params: URLSearchParams): void {
+  if (!document) return;
+
+  const currentParams = new URL(document.URL).searchParams;
+
+  if (currentParams.has(CID_KEY)) {
+    params.set(CID_KEY, currentParams.get(CID_KEY) as string);
+  }
+
+  const referrer = document.referrer;
+  if (referrer) {
+    params.set(CHANNEL_URL_KEY, referrer);
+  }
+}
 
 const NameAndReviews = () => {
-  const { c_taxProName, c_officeLocationName } = useIndependentPro();
+  const pro = useIndependentPro();
+  const { c_taxProName, c_officeLocationName } = pro;
   const config = useConfig();
   const isOffboarding = useProHasLabel(Label.OffboardInProgress);
   const showCTAs = config.showMatchingCTAs && !isOffboarding;
-  const [requestOriginParams, setRequestOriginParams] = useState("");
 
-  useEffect(() => {
-    if (!document) {
-      return;
-    }
-
-    let paramValue = "";
-    let currentParams = new URL(document.URL).searchParams;
-    let referrer = document.referrer;
-    const cidParam = currentParams?.get(CID_KEY);
-
-    if (cidParam != null && cidParam === PRO_REFERRED_VALUE) {
-      paramValue = paramValue.concat(CID_KV);
-    }
-
-    if (referrer != null && referrer.length > 0) {
-      paramValue = paramValue.concat(CHANNEL_URL_KEY + encodeURIComponent(document.referrer));
-    }
-
-    setRequestOriginParams(paramValue);
-  }, []);
+  const [ctaUrl, ctaParams] = config.makeMatchingCtaUrl(pro);
+  enrichCtaQueryParams(ctaParams);
 
   return (
     <div>
@@ -50,13 +43,10 @@ const NameAndReviews = () => {
         <div className={"flex flex-wrap gap-2 mt-2"}>
           <Button
             action={"engaged"}
-            object={"Schedule a meeting"}
+            object={"content"}
+            uiObjectDetail={"schedule a call"}
             as={"a"}
-            href={
-              "https://myturbotax.intuit.com/?uroute=pro-matching&verified-pro-name=" +
-              encodeURIComponent(c_taxProName) +
-              requestOriginParams
-            }
+            href={ctaUrl + "?" + ctaParams.toString()}
             className={"grow xs:grow-0"}
           >
             Schedule a meeting

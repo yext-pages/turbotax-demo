@@ -1,4 +1,5 @@
 import { createContext, useContext } from "react";
+import type { TaxProsDevExtended } from "./useIndependentPro";
 
 type Env = "local" | "qa" | "prod";
 type Page = "independentPro" | "matchingPreview" | "faq" | "dynamicPreview";
@@ -19,6 +20,7 @@ export interface Config {
     src: string;
     loadAdobeVisitorAPI: boolean;
   };
+  makeMatchingCtaUrl: (pro: TaxProsDevExtended) => [string, URLSearchParams];
 }
 
 const ConfigsByEnv: Record<Env, Config> = {
@@ -38,6 +40,12 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/staging/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
+    makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
+      const baseUrl = "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro";
+      const urlParams = new URLSearchParams();
+      urlParams.set("verified-pro-name", pro.c_taxProName);
+      return [baseUrl, urlParams];
+    },
   },
   qa: {
     env: "qa",
@@ -54,6 +62,12 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/staging/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
+    makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
+      const baseUrl = "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro";
+      const urlParams = new URLSearchParams();
+      urlParams.set("verified-pro-name", pro.c_taxProName);
+      return [baseUrl, urlParams];
+    },
   },
   prod: {
     env: "prod",
@@ -69,6 +83,12 @@ const ConfigsByEnv: Record<Env, Config> = {
       env: "prod",
       src: "//uxfabric.intuitcdn.net/analytics/prod/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
+    },
+    makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
+      const baseUrl = "https://pros-turbotax.app.intuit.com/pro-matching-intro";
+      const urlParams = new URLSearchParams();
+      urlParams.set("verified-pro-name", pro.c_taxProName);
+      return [baseUrl, urlParams];
     },
   },
 };

@@ -29,7 +29,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
     "@vitejs/plugin-react": "^4.0.4",
-    "@yext/pages": "1.0.0-rc.4",
+    "@yext/pages": "1.0.0-rc.6",
     "@yext/studio": "^0.12.0",
     "@yext/studio-plugin": "^0.12.0",
     "autoprefixer": "^10.4.8",

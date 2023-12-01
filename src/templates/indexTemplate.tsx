@@ -27,12 +27,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
 
 const IndexTemplate: Template<TemplateRenderProps> = () => {
   if (globalThis.document) {
-    document.location = "https://pros-turbotax.app.intuit.com/pro-matching-intro"
+    document.location = "https://pros-turbotax.app.intuit.com/pro-matching-intro";
   }
 
-  return (
-    <div/>
-  );
-}
+  return <div />;
+};
 
 export default IndexTemplate;

@@ -23,6 +23,7 @@ export const config: TemplateConfig = {
     filter: { savedFilterIds: [YEXT_PUBLIC_FILTER_ID] },
     fields: [
       "name",
+      "description",
       "address",
       "slug",
       "photoGallery",

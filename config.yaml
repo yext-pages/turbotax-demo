@@ -13,6 +13,12 @@ sitemap:
   disableSitemapGeneration: false
   fileName: sitemap.xml
 staticRouting:
-  - from: /
+  - from: "/"
+    to: https://pros-turbotax.app.intuit.com/pro-matching-intro
+    statusCode: 302
+  - from: ""
+    to: https://pros-turbotax.app.intuit.com/pro-matching-intro
+    statusCode: 302
+  - from: "/index.html"
     to: https://pros-turbotax.app.intuit.com/pro-matching-intro
     statusCode: 302

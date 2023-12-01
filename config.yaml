@@ -15,10 +15,10 @@ sitemap:
 staticRouting:
   - from: "/"
     to: https://pros-turbotax.app.intuit.com/pro-matching-intro
-    statusCode: 302
+    statusCode: 301
   - from: ""
     to: https://pros-turbotax.app.intuit.com/pro-matching-intro
-    statusCode: 302
+    statusCode: 301
   - from: "/index.html"
     to: https://pros-turbotax.app.intuit.com/pro-matching-intro
-    statusCode: 302
+    statusCode: 301

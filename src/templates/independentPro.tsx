@@ -64,9 +64,9 @@ export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = ({ document }
   return document.slug;
 };
 
-export const getRedirects: GetRedirects<TemplateProps<TaxProsDevExtended>> = ({ document }) => {
-  return [`tax-pro/${document.c_uRLName}`, `local-tax-experts/${document.c_uRLName}`];
-};
+// export const getRedirects: GetRedirects<TemplateProps<TaxProsDevExtended>> = ({ document }) => {
+//   return [`tax-pro/${document.c_uRLName}`, `local-tax-experts/${document.c_uRLName}`];
+// };
 
 // Add a title to the page
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended>> = (data) => {

@@ -9,7 +9,7 @@ const CID_KEY = "cid";
 const CHANNEL_URL_KEY = "channelUrl";
 
 function enrichCtaQueryParams(params: URLSearchParams): void {
-  if (!document) return;
+  if (!globalThis.document) return;
 
   const currentParams = new URL(document.URL).searchParams;
 

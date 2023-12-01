@@ -1,0 +1,18 @@
+buildConfiguration:
+  buildCommand: npx pages build
+  installDependenciesStep:
+    command: npm install
+    requiredFiles:
+      - package.json
+      - package-lock.json
+      - .npmrc
+livePreviewConfiguration:
+  setupCommand: ":"
+  serveCommand: npm run studio
+sitemap:
+  disableSitemapGeneration: false
+  fileName: sitemap.xml
+staticRouting:
+  - from: /
+    to: https://pros-turbotax.app.intuit.com/pro-matching-intro
+    statusCode: 302

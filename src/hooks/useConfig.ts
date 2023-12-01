@@ -104,7 +104,7 @@ function getConfigForEnv(): Config {
 }
 
 export const createConfig = (page: Page = "independentPro"): Config => {
-  const config: Config = JSON.parse(JSON.stringify(getConfigForEnv()));
+  const config: Config = { ...getConfigForEnv() }
 
   if (page === "matchingPreview" || page === "dynamicPreview") {
     config.showHeader = false;

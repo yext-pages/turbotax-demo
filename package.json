@@ -6,16 +6,17 @@
   "type": "module",
   "license": "BSD-3-Clause",
   "scripts": {
-    "dev": "yext pages build && yext pages generate-test-data && pages dev",
+    "dev": "pages dev",
     "prod": "pages prod",
     "features": "pages generate features",
-    "ci": "pages generate ci"
+    "ci": "pages generate ci",
+    "build:local": "pages build"
   },
   "engines": {
-    "node": "18"
+    "node": "^18.0.0 || >=20.0.0"
   },
   "dependencies": {
-    "@yext/sites-components": "^1.0.0-rc.4",
+    "@yext/sites-components": "1.0.0-rc.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -27,7 +28,7 @@
     "@types/uuid": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react": "^4.0.4",
     "@yext/pages": "1.0.0-rc.4",
     "@yext/studio": "^0.12.0",
     "@yext/studio-plugin": "^0.12.0",
@@ -40,6 +41,6 @@
     "rollup-plugin-visualizer": "^5.9.2",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.9.5",
-    "vite": "^4.1.1"
+    "vite": "4.4.9"
   }
 }

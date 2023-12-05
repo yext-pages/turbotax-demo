@@ -12,8 +12,8 @@ type ButtonElement = "button" | "a";
 type Props<C extends ButtonElement> = PolymorphicComponentPropWithRef<
   C,
   {
-    action: string;
-    object: string;
+    action?: string;
+    object?: string;
     uiAction?: TrackingConstants["uiAction"][keyof TrackingConstants["uiAction"]];
     uiObject?: string;
     uiObjectDetail?: string;
@@ -94,8 +94,8 @@ const Button: ButtonComponent = forwardRef(
       iconBefore,
       iconAfter,
       as,
-      action,
-      object,
+      action = "engaged",
+      object = "content",
       uiAction = "clicked",
       uiObject = "button",
       uiObjectDetail,

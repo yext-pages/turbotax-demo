@@ -4,6 +4,7 @@ type AnalyticsScreenType = {
   scope_area: string;
   screen: string;
   object_detail?: string;
+  screen_object_status?: string;
 };
 
 export const AnalyticsScreenContext = createContext({} as AnalyticsScreenType);
@@ -59,6 +60,7 @@ interface AnalyticsScreenProps {
   scopeArea: string;
   screen: string;
   objectDetail?: string;
+  screenObjectStatus?: string;
   customProperties?: Record<string, any>;
 }
 
@@ -66,19 +68,24 @@ export const AnalyticsScreen: React.FC<AnalyticsScreenProps> = ({
   screen,
   scopeArea,
   objectDetail,
+  screenObjectStatus,
   children,
   customProperties,
 }) => {
   const analyticsScreen: AnalyticsScreenType = useMemo(() => {
-    return { scope_area: scopeArea, screen, object_detail: objectDetail };
-  }, [scopeArea, screen]);
+    return {
+      scope_area: scopeArea,
+      screen,
+      object_detail: objectDetail,
+      screen_object_status: screenObjectStatus,
+    };
+  }, [scopeArea, screen, objectDetail, screenObjectStatus]);
 
   useEffect(() => {
     window.intuit?.tracking?.ecs?.webAnalytics?.trackPage?.({
       ...analyticsScreen,
       action: "viewed",
       object: "screen",
-      object_detail: objectDetail,
       ui_action: "viewed",
       ui_object: "screen",
       custom_properties: customProperties,

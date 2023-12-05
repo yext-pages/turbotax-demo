@@ -57,6 +57,7 @@ export const config: TemplateConfig = {
       "c_signedMapUrlProd",
       "id",
       "labels",
+      "c_pseudonymID",
     ],
   },
 };
@@ -73,10 +74,10 @@ export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = ({ document }
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended>> = (data) => {
   const config = createConfig("independentPro");
   let scripts = createAnalyticsScripts({
-    scopeArea: "verified_pro_profile_pages",
-    screen: "pro profile pages",
+    scopeArea: "tip_profile_landing_pages",
+    screen: "tip_pro_profile_modal_landing_page",
     options: {
-      object_detail: cleanPseudonym(data.document.id), // pseudonym ID
+      object_detail: cleanPseudonym(data.document.c_pseudonymID || data.document.id), // pseudonym ID,
     },
     config,
   });

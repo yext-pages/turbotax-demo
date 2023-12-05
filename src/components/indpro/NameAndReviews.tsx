@@ -41,14 +41,7 @@ const NameAndReviews = () => {
       <H3 as={"h1"}>{c_taxProName}</H3>
       {showCTAs && (
         <div className={"flex flex-wrap gap-2 mt-2"}>
-          <Button
-            action={"engaged"}
-            object={"content"}
-            uiObjectDetail={"schedule a call"}
-            as={"a"}
-            href={ctaUrl + "?" + ctaParams.toString()}
-            className={"grow xs:grow-0"}
-          >
+          <Button as={"a"} href={ctaUrl + "?" + ctaParams.toString()} className={"grow xs:grow-0"}>
             Schedule a meeting
           </Button>
         </div>

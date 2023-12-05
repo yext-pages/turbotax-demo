@@ -46,8 +46,6 @@ const Header: React.FC<Props> = () => {
             iconBefore={<Search />}
             as={"a"}
             href={"https://myturbotax.intuit.com/?uroute=pro-matching"}
-            action={"find a pro"}
-            object={"button"}
           >
             Find a pro
           </Button>
@@ -57,8 +55,6 @@ const Header: React.FC<Props> = () => {
             iconBefore={<Lock />}
             as={"a"}
             href={"https://myturbotax.intuit.com/"}
-            action={"sign in"}
-            object={"button"}
           >
             Sign in
           </Button>

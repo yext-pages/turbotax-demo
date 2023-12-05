@@ -7,6 +7,7 @@ import Header from "../indpro/Header";
 import MainContent from "../indpro/MainContent";
 import Sidebar from "../indpro/Sidebar";
 import { useMemo } from "react";
+import { cleanPseudonym } from "../../utils/pseudonym";
 
 interface Props {
   config: Config;
@@ -21,7 +22,7 @@ const IndependentProPage: React.FC<Props> = ({ config, pro }) => {
       <AnalyticsScreen
         scopeArea={"tip_profile_landing_pages"}
         screen={"tip_pro_profile_modal_landing_page"}
-        objectDetail={pro.id}
+        objectDetail={cleanPseudonym(pro.c_pseudonymID || pro.id)}
         screenObjectStatus={isProSourced ? "pro_sourced" : "intuit_sourced"}
       >
         <IndependentProContext.Provider value={pro}>

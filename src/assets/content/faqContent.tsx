@@ -29,17 +29,17 @@ const content: FaqItemProps[] = [
     title:
       "What’s the difference between Intuit TurboTax Verified Pro and other TurboTax services?",
     children: (
-      <p>
-        TurboTax offers a variety of products and services to suit your tax-prep needs. There are a
-        few key differences between Intuit TurboTax Verified Pro and our other live tax-prep help.
-        With TurboTax Verified Pro, you match with independent tax preparers, qualified to handle
-        your tax returns, no matter how complex. It's important to know that tax preparers on
-        TurboTax Verified Pro run their own tax practices, and are not TurboTax employees. That
-        means you get to work directly with your tax pro to create the agreements of your working
-        relationship. Just like other TurboTax tax prep services, your tax return is backed by{" "}
-        <Link to={"turboTaxGuarantees"}>TurboTax guarantees</Link>, so you get peace of mind that
-        your taxes are done right.
-      </p>
+      <>
+        <p>
+          TurboTax offers a variety of products and services to suit your tax-prep needs. There are a few key differences between Intuit TurboTax Verified Pro and our other live tax-prep help.
+        </p>
+        <p>
+          With TurboTax Verified Pro, you match with independent tax preparers, qualified to handle your tax returns, no matter how complex. It's important to know that tax preparers on TurboTax Verified Pro run their own tax practices, and are not TurboTax employees. That means you get to work directly with your tax pro to create the agreements of your working relationship.
+        </p>
+        <p>
+        Just like other TurboTax tax prep services, your tax return is backed by <Link to={"turboTaxGuarantees"}>TurboTax guarantees</Link>, so you get peace of mind that your taxes are done right.
+        </p>
+      </>
     ),
   },
 
@@ -78,7 +78,7 @@ const content: FaqItemProps[] = [
       <p>
         Your security is built into everything we do. Intuit confirms each tax preparer’s identity,
         tax preparer authorization, as well as any state licenses and credentials before they’re
-        listed on TurboTax Verified Pro. TurboTax also screens for criminal, banned, or illegal
+        listed on TurboTax Verified Pro. TurboTax also screens for criminal or illegal
         activity, so that you can trust every Verified Pro with your sensitive information.
       </p>
     ),

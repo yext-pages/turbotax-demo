@@ -15,6 +15,7 @@ import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
 import { normalizeName } from "../utils/normalizeNames";
 import matchingPreviewHeader from "../assets/content/matchingPreviewHeader";
+import { cleanPseudonym } from "../utils/pseudonym";
 
 export const config: TemplateConfig = {
   stream: {
@@ -58,7 +59,7 @@ export const config: TemplateConfig = {
 };
 
 export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = ({ document }) => {
-  return `matching-preview/${normalizeName(document.c_taxProName)}`;
+  return `matching-preview/${cleanPseudonym(document.c_pseudonymID || document.id)}`;
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended>> = (data) => {
@@ -96,10 +97,10 @@ export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> =
 };
 
 // Template that will show as the page
-const MatchingPreview: Template<TemplateRenderProps<TaxProsDevExtended>> = ({ document }) => {
+const MatchingPreviewByName: Template<TemplateRenderProps<TaxProsDevExtended>> = ({ document }) => {
   const config = useMemo(() => createConfig("matchingPreview"), []);
 
   return <IndependentProPage config={config} pro={document} />;
 };
 
-export default MatchingPreview;
+export default MatchingPreviewByName;

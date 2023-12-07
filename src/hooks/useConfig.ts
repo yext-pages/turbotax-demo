@@ -23,6 +23,16 @@ export interface Config {
   makeMatchingCtaUrl: (pro: TaxProsDevExtended) => [string, URLSearchParams];
 }
 
+function makeCtaUrl(pro: TaxProsDevExtended, baseUrl: string): [string, URLSearchParams] {
+  const urlParams = new URLSearchParams();
+  if (pro.c_pseudonymID) {
+    urlParams.set("pseudo-id", pro.c_pseudonymID);
+  }
+
+  urlParams.set("verified-pro-name", pro.c_taxProName);
+  return [baseUrl, urlParams];
+}
+
 const ConfigsByEnv: Record<Env, Config> = {
   local: {
     env: "local",
@@ -40,12 +50,8 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/staging/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
-    makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
-      const baseUrl = "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro";
-      const urlParams = new URLSearchParams();
-      urlParams.set("verified-pro-name", pro.c_taxProName);
-      return [baseUrl, urlParams];
-    },
+    makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
+      makeCtaUrl(pro, "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro"),
   },
   qa: {
     env: "qa",
@@ -62,12 +68,8 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/staging/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
-    makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
-      const baseUrl = "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro";
-      const urlParams = new URLSearchParams();
-      urlParams.set("verified-pro-name", pro.c_taxProName);
-      return [baseUrl, urlParams];
-    },
+    makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
+      makeCtaUrl(pro, "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro"),
   },
   prod: {
     env: "prod",
@@ -84,12 +86,8 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/prod/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
-    makeMatchingCtaUrl: (pro: TaxProsDevExtended) => {
-      const baseUrl = "https://pros-turbotax.app.intuit.com/pro-matching-intro";
-      const urlParams = new URLSearchParams();
-      urlParams.set("verified-pro-name", pro.c_taxProName);
-      return [baseUrl, urlParams];
-    },
+    makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
+      makeCtaUrl(pro, "https://pros-turbotax.app.intuit.com/pro-matching-intro"),
   },
 };
 

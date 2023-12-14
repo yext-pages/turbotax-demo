@@ -4,7 +4,7 @@ import IntakeForm from "./IntakeForm";
 
 const MainContent: React.FC = () => {
   return (
-    <div className="max-w-[800px] pb-8 s:py-8 flex flex-col gap-6 s:gap-12">
+    <div className="max-w-[850px] pb-8 s:py-8 flex flex-col gap-6 s:gap-12">
       <div className="flow-root overflow-hidden">
         {/*
          Typically, we would conditionally render based on screen size, but in this case we want to have it in the

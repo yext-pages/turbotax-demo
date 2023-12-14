@@ -15,6 +15,18 @@ const AboutMe: React.FC = () => {
         {pro.description || pro.c_advisorBio}
       </B2>
 
+      <B3 as={"aside"} className={"mt-4 text-pepper110"}>
+        Every TurboTax Verified Pro tax return is backed by these{" "}
+        <Link
+          action={"engaged"}
+          object={"link"}
+          href={"https://turbotax.intuit.com/pros/guarantees/"}
+          objectDetail={"guarantees"}
+          className={"text-blue02 font-medium hover:underline"}
+        />
+        .
+      </B3>
+
       <B3 as={"aside"} className={"mt-4 text-pepper110 italic"}>
         This profile includes statements from the independent professional about their own
         education, skills, and experience. Intuit has not reviewed these statements for accuracy.{" "}

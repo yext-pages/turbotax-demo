@@ -12,7 +12,7 @@ const AboutMe: React.FC = () => {
         Great to meet you!
       </H5>
       <B2 color={TextColor.pepper110} className="whitespace-pre-line">
-        {pro.c_advisorBio || pro.description}
+        {pro.description || pro.c_advisorBio}
       </B2>
 
       <B3 as={"aside"} className={"mt-4 text-pepper110 italic"}>

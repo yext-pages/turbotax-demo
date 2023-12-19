@@ -5,6 +5,7 @@ import ItemList, { ListItem } from "./ItemList";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import { useMemo } from "react";
 import { makeGoogleMapSearchUrl } from "../../utils/googleMaps";
+// import Badge from "../atoms/Badge";
 
 const SkillsAndLinks: React.FC = () => {
   const pro = useIndependentPro();
@@ -48,7 +49,12 @@ const SkillsAndLinks: React.FC = () => {
     return items;
   }, [pro]);
 
-  return <ItemList items={items} />;
+  return (
+    <div className={"flex flex-col gap-4 items-start"}>
+      {/*<Badge variant={"success"}>Party on, dude</Badge>*/}
+      <ItemList items={items} />
+    </div>
+  );
 };
 
 export default SkillsAndLinks;

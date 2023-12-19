@@ -42,7 +42,7 @@ const NameAndReviews = () => {
       {showCTAs && (
         <div className={"flex flex-wrap gap-2 mt-2"}>
           <Button as={"a"} href={ctaUrl + "?" + ctaParams.toString()} className={"grow xs:grow-0"}>
-            Schedule a meeting
+            Book an intro call
           </Button>
         </div>
       )}

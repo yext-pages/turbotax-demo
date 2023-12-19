@@ -5,7 +5,7 @@ import ItemList, { ListItem } from "./ItemList";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import { useMemo } from "react";
 import { makeGoogleMapSearchUrl } from "../../utils/googleMaps";
-// import Badge from "../atoms/Badge";
+import Badge from "../atoms/Badge";
 
 const SkillsAndLinks: React.FC = () => {
   const pro = useIndependentPro();
@@ -51,7 +51,11 @@ const SkillsAndLinks: React.FC = () => {
 
   return (
     <div className={"flex flex-col gap-4 items-start"}>
-      {/*<Badge variant={"success"}>Party on, dude</Badge>*/}
+      {pro.c_acceptingNewClients == false ? (
+        <Badge variant={"critical"}>Not accepting new clients</Badge>
+      ) : (
+        <Badge variant={"success"}>Accepting new clients</Badge>
+      )}
       <ItemList items={items} />
     </div>
   );

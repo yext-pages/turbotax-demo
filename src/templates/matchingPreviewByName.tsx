@@ -14,7 +14,7 @@ import { createAnalyticsScripts } from "../utils/analytics";
 import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
 import { normalizeName } from "../utils/normalizeNames";
-import matchingPreviewHeader from "../assets/content/matchingPreviewHeader";
+import hiddenPageTags from "../assets/content/hiddenPageTags";
 
 export const config: TemplateConfig = {
   stream: {
@@ -75,7 +75,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended
   return {
     title: "TurboTax® Independent Pro",
     other: scripts,
-    tags: matchingPreviewHeader,
+    tags: hiddenPageTags,
   };
 };
 

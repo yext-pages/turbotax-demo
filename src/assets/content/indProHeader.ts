@@ -1,6 +1,7 @@
 import type { Tag } from "@yext/pages";
 import type { TaxProsDevExtended } from "../../hooks/useIndependentPro";
 import { getProImageUrl } from "../../utils/taxProStructuredData";
+import defaultMetaTags from "./defaultMetaTags";
 
 export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
   if (!pro.address) throw new Error("Pro is missing address");
@@ -9,63 +10,8 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
     {
       type: "meta",
       attributes: {
-        name: "apple-mobile-web-app-capable",
-        content: "yes",
-      },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "dcterms.rightsHolder",
-        content: "Copyright 1997–2023 Intuit, Inc. All Rights Reserved.",
-      },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "dcterms.audience",
-        content: "Global",
-      },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "msapplication-config",
-        content: "https://turbotax.intuit.com/browserconfig.xml",
-      },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "author",
-        content: "TurboTax",
-      },
-    },
-    {
-      type: "meta",
-      attributes: {
         name: "description",
-        content: `Looking for a trusted tax preparer in ${pro.address.city}, ${
-          pro.address.region
-        }? Meet ${pro.c_taxProName}, a ${pro.certifications?.[0] || "tax preparer"} with ${
-          pro.yearsOfExperience
-        } ${
-          pro.yearsOfExperience === 1 ? "year" : "years"
-        } of experience. Get expert tax help near you!`,
-      },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "robots",
-        content: "index,follow,noodp",
-      },
-    },
-    {
-      type: "meta",
-      attributes: {
-        name: "slurp",
-        content: "noodp,noydir",
+        content: makeDescription(pro),
       },
     },
     {
@@ -86,11 +32,7 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
       type: "meta",
       attributes: {
         name: "og:description",
-        content: `Discover reliable tax preparation services in ${pro.address.city}, ${
-          pro.address.region
-        } with ${pro.c_taxProName}, a non-TurboTax ${
-          pro.certifications?.[0] || "tax preparer"
-        } featured on TurboTax’s website.`,
+        content: makeDescription(pro),
       },
     },
   ];
@@ -106,62 +48,78 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
     });
   }
 
-  const linkTags: Tag[] = [
-    {
-      type: "link",
-      attributes: {
-        rel: "icon",
-        type: "image/png",
-        href: "https://digitalasset.intuit.com/IMAGE/A4EFQzEN2/tt-favicon.png",
-      },
-    },
-    {
-      type: "link",
-      attributes: {
-        rel: "apple-touch-icon",
-        href: "https://digitalasset.intuit.com/IMAGE/A4EFQzEN2/tt-favicon.png",
-      },
-    },
-    {
-      type: "link",
-      attributes: {
-        rel: "apple-touch-icon-precomposed",
-        href: "https://digitalasset.intuit.com/IMAGE/A4EFQzEN2/tt-favicon.png",
-      },
-    },
-    // Preconnect to CDN
-    {
-      type: "link",
-      attributes: {
-        rel: "preconnect",
-        href: "https://lib.intuitcdn.net/",
-        crossorigin: "anonymous",
-      },
-    },
-    {
-      type: "link",
-      attributes: {
-        rel: "preconnect",
-        href: "https://digitalasset.intuit.com/",
-        crossorigin: "anonymous",
-      },
-    },
-  ];
-
-  const fontsToPreload = ["400", "500", "600", "400-it", "500-it"];
-
-  fontsToPreload.forEach((weight) => {
-    linkTags.push({
-      type: "link",
-      attributes: {
-        rel: "preload",
-        href: `https://assets.intuitcdn.net/fonts/avenir-${weight}.woff2`,
-        as: "font",
-        type: "font/woff2",
-        crossorigin: "anonymous",
-      },
-    });
-  });
-
-  return [...metaTags, ...linkTags];
+  return [...defaultMetaTags({ withRobots: true }), ...metaTags];
 }
+
+function makeDescription(pro: TaxProsDevExtended): string {
+  const serviceExperienceType = "tax preparer";
+  const city = pro.address.city;
+  const state = stateAbbreviationsToFullNames[pro.address.region || ""] || pro.address.region;
+  const zip = pro.address.postalCode;
+  const name = pro.c_taxProName;
+  const proCertification = pro.certifications?.[0] || "tax preparer";
+  const number = pro.yearsOfExperience;
+  const years = number === 1 ? "year" : "years";
+
+  return `Looking for a trusted ${serviceExperienceType} in ${city}, ${state} - ${zip}? Meet ${name}, a ${proCertification} with ${number} ${years} of experience. Get expert tax help near you!`;
+}
+
+const stateAbbreviationsToFullNames: Record<string, string> = {
+  AL: "Alabama",
+  AK: "Alaska",
+  AZ: "Arizona",
+  AR: "Arkansas",
+  AS: "American Samoa",
+  CA: "California",
+  CO: "Colorado",
+  CT: "Connecticut",
+  DE: "Delaware",
+  DC: "District of Columbia",
+  FL: "Florida",
+  GA: "Georgia",
+  GU: "Guam",
+  HI: "Hawaii",
+  ID: "Idaho",
+  IL: "Illinois",
+  IN: "Indiana",
+  IA: "Iowa",
+  KS: "Kansas",
+  KY: "Kentucky",
+  LA: "Louisiana",
+  ME: "Maine",
+  MD: "Maryland",
+  MA: "Massachusetts",
+  MI: "Michigan",
+  MN: "Minnesota",
+  MS: "Mississippi",
+  MO: "Missouri",
+  MT: "Montana",
+  NE: "Nebraska",
+  NV: "Nevada",
+  NH: "New Hampshire",
+  NJ: "New Jersey",
+  NM: "New Mexico",
+  NY: "New York",
+  NC: "North Carolina",
+  ND: "North Dakota",
+  MP: "Northern Mariana Islands",
+  OH: "Ohio",
+  OK: "Oklahoma",
+  OR: "Oregon",
+  PA: "Pennsylvania",
+  PR: "Puerto Rico",
+  RI: "Rhode Island",
+  SC: "South Carolina",
+  SD: "South Dakota",
+  TN: "Tennessee",
+  TX: "Texas",
+  TT: "Trust Territories",
+  UT: "Utah",
+  VT: "Vermont",
+  VI: "Virgin Islands",
+  VA: "Virginia",
+  WA: "Washington",
+  WV: "West Virginia",
+  WI: "Wisconsin",
+  WY: "Wyoming",
+};

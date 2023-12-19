@@ -24,7 +24,7 @@ const Header: React.FC<Props> = () => {
       >
         <picture>
           <source
-            srcSet={"https://lib.intuitcdn.net/img/nav/3.0/intuit-tt-verified-pro.png"}
+            srcSet={"https://lib.intuitcdn.net/img/nav/4.0/intuit-tt-verified-pro.svg"}
             media={"(min-width: 480px)"}
             width={225}
             height={32}

@@ -6,7 +6,7 @@ import type {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import matchingPreviewHeader from "../assets/content/matchingPreviewHeader";
+import hiddenPageTags from "../assets/content/hiddenPageTags";
 import { TaxProsDevExtended } from "../hooks/useIndependentPro";
 import { useEffect, useMemo, useState } from "react";
 import "../index.css";
@@ -27,7 +27,7 @@ export const getPath: GetPath<TemplateProps> = () => {
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
   return {
     title: "Dynamic Preview",
-    tags: matchingPreviewHeader,
+    tags: hiddenPageTags,
   };
 };
 

@@ -1,6 +1,6 @@
 import { GetPath, TemplateConfig, TemplateProps, Template } from "@yext/pages";
 import { GetHeadConfig, TemplateRenderProps } from "@yext/pages/dist/types/src";
-import matchingPreviewHeader from "../assets/content/matchingPreviewHeader";
+import hiddenPageTags from "../assets/content/hiddenPageTags";
 import "../index.css";
 
 export const config: TemplateConfig = {
@@ -14,7 +14,7 @@ export const getPath: GetPath<TemplateProps> = () => {
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
   return {
     title: "TurboTax® Verified Pro | Pro Directory",
-    tags: matchingPreviewHeader,
+    tags: hiddenPageTags,
   };
 };
 

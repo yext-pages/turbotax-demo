@@ -18,14 +18,14 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
       type: "meta",
       attributes: {
         name: "og:site_name",
-        content: "TurboTax",
+        content: `${pro.c_taxProName} | ${pro.address.city} Tax Preparer | Intuit TurboTax Independent Pro`,
       },
     },
     {
       type: "meta",
       attributes: {
         name: "og:title",
-        content: `${pro.c_taxProName} | ${pro.address.city} Tax Preparer`,
+        content: `${pro.c_taxProName} | ${pro.address.city} Tax Preparer | Intuit TurboTax Independent Pro`,
       },
     },
     {

@@ -12,13 +12,16 @@ const Map: React.FC<Props> = ({ className }) => {
   const pro = useIndependentPro();
   const {
     address: { line1, line2, line3, city, region, postalCode },
+    addressHidden,
     c_officeLocationName,
     c_signedMapUrl,
   } = pro;
 
+  const showAddress = !addressHidden || false;
+
   return (
     <figure className={className}>
-      {c_signedMapUrl && (
+      {c_signedMapUrl && showAddress && (
         <Link
           action={"engaged"}
           object={"google maps image"}
@@ -39,9 +42,13 @@ const Map: React.FC<Props> = ({ className }) => {
         <H5 as={"h2"} weight={"demi"} color={TextColor.pepper130} className={"mb-2"}>
           Location
         </H5>
-        <B3>{line1}</B3>
-        {line2 && <B3>{line2}</B3>}
-        {line3 && <B3>{line3}</B3>}
+        {showAddress && (
+          <>
+            <B3>{line1}</B3>
+            {line2 && <B3>{line2}</B3>}
+            {line3 && <B3>{line3}</B3>}
+          </>
+        )}
         <B3>
           {city}, {region} {postalCode}
         </B3>

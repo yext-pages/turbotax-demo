@@ -37,6 +37,13 @@ export default function defaultMetaTags(opts: { withRobots: boolean }): Tag[] {
         content: "TurboTax",
       },
     },
+    {
+      type: "meta",
+      attributes: {
+        name: "theme-color",
+        content: "#d52b1e", // TurboTax red
+      },
+    },
   ];
 
   const linkTags: Tag[] = [

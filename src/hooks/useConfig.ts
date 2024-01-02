@@ -25,11 +25,8 @@ export interface Config {
 
 function makeCtaUrl(pro: TaxProsDevExtended, baseUrl: string): [string, URLSearchParams] {
   const urlParams = new URLSearchParams();
-  if (pro.c_pseudonymID) {
-    urlParams.set("pseudo-id", pro.c_pseudonymID);
-  }
-
-  urlParams.set("verified-pro-name", pro.c_taxProName);
+  if (!pro.c_pseudonymID) throw new Error("Pro is missing pseudonymId");
+  urlParams.set("pseudo-id", pro.c_pseudonymID);
   return [baseUrl, urlParams];
 }
 

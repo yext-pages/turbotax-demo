@@ -35,6 +35,13 @@ export default function indProHeader(pro: TaxProsDevExtended): Tag[] {
         content: makeDescription(pro),
       },
     },
+    {
+      type: "link",
+      attributes: {
+        rel: "canonical",
+        href: `https://pros.turbotax.intuit.com/${pro.slug}`,
+      },
+    },
   ];
 
   const headshotUrl = getProImageUrl(pro);

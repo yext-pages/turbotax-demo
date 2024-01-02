@@ -15,44 +15,17 @@ import { createConfig } from "../hooks/useConfig";
 import { createAnalyticsScripts } from "../utils/analytics";
 import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
-import { normalizeName } from "../utils/normalizeNames";
 import indProHeader from "../assets/content/indProHeader";
 import { createLocalBusinessStructuredData } from "../utils/taxProStructuredData";
 import { cleanPseudonym } from "../utils/pseudonym";
+import taxProFields from "../utils/taxProFields";
 
 export const config: TemplateConfig = {
   stream: {
     $id: "tax-pros-dev",
     localization: { locales: ["en"] },
     filter: { savedFilterIds: [YEXT_PUBLIC_FILTER_ID] },
-    fields: [
-      "description",
-      "address",
-      "slug",
-      "geocodedCoordinate",
-      "headshot",
-      "services",
-      "c_advisorBio",
-      "c_uRLName",
-      "hours",
-      "c_areasOfExpertise",
-      "c_metaDescription",
-      "c_title",
-      "c_metaKeywords",
-      "c_taxProName",
-      "c_officeLocationName",
-      "certifications",
-      "yearsOfExperience",
-      "languages",
-      "c_jotFormId",
-      "googlePlaceId",
-      "c_signedMapUrlPreProd",
-      "c_signedMapUrlProd",
-      "id",
-      "labels",
-      "c_pseudonymID",
-      "c_acceptingNewClients",
-    ],
+    fields: taxProFields,
   },
 };
 

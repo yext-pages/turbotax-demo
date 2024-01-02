@@ -1,4 +1,5 @@
 import ShieldCheckIcon from "../../assets/icons/ShieldCheck";
+import CallIcon from "../../assets/icons/Call";
 import LocationArrowIcon from "../../assets/icons/LocationArrow";
 import MapIcon from "../../assets/icons/Map";
 import ItemList, { ListItem } from "./ItemList";
@@ -9,6 +10,7 @@ import Badge from "../atoms/Badge";
 
 const SkillsAndLinks: React.FC = () => {
   const pro = useIndependentPro();
+
   const items = useMemo(() => {
     const items: ListItem[] = [];
 
@@ -46,8 +48,19 @@ const SkillsAndLinks: React.FC = () => {
       }
     }
 
+    if (pro.mainPhone) {
+      items.push({
+        Icon: CallIcon,
+        children: formatPhone(pro.mainPhone),
+        href: `tel:${pro.mainPhone}`,
+        action: "engaged",
+        object: "sidebar link",
+        objectDetail: "phone number",
+      });
+    }
+
     return items;
-  }, [pro]);
+  }, [pro.c_pseudonymID]);
 
   return (
     <div className={"flex flex-col gap-4 items-start"}>
@@ -60,5 +73,15 @@ const SkillsAndLinks: React.FC = () => {
     </div>
   );
 };
+
+function formatPhone(phone: string): string {
+  // our sync service formats phone numbers in the form of +1XXXXXXXXXX
+  // we want to format them as (XXX) XXX-XXXX
+  // if the phone number is not in the expected format, we return it as is (shouldn't happen)
+  if (phone.length === 12 && phone.startsWith("+1")) {
+    return `(${phone.slice(2, 5)}) ${phone.slice(5, 8)}-${phone.slice(8)}`;
+  }
+  return phone;
+}
 
 export default SkillsAndLinks;

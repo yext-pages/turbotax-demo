@@ -15,40 +15,14 @@ import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
 import { normalizeName } from "../utils/normalizeNames";
 import hiddenPageTags from "../assets/content/hiddenPageTags";
+import taxProFields from "../utils/taxProFields";
 
 export const config: TemplateConfig = {
   stream: {
     $id: "tax-pros-preview",
     localization: { locales: ["en"] },
     filter: { savedFilterIds: [YEXT_PUBLIC_FILTER_ID] },
-    fields: [
-      "description",
-      "address",
-      "slug",
-      "geocodedCoordinate",
-      "headshot",
-      "services",
-      "c_advisorBio",
-      "c_uRLName",
-      "hours",
-      "c_areasOfExpertise",
-      "c_metaDescription",
-      "c_title",
-      "c_metaKeywords",
-      "c_taxProName",
-      "c_officeLocationName",
-      "certifications",
-      "yearsOfExperience",
-      "languages",
-      "c_jotFormId",
-      "googlePlaceId",
-      "c_signedMapUrlPreProd",
-      "c_signedMapUrlProd",
-      "id",
-      "labels",
-      "c_pseudonymID",
-      "c_acceptingNewClients",
-    ],
+    fields: taxProFields,
   },
 };
 

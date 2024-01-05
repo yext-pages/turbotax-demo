@@ -61,6 +61,12 @@ export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> =
   delete doc.c_signedMapUrlPreProd;
   delete doc.c_signedMapUrlProd;
 
+  if (doc.addressHidden) {
+    doc.address.line1 = undefined;
+    doc.address.line2 = undefined;
+    doc.address.line3 = undefined;
+  }
+
   return { ...data };
 };
 

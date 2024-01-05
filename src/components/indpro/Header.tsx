@@ -20,7 +20,7 @@ const Header: React.FC<Props> = () => {
         action={"engaged"}
         object={"header logo"}
         objectDetail={"Verified Pro logo"}
-        href={"https://turbotax.intuit.com/"}
+        href={"https://pros.turbotax.intuit.com/"}
       >
         <picture>
           <source

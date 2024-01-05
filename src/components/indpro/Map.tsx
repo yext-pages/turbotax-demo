@@ -21,7 +21,7 @@ const Map: React.FC<Props> = ({ className }) => {
 
   return (
     <figure className={className}>
-      {c_signedMapUrl && showAddress && (
+      {c_signedMapUrl && (
         <Link
           action={"engaged"}
           object={"google maps image"}

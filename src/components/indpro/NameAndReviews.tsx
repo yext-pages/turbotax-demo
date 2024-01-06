@@ -4,6 +4,7 @@ import useIndependentPro from "../../hooks/useIndependentPro";
 import Button from "../atoms/Button";
 import useConfig from "../../hooks/useConfig";
 import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
+import ErrorBoundary from "../ErrorBoundary";
 
 const CID_KEY = "cid";
 const CHANNEL_URL_KEY = "channelUrl";
@@ -26,12 +27,6 @@ function enrichCtaQueryParams(params: URLSearchParams): void {
 const NameAndReviews = () => {
   const pro = useIndependentPro();
   const { c_taxProName, c_officeLocationName } = pro;
-  const config = useConfig();
-  const isOffboarding = useProHasLabel(Label.OffboardInProgress);
-  const showCTAs = config.showMatchingCTAs && !isOffboarding;
-
-  const [ctaUrl, ctaParams] = config.makeMatchingCtaUrl(pro);
-  enrichCtaQueryParams(ctaParams);
 
   return (
     <div>
@@ -39,14 +34,30 @@ const NameAndReviews = () => {
         {c_officeLocationName}
       </B2>
       <H3 as={"h1"}>{c_taxProName}</H3>
-      {showCTAs && (
-        <div className={"flex flex-wrap gap-2 mt-2"}>
-          <Button as={"a"} href={ctaUrl + "?" + ctaParams.toString()} className={"grow xs:grow-0"}>
-            Book an intro call
-          </Button>
-        </div>
-      )}
+      <ErrorBoundary fallback={null}>
+        <CallToActions />
+      </ErrorBoundary>
       {/*<Reviews />*/}
+    </div>
+  );
+};
+
+const CallToActions = () => {
+  const pro = useIndependentPro();
+  const config = useConfig();
+
+  const isOffboarding = useProHasLabel(Label.OffboardInProgress);
+  const showCTAs = config.showMatchingCTAs && !isOffboarding;
+  if (!showCTAs) return null;
+
+  const [ctaUrl, ctaParams] = config.makeMatchingCtaUrl(pro);
+  enrichCtaQueryParams(ctaParams);
+
+  return (
+    <div className={"flex flex-wrap gap-2 mt-2"}>
+      <Button as={"a"} href={ctaUrl + "?" + ctaParams.toString()} className={"grow xs:grow-0"}>
+        Book an intro call
+      </Button>
     </div>
   );
 };

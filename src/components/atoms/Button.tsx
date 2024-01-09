@@ -123,27 +123,6 @@ const Button: ButtonComponent = forwardRef(
     };
 
     const Element = as || "button";
-    console.log("button props", { html });
-    if (Element === "a") {
-      return (
-        <a
-          {...html}
-          // @ts-ignore
-          href={html.href}
-          // @ts-ignore
-          ref={ref}
-          className={fullClassName}
-          // @ts-ignore
-          onClick={onClick}
-          data-action={action}
-        >
-          {iconBefore}
-          {children}
-          {iconAfter}
-        </a>
-      );
-    }
-
     return (
       // @ts-ignore
       <Element {...html} ref={ref} className={fullClassName} onClick={onClick} data-action={action}>

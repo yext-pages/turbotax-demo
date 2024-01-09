@@ -10,8 +10,9 @@ import { useEffect, useState } from "react";
 const CID_KEY = "cid";
 const CHANNEL_URL_KEY = "channelUrl";
 
-function enrichCtaQueryParams(params: URLSearchParams): void {
-  if (!globalThis.document) return;
+function enrichCtaQueryParams(source: URLSearchParams): URLSearchParams {
+  const params = new URLSearchParams(source);
+  if (!globalThis.document) return params;
   console.log("enriching params");
 
   const currentParams = new URL(document.URL).searchParams;
@@ -24,6 +25,9 @@ function enrichCtaQueryParams(params: URLSearchParams): void {
   if (referrer) {
     params.set(CHANNEL_URL_KEY, referrer);
   }
+
+  console.log("enriched params: " + params.toString());
+  return params;
 }
 
 const NameAndReviews = () => {
@@ -52,13 +56,13 @@ const CallToActions = () => {
   const showCTAs = config.showMatchingCTAs && !isOffboarding;
 
   const [ctaUrl, ctaParams] = config.makeMatchingCtaUrl(pro);
-  enrichCtaQueryParams(ctaParams);
 
-  const [fullUrl, setFullUrl] = useState(ctaUrl + "?" + ctaParams.toString());
+  const [fullUrl, setFullUrl] = useState(ctaUrl + "?" + enrichCtaQueryParams(ctaParams).toString());
 
   useEffect(() => {
-    enrichCtaQueryParams(ctaParams);
-    setFullUrl(ctaUrl + "?" + ctaParams.toString());
+    setTimeout(() => {
+      setFullUrl(ctaUrl + "?" + enrichCtaQueryParams(ctaParams).toString());
+    }, 50);
   }, []);
 
   if (!showCTAs) return null;

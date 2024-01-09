@@ -66,6 +66,7 @@ const CallToActions = () => {
   }, []);
 
   if (!showCTAs) return null;
+  console.log({ fullUrl });
   return (
     <div className={"flex flex-wrap gap-2 mt-2"}>
       <Button as={"a"} href={fullUrl} className={"grow xs:grow-0"}>

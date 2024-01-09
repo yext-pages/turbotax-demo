@@ -59,14 +59,12 @@ const CallToActions = () => {
   const linkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      const link = ctaUrl + "?" + enrichCtaQueryParams(ctaParams).toString();
-      setFullUrl(link);
+    const link = ctaUrl + "?" + enrichCtaQueryParams(ctaParams).toString();
+    setFullUrl(link);
 
-      // work-around
-      const anchorElem = linkRef.current;
-      if (anchorElem) anchorElem.href = link;
-    }, 50);
+    // work-around
+    const anchorElem = linkRef.current;
+    if (anchorElem) anchorElem.href = link;
   }, []);
 
   if (!showCTAs) return null;

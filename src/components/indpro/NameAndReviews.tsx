@@ -12,6 +12,7 @@ const CHANNEL_URL_KEY = "channelUrl";
 
 function enrichCtaQueryParams(params: URLSearchParams): void {
   if (!globalThis.document) return;
+  console.log("enriching params");
 
   const currentParams = new URL(document.URL).searchParams;
 

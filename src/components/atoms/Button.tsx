@@ -123,6 +123,7 @@ const Button: ButtonComponent = forwardRef(
     };
 
     const Element = as || "button";
+    console.log("button props", { html });
     return (
       // @ts-ignore
       <Element {...html} ref={ref} className={fullClassName} onClick={onClick} data-action={action}>

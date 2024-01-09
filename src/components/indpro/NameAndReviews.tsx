@@ -5,6 +5,7 @@ import Button from "../atoms/Button";
 import useConfig from "../../hooks/useConfig";
 import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
 import ErrorBoundary from "../ErrorBoundary";
+import { useEffect, useState } from "react";
 
 const CID_KEY = "cid";
 const CHANNEL_URL_KEY = "channelUrl";
@@ -48,14 +49,21 @@ const CallToActions = () => {
 
   const isOffboarding = useProHasLabel(Label.OffboardInProgress);
   const showCTAs = config.showMatchingCTAs && !isOffboarding;
-  if (!showCTAs) return null;
 
   const [ctaUrl, ctaParams] = config.makeMatchingCtaUrl(pro);
   enrichCtaQueryParams(ctaParams);
 
+  const [fullUrl, setFullUrl] = useState(ctaUrl + "?" + ctaParams.toString());
+
+  useEffect(() => {
+    enrichCtaQueryParams(ctaParams);
+    setFullUrl(ctaUrl + "?" + ctaParams.toString());
+  }, []);
+
+  if (!showCTAs) return null;
   return (
     <div className={"flex flex-wrap gap-2 mt-2"}>
-      <Button as={"a"} href={ctaUrl + "?" + ctaParams.toString()} className={"grow xs:grow-0"}>
+      <Button as={"a"} href={fullUrl} className={"grow xs:grow-0"}>
         Book an intro call
       </Button>
     </div>

@@ -27,6 +27,18 @@ const fields: string[] = [
   "c_pseudonymID",
   "c_acceptingNewClients",
   "mainPhone",
+  "twitterHandle",
+  "facebookPageUrl",
+  "instagramHandle",
+  "linkedInUrl",
+  "pinterestUrl",
+  "tikTokUrl",
+  "youTubeChannelUrl",
+  "c_tagline",
+  "c_epsImageUrl",
+  "c_allowsMeetInPerson",
+  "c_allowsMeetVirtually",
+  "c_personalWebsiteUrl",
 ];
 
 export default fields;

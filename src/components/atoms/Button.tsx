@@ -9,7 +9,7 @@ type Size = "small" | "medium" | "large";
 
 type ButtonElement = "button" | "a";
 
-type Props<C extends ButtonElement> = PolymorphicComponentPropWithRef<
+export type Props<C extends ButtonElement> = PolymorphicComponentPropWithRef<
   C,
   {
     action?: string;
@@ -37,33 +37,33 @@ type Props<C extends ButtonElement> = PolymorphicComponentPropWithRef<
 
 const btnStyle: Record<Priority, Record<Purpose, string>> = {
   primary: {
-    standard: "bg-blue02 text-white hover:bg-[#0265AC] active:bg-blue01",
-    passive: "bg-gray06 text-gray01 hover:bg-[#D2D4D7] active:bg-[#C1C3C6]",
-    destructive: "bg-red02 text-white hover:bg-[#C6160F] active:bg-red01",
+    standard: "bg-blueberry80 text-white hover:bg-blueberry90 active:bg-blueberry100",
+    passive: "bg-pepper10 text-pepper120 hover:bg-pepper20 active:bg-pepper30",
+    destructive: "bg-watermelon70 text-white hover:bg-watermelon80 active:bg-watermelon90",
     special: "bg-orange02 text-white hover:bg-[#FC6000], active:bg-orange01",
   },
   secondary: {
     standard:
-      "bg-white text-blue02 border-blue02 border-2 outline-offset-4 hover:bg-blue02/10 active:bg-blue02/20",
+      "text-blueberry80 border-blueberry80 border-2 outline-offset-4 hover:bg-blueberry0 active:bg-blueberry10",
     passive:
-      "bg-white text-gray01 border-gray02 border-2 outline-offset-4 hover:bg-gray02/10 active:bg-gray02/20",
+      "text-pepper120 border-pepper120 border-2 outline-offset-4 hover:bg-pepper0 active:bg-pepper10",
     destructive:
-      "bg-white text-red01 border-red02 border-2 outline-offset-4 hover:bg-red02/10 active:bg-red02/20",
+      "text-watermelon70 border-watermelon70 border-2 outline-offset-4 hover:bg-watermelon0 active:bg-watermelon10",
     special:
-      "bg-white text-orange01 border-orange02 border-2 outline-offset-4 hover:bg-orange02/10 active:bg-orange02/20",
+      "text-orange01 border-orange02 border-2 outline-offset-4 hover:bg-orange02/10 active:bg-orange02/20",
   },
   tertiary: {
-    standard: "text-blue02 [&>svg]:fill-blue02 hover:bg-blue02/10 active:bg-blue02/20",
-    passive: "text-gray01 [&>svg]:fill-gray01 hover:bg-gray02/10 active:bg-gray02/20",
-    destructive: "text-red01 [&>svg]:fill-red01 hover:bg-red02/10 active:bg-red02/20",
+    standard: "text-blueberry80 [&>svg]:fill-blueberry80 hover:bg-blueberry0 active:bg-blueberry10",
+    passive: "text-gray01 [&>svg]:fill-gray01 hover:bg-pepper0 active:bg-pepper10",
+    destructive: "text-red01 [&>svg]:fill-red01 hover:bg-watermelon0 active:bg-watermelon10",
     special: "text-orange01 [&>svg]:fill-orange01 hover:bg-orange02/10 active:bg-orange02/20",
   },
 };
 
 const btnSizes: Record<Size, string> = {
-  small: "h-6 min-w-[80px] [&>svg]:w-4 [&>svg]:h-4 [&>svg]:mx-1",
-  medium: "h-9 min-w-[100px] [&>svg]:w-6 [&>svg]:h-6 [&>svg]:mx-2",
-  large: "h-12 min-w-[120px] [&>svg]:h-7 [&>svg]:h-7 [&>svg]:mx-3",
+  small: "h-6 !leading-[24px] min-w-[80px] [&>svg]:w-4 [&>svg]:h-4 [&>svg]:mx-1",
+  medium: "h-9 !leading-[36px] min-w-[100px] [&>svg]:w-6 [&>svg]:h-6 [&>svg]:mx-2",
+  large: "h-12 !leading-[48px] min-w-[120px] [&>svg]:h-7 [&>svg]:h-7 [&>svg]:mx-3",
 };
 
 const btnPadding: Record<Size, { left: string; right: string }> = {
@@ -104,7 +104,7 @@ const Button: ButtonComponent = forwardRef(
     ref?: PolymorphicRef<C>
   ) => {
     const typeScale = btnTypeScale[size];
-    const fullClassName = `flex font-semibold items-center justify-center rounded-small outline-offset-2 outline-blue02 outline-2 ${
+    const fullClassName = `flex text-center font-semibold items-center justify-center rounded-small outline-offset-2 outline-blue02 outline-2 ${
       fontSizeMap[typeScale]
     } ${btnStyle[priority][purpose]} ${btnSizes[size]} ${className} ${
       iconBefore ? "" : btnPadding[size].left

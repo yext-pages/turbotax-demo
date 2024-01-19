@@ -34,6 +34,40 @@ export const defaultFontWeights: Record<TypeScale, FontWeight> = {
   [TypeScale.Body04]: "regular",
 };
 
+export const fontSizeMapMobile: Record<TypeScale, string> = {
+  [TypeScale.Display01]: "text-11",
+  [TypeScale.Display02]: "text-10",
+  [TypeScale.Display03]: "text-9",
+  [TypeScale.Display04]: "text-8",
+  [TypeScale.Headline01]: "text-8",
+  [TypeScale.Headline02]: "text-7",
+  [TypeScale.Headline03]: "text-6",
+  [TypeScale.Headline04]: "text-5",
+  [TypeScale.Headline05]: "text-4",
+  [TypeScale.Headline06]: "text-3",
+  [TypeScale.Body01]: "text-3",
+  [TypeScale.Body02]: "text-3",
+  [TypeScale.Body03]: "text-2",
+  [TypeScale.Body04]: "text-1",
+};
+
+export const fontSizeMapStationary: Record<TypeScale, string> = {
+  [TypeScale.Display01]: "s:text-12",
+  [TypeScale.Display02]: "s:text-11",
+  [TypeScale.Display03]: "s:text-10",
+  [TypeScale.Display04]: "s:text-9",
+  [TypeScale.Headline01]: "s:text-9",
+  [TypeScale.Headline02]: "s:text-8",
+  [TypeScale.Headline03]: "s:text-7",
+  [TypeScale.Headline04]: "s:text-6",
+  [TypeScale.Headline05]: "s:text-5",
+  [TypeScale.Headline06]: "s:text-4",
+  [TypeScale.Body01]: "s:text-4",
+  [TypeScale.Body02]: "s:text-3",
+  [TypeScale.Body03]: "s:text-2",
+  [TypeScale.Body04]: "s:text-1",
+};
+
 export const fontSizeMap: Record<TypeScale, string> = {
   [TypeScale.Display01]: "s:text-12 text-11",
   [TypeScale.Display02]: "s:text-11 text-10",
@@ -58,4 +92,13 @@ export const fontWeightMap: Record<FontWeight, string> = {
   demi: "font-semibold",
   bold: "font-bold",
   heavy: "font-black",
+};
+
+export const fontWeightMapStationary: Record<FontWeight, string> = {
+  thin: "s:font-thin",
+  regular: "s:font-normal",
+  medium: "s:font-medium",
+  demi: "s:font-semibold",
+  bold: "s:font-bold",
+  heavy: "s:font-black",
 };

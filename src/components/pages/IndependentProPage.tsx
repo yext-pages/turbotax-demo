@@ -1,13 +1,9 @@
 import { AnalyticsScreen } from "../../context/analytics";
 import { Config, ConfigContext } from "../../hooks/useConfig";
 import { IndependentProContext, TaxProsDevExtended } from "../../hooks/useIndependentPro";
-import BackgroundBanner from "../indpro/BackgroundBanner";
-import Footer from "../indpro/Footer";
-import Header from "../indpro/Header";
-import MainContent from "../indpro/MainContent";
-import Sidebar from "../indpro/Sidebar";
 import { useMemo } from "react";
 import { cleanPseudonym } from "../../utils/pseudonym";
+import Page from "../redesign/Page";
 
 interface Props {
   config: Config;
@@ -26,15 +22,7 @@ const IndependentProPage: React.FC<Props> = ({ config, pro }) => {
         screenObjectStatus={isProSourced ? "pro_sourced" : "intuit_sourced"}
       >
         <IndependentProContext.Provider value={pro}>
-          <div className={"text-gray01"}>
-            {config.showHeader && <Header />}
-            <BackgroundBanner />
-            <main className="flex flex-col s:flex-row gap-12 px-5">
-              <Sidebar />
-              <MainContent />
-            </main>
-            {config.showFooter && <Footer />}
-          </div>
+          <Page />
         </IndependentProContext.Provider>
       </AnalyticsScreen>
     </ConfigContext.Provider>

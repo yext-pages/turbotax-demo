@@ -74,7 +74,7 @@ const SkillsAndLinks: React.FC = () => {
   );
 };
 
-function formatPhone(phone: string): string {
+export function formatPhone(phone: string): string {
   // our sync service formats phone numbers in the form of +1XXXXXXXXXX
   // we want to format them as (XXX) XXX-XXXX
   // if the phone number is not in the expected format, we return it as is (shouldn't happen)

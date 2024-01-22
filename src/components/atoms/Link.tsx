@@ -32,7 +32,6 @@ const Link: React.FC<LinkProps> = ({
       uiObjectDetail: uiObjectDetail || html.href,
       event,
     });
-    event.preventDefault();
     html.onClick?.(event);
   };
 

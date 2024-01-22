@@ -5,7 +5,6 @@ import { TextColor } from "../atoms/TextColor";
 import Badge from "../atoms/Badge";
 import ItemList, { ListItem } from "../indpro/ItemList";
 import ShieldCheck from "../../assets/icons/ShieldCheck";
-import Button from "../atoms/Button";
 import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import { StateIcon } from "../../assets/icons/primary/StateIcon";
@@ -46,7 +45,7 @@ const Headshot: React.FC = () => {
     >
       <Clippy />
       <img
-        src={pro.c_epsImageUrl || pro.headshot.url}
+        src={pro.c_epsImageUrl || pro.headshot?.url}
         className={"bg-wintermint120 w-full h-full object-contain object-bottom"}
         style={{ clipPath: "url(#my-clip-path)" }}
       />

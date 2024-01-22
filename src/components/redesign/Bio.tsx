@@ -59,7 +59,7 @@ const Headshot: React.FC = () => {
   const pro = useIndependentPro();
   return (
     <img
-      src={pro.c_epsImageUrl || pro.headshot.url}
+      src={pro.c_epsImageUrl || pro.headshot?.url}
       height={330}
       width={"auto"}
       className={"bg-wintermint120 rounded-[16px] object-cover shadow-elev2 w-full max-w-[440px]"}

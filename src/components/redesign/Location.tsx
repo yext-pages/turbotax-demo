@@ -168,9 +168,9 @@ function formatMilitary(time: string): string {
   const parsedHour = Number(hour);
 
   if (parsedHour > 12) {
-    return `${parsedHour - 12}:${minute}p`;
+    return `${parsedHour - 12}:${minute}pm`;
   } else {
-    return `${parsedHour}:${minute}a`;
+    return `${parsedHour}:${minute}am`;
   }
 }
 

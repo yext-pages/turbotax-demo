@@ -1,19 +1,41 @@
 import { IconProps } from "../../assets/icons";
-import { B2, H6 } from "../atoms/Typography";
+import { H6 } from "../atoms/Typography";
 import Link from "../atoms/Link";
+import { FontWeight, TypeScale } from "../atoms/TypeScale";
+import ResponsiveTypography from "../atoms/ResponsiveTypography";
+import { TextColor } from "../atoms/TextColor";
+import React from "react";
 
 export type ListItem = {
   Icon?: React.FC<IconProps>;
+  icon?: React.ReactNode;
   children: React.ReactNode;
+  typescaleStationary?: TypeScale;
+  typescaleMobile?: TypeScale;
+  weightStationary?: FontWeight;
+  weightMobile?: FontWeight;
 } & (
   | { href: string; action: string; object: string; objectDetail?: string }
   | { href?: never; action?: never; object?: never; objectDetail?: never }
 );
 
-const LineItem: React.FC<ListItem> = ({ Icon, children, href, action, object, objectDetail }) => {
+const LineItem: React.FC<ListItem> = ({
+  Icon,
+  icon,
+  children,
+  href,
+  action,
+  object,
+  objectDetail,
+  typescaleMobile = TypeScale.Body02,
+  typescaleStationary = TypeScale.Body02,
+  weightStationary = "medium",
+  weightMobile = "medium",
+}) => {
   return (
     <li className="flex gap-3">
       {Icon && <Icon />}
+      {icon && icon}
       {href ? (
         <Link
           href={href}
@@ -27,7 +49,16 @@ const LineItem: React.FC<ListItem> = ({ Icon, children, href, action, object, ob
           {children}
         </Link>
       ) : (
-        <B2 weight="medium">{children}</B2>
+        <ResponsiveTypography
+          typescaleMobile={typescaleMobile}
+          typescaleStationary={typescaleStationary}
+          weightMobile={weightMobile}
+          weightStationary={weightStationary}
+          color={TextColor.textPrimary}
+          as={"div"}
+        >
+          {children}
+        </ResponsiveTypography>
       )}
     </li>
   );

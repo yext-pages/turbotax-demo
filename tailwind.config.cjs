@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}", "./lib/**/*.{js,jsx}"],
 
@@ -15,7 +15,7 @@ module.exports = {
       4: ["20px", "28px"],
       3: ["16px", "24px"],
       2: ["14px", "20px"],
-      1: ["12px", "16px"],
+      1: ["12px", "16px"]
     },
     colors: {
       transparent: "transparent",
@@ -251,10 +251,17 @@ module.exports = {
       skin160: "#a15f3c",
       skin170: "#7a3f20",
       skin180: "#5f3927",
-      skin190: "#4a2411",
+      skin190: "#4a2411"
     },
     fontFamily: {
-      sans: ["Avenir Next forINTUIT Var", "Avenir Next forINTUIT", "Avenir Next", "Avenir", "helvetica", "sans-serif"],
+      sans: ["Avenir Next forINTUIT Var", "Avenir Next forINTUIT", "Avenir Next", "Avenir", "helvetica", "sans-serif"]
+    },
+    boxShadow: {
+      elev0: "0px 0px 0px 0px rgba(76, 85, 91,  0.2)",
+      elev1: "0px 1px 4px 0px rgba(76, 85, 91,  0.2)",
+      elev2: "0px 2px 8px 0px rgba(76, 85, 91,  0.2)",
+      elev3: "0px 4px 16px 0px rgba(76, 85, 91,  0.2)",
+      elev4: "0px 6px 24px 0px rgba(76, 85, 91,  0.2)"
     },
     screens: {
       xs: "480px",
@@ -262,7 +269,7 @@ module.exports = {
       m: "1024px",
       l: "1200px",
       xl: "1440px",
-      xxl: "1920px",
+      xxl: "1920px"
     },
     spacing: {
       px: "1px",
@@ -281,7 +288,7 @@ module.exports = {
       14: "56px",
       16: "64px",
       18: "72px",
-      20: "80px",
+      20: "80px"
     },
     borderRadius: {
       DEFAULT: "4px",
@@ -291,7 +298,7 @@ module.exports = {
       medium: "6px",
       large: "8px",
       xlarge: "12px",
-      full: "9999px",
+      full: "9999px"
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -301,7 +308,7 @@ module.exports = {
       3: "3px",
       4: "4px",
       6: "6px",
-      8: "8px",
+      8: "8px"
     },
 
     divideWidth: {
@@ -311,16 +318,16 @@ module.exports = {
       3: "3px",
       4: "4px",
       6: "6px",
-      8: "8px",
+      8: "8px"
     },
 
     transitionDuration: {
-      350: "350ms",
+      350: "350ms"
     },
 
     transitionTimingFunction: {
-      transform: "0.35, 0, 0.25, 1",
-    },
+      transform: "0.35, 0, 0.25, 1"
+    }
 
     // extend: {
     //
@@ -329,5 +336,5 @@ module.exports = {
     //     },
     // },
   },
-  plugins: [],
+  plugins: []
 };

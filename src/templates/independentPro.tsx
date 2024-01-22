@@ -65,6 +65,19 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended
 export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> = async (data) => {
   const isQA = YEXT_PUBLIC_ENVIRONMENT !== "prod";
 
+  const params = new URLSearchParams();
+  params.set("fields", "reviewGenerationUrl");
+  params.set("v", "20240117");
+  params.set("api_key", YEXT_PUBLIC_REVIEWS_API_KEY);
+  const response = await fetch(
+    "https://cdn.yextapis.com/v2/accounts/me/entities/prd-" +
+      data.document.c_pseudonymID +
+      "?" +
+      params
+  );
+  const respJson = await response.json();
+  data.document.reviewGenerationUrl = respJson.response.reviewGenerationUrl;
+
   const doc = data.document;
   if (isQA) {
     doc.c_signedMapUrl = doc.c_signedMapUrlPreProd;

@@ -1,4 +1,4 @@
-import { IconProps } from "./index";
+import { IconProps } from "../index";
 
 const LinkedIn: React.FC<IconProps> = (props) => (
   <svg

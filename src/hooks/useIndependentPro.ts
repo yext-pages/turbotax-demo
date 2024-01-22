@@ -8,6 +8,7 @@ export type TaxProsDevExtended = Omit<
   c_signedMapUrlPreProd?: string;
   c_signedMapUrlProd?: string;
   c_signedMapUrl?: string;
+  reviewGenerationUrl?: string;
 };
 
 export const IndependentProContext = React.createContext({} as TaxProsDevExtended);

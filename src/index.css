@@ -12,6 +12,11 @@ html {
     linear-gradient(90deg, #008891, #c90092);
 }
 
+img {
+    user-select: none;
+    pointer-events: none;
+}
+
 @font-face {
     font-family: Avenir Next forINTUIT Var;
     src: url("https://uxfabric.intuitcdn.net/fonts/avenir-next-intuit/AvenirNextforINTUITVarW05.woff2") format("woff2-variations");

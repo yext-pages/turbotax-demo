@@ -34,7 +34,7 @@ const PoweredBy: React.FC = () => {
           description={`Your tax expert will only sign and file your return when it's 100% correct.`}
         />
       </div>
-      <Button as={"a"} href={"/faq"} priority={"secondary"} className={"hidden s:block self-start"}>
+      <Button as={"a"} href={"/"} priority={"secondary"} className={"hidden s:block self-start"}>
         Learn more about Verified Pro
       </Button>
     </Section>

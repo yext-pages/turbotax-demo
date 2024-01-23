@@ -8,12 +8,13 @@ import { MatchingCtaButton } from "./SharedComponents";
 
 const Header: React.FC = () => {
   return (
-    <header className={"hidden s:block bg-white px-6 py-4 sticky top-0 shadow-elev1 z-10"}>
+    <header className={"bg-white px-6 py-4 sticky top-0 shadow-elev1 z-10"}>
       <div className={"flex justify-between"}>
         <div className={"flex gap-6 items-center"}>
           <Link action={"engaged"} href={"/"} object={"tip_logo"} uiObjectDetail={"tip_logo"}>
             <picture>
-              <source srcSet={TIPLogo} width={146} height={24} media={"(min-width: 1024px)"} />
+              <source srcSet={TIPLogo} width={146} height={24} media={"(min-width: 360px)"} />
+              {/* checkball logo for tiny screens */}
               <img
                 src={"https://digitalasset.intuit.com/IMAGE/A1Ess9OMc/turbo-checkball.svg"}
                 width={24}
@@ -22,17 +23,31 @@ const Header: React.FC = () => {
               />
             </picture>
           </Link>
-          <HeaderLink name={"Expertise"} id={"skills"} />
-          <HeaderLink name={"Experience"} id={"skills"} className={"hidden m:block"} />
-          <HeaderLink name={"Reviews"} id={"reviews"} />
-          <HeaderLink name={"About me"} id={"bio"} />
-          <HeaderLink name={"Location"} id={"location"} />
+          <HeaderLink name={"Expertise"} id={"skills"} className={"hidden m:block"} />
+          <HeaderLink name={"Experience"} id={"skills"} className={"hidden l:block"} />
+          <HeaderLink name={"Reviews"} id={"reviews"} className={"hidden m:block"} />
+          <HeaderLink name={"About me"} id={"bio"} className={"hidden m:block"} />
+          <HeaderLink name={"Location"} id={"location"} className={"hidden m:block"} />
         </div>
         <div className={"flex gap-4"}>
-          <Button as={"a"} href={"/"} priority={"secondary"}>
-            Learn more
+          <Button
+            as={"a"}
+            href={"/pro-matching"}
+            priority={"secondary"}
+            className={"hidden s:block"}
+          >
+            Find another Verified Pro
           </Button>
-          <MatchingCtaButton size={"medium"} icon={Call}>
+          <Button
+            as={"a"}
+            href={"/pro-matching"}
+            priority={"secondary"}
+            size={"small"}
+            className={"s:hidden"}
+          >
+            Find another Verified Pro
+          </Button>
+          <MatchingCtaButton size={"medium"} icon={Call} className={"hidden s:flex"}>
             Book a free call
           </MatchingCtaButton>
         </div>

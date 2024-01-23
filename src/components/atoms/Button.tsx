@@ -37,9 +37,11 @@ export type Props<C extends ButtonElement> = PolymorphicComponentPropWithRef<
 
 const btnStyle: Record<Priority, Record<Purpose, string>> = {
   primary: {
-    standard: "bg-blueberry80 text-white hover:bg-blueberry90 active:bg-blueberry100",
-    passive: "bg-pepper10 text-pepper120 hover:bg-pepper20 active:bg-pepper30",
-    destructive: "bg-watermelon70 text-white hover:bg-watermelon80 active:bg-watermelon90",
+    standard:
+      "bg-blueberry80 border-blueberry80 text-white hover:bg-blueberry90 active:bg-blueberry100",
+    passive: "bg-pepper10 border-pepper10 text-pepper120 hover:bg-pepper20 active:bg-pepper30",
+    destructive:
+      "bg-watermelon70 border-watermelon70 text-white hover:bg-watermelon80 active:bg-watermelon90",
     special: "bg-orange02 text-white hover:bg-[#FC6000], active:bg-orange01",
   },
   secondary: {
@@ -53,17 +55,20 @@ const btnStyle: Record<Priority, Record<Purpose, string>> = {
       "text-orange01 border-orange02 border-2 outline-offset-4 hover:bg-orange02/10 active:bg-orange02/20",
   },
   tertiary: {
-    standard: "text-blueberry80 [&>svg]:fill-blueberry80 hover:bg-blueberry0 active:bg-blueberry10",
-    passive: "text-gray01 [&>svg]:fill-gray01 hover:bg-pepper0 active:bg-pepper10",
-    destructive: "text-red01 [&>svg]:fill-red01 hover:bg-watermelon0 active:bg-watermelon10",
+    standard:
+      "text-blueberry80 border-transparent [&>svg]:fill-blueberry80 hover:bg-blueberry0 active:bg-blueberry10",
+    passive:
+      "text-gray01 border-transparent [&>svg]:fill-gray01 hover:bg-pepper0 active:bg-pepper10",
+    destructive:
+      "text-red01 border-transparent [&>svg]:fill-red01 hover:bg-watermelon0 active:bg-watermelon10",
     special: "text-orange01 [&>svg]:fill-orange01 hover:bg-orange02/10 active:bg-orange02/20",
   },
 };
 
 const btnSizes: Record<Size, string> = {
-  small: "h-6 !leading-[24px] min-w-[80px] [&>svg]:w-4 [&>svg]:h-4 [&>svg]:mx-1",
-  medium: "h-9 !leading-[36px] min-w-[100px] [&>svg]:w-6 [&>svg]:h-6 [&>svg]:mx-2",
-  large: "h-12 !leading-[48px] min-w-[120px] [&>svg]:h-7 [&>svg]:h-7 [&>svg]:mx-3",
+  small: "h-6 !leading-[20px] min-w-[80px] [&>svg]:w-4 [&>svg]:h-4 [&>svg]:mx-1",
+  medium: "h-9 !leading-[32px] min-w-[100px] [&>svg]:w-6 [&>svg]:h-6 [&>svg]:mx-2",
+  large: "h-12 !leading-[44px] min-w-[120px] [&>svg]:h-7 [&>svg]:h-7 [&>svg]:mx-3",
 };
 
 const btnPadding: Record<Size, { left: string; right: string }> = {
@@ -104,7 +109,7 @@ const Button: ButtonComponent = forwardRef(
     ref?: PolymorphicRef<C>
   ) => {
     const typeScale = btnTypeScale[size];
-    const fullClassName = `flex text-center font-semibold items-center justify-center rounded-small outline-offset-2 outline-blue02 outline-2 ${
+    const fullClassName = `flex text-center border-2 font-semibold items-center justify-center rounded-small outline-offset-2 outline-blue02 outline-2 ${
       fontSizeMap[typeScale]
     } ${btnStyle[priority][purpose]} ${btnSizes[size]} ${className} ${
       iconBefore ? "" : btnPadding[size].left

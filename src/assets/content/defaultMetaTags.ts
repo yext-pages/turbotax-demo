@@ -41,7 +41,7 @@ export default function defaultMetaTags(opts: { withRobots: boolean }): Tag[] {
       type: "meta",
       attributes: {
         name: "theme-color",
-        content: "#d52b1e", // TurboTax red
+        content: "#ffffff",
       },
     },
   ];

@@ -96,10 +96,15 @@ const socialMediaList: Array<{
   base?: string;
 }> = [
   /* todo: google, snapchat, yelp */
-  { type: "instagram", icon: Instagram, field: "instagramHandle" },
+  {
+    type: "instagram",
+    icon: Instagram,
+    field: "instagramHandle",
+    base: "https://www.instagram.com/",
+  },
   { type: "facebook", icon: Facebook, field: "facebookPageUrl" },
   { type: "linkedin", icon: LinkedIn, field: "linkedInUrl" },
-  { type: "twitter", icon: Twitter, field: "twitterHandle" },
+  { type: "twitter", icon: Twitter, field: "twitterHandle", base: "https://twitter.com/" },
   { type: "youtube", icon: Youtube, field: "youTubeChannelUrl" },
   { type: "personal_website", icon: GenericWebsite, field: "c_personalWebsiteUrl" },
   { type: "tiktok", icon: Tiktok, field: "tikTokUrl" },

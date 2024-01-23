@@ -3,7 +3,7 @@ import TIPLogo from "../../assets/logos/5050_horizontal.svg";
 import LifetimeBadge from "../../assets/icons/badges/lifetime.svg";
 import RefundBadge from "../../assets/icons/badges/refund.svg";
 import FullServiceBadge from "../../assets/icons/badges/full_service.svg";
-import { B1, B2, H4, H5 } from "../atoms/Typography";
+import { B1, B2, H5 } from "../atoms/Typography";
 import Link from "../atoms/Link";
 import Button from "../atoms/Button";
 import { Section } from "./SharedComponents";
@@ -68,7 +68,7 @@ const Header: React.FC = () => {
         />
         .
       </B1>
-      <Button priority={"secondary"} className={"s:hidden"}>
+      <Button as={"a"} href={"/"} priority={"secondary"} className={"s:hidden"}>
         Learn more
       </Button>
     </div>

@@ -32,7 +32,11 @@ const ResponsiveTypography: React.FC<PropsWithChildren<Props>> = ({
   ...html
 }) => {
   const Element = as;
-  const fullClassName = `${fontSizeMapStationary[typescaleStationary]} ${fontSizeMapMobile[typescaleMobile]} ${fontWeightMapStationary[weightStationary]} ${fontWeightMap[weightMobile]} ${color} ${className}`;
+  const fullClassName = `${fontSizeMapStationary[typescaleStationary]} ${
+    fontSizeMapMobile[typescaleMobile]
+  } ${fontWeightMapStationary[weightStationary]} ${fontWeightMap[weightMobile]} ${color} ${
+    className || ""
+  }`;
   return <Element className={fullClassName} {...html} />;
 };
 

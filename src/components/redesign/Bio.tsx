@@ -21,7 +21,13 @@ import { IconProps } from "../../assets/icons";
 
 const Bio: React.FC = () => {
   return (
-    <Section id={"bio"} pyStationary={"120"} pxSmall={"40"} pxLarge={"80"}>
+    <Section
+      id={"bio"}
+      pyStationary={"120"}
+      pxSmall={"40"}
+      pxLarge={"80"}
+      aria-labelledby={"about-me"}
+    >
       <Title />
       <div
         className={
@@ -49,6 +55,7 @@ const Title: React.FC = () => {
       weightStationary={"regular"}
       color={TextColor.textPrimary}
       as={"h2"}
+      id={"about-me"}
     >
       About me
     </ResponsiveTypography>
@@ -60,6 +67,7 @@ const Headshot: React.FC = () => {
   return (
     <img
       src={pro.c_epsImageUrl || pro.headshot?.url}
+      alt={pro.c_taxProName}
       height={330}
       width={"auto"}
       className={"bg-wintermint120 rounded-[16px] object-cover shadow-elev2 w-full max-w-[440px]"}
@@ -71,7 +79,9 @@ const AboutMe: React.FC = () => {
   const pro = useIndependentPro();
   return (
     <div className={"flex flex-col gap-4"}>
-      <H5 weight={"demi"}>Nice to meet you 👋</H5>
+      <H5 as={"h3"} weight={"demi"}>
+        Nice to meet you 👋
+      </H5>
       <B1 weight={"regular"} className={"whitespace-pre-line"}>
         {pro.description || pro.c_advisorBio}
       </B1>

@@ -14,7 +14,7 @@ import { MatchingCtaButton } from "./SharedComponents";
 
 const Hero: React.FC = () => {
   return (
-    <section className={"bg-blueberry0 px-4 py-6"}>
+    <section className={"bg-blueberry0 px-4 py-6"} aria-labelledby={"taxProName"}>
       <div
         className={
           "flex flex-col gap-8 s:flex-row-reverse s:gap-10 justify-between s:items-center s:px-6 m:px-20 l:px-[140px] s:max-w-screen-xl mx-auto"
@@ -48,6 +48,7 @@ const Headshot: React.FC = () => {
         src={pro.c_epsImageUrl || pro.headshot?.url}
         className={"bg-wintermint120 w-full h-full object-contain object-bottom"}
         style={{ clipPath: "url(#my-clip-path)" }}
+        alt={pro.c_taxProName}
       />
       <Blob />
 
@@ -56,6 +57,7 @@ const Headshot: React.FC = () => {
         width={146}
         height={24}
         className={"absolute bottom-[-40px] m:bottom-2 m:right-4  l:bottom-4 l:right-8"}
+        alt={"Intuit TurboTax Verified Pro"}
       />
     </div>
   );
@@ -86,6 +88,7 @@ const Name: React.FC = () => {
         weightStationary={"medium"}
         color={TextColor.textPrimary}
         as={"h1"}
+        id={"taxProName"}
       >
         {pro.c_taxProName}
       </ResponsiveTypography>

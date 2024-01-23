@@ -85,8 +85,7 @@ const gapStationaryClasses: Record<Gap, string> = {
   "0": "s:gap-none",
 };
 
-interface Props {
-  id: string;
+type Props = React.ComponentPropsWithoutRef<"section"> & {
   solidBg?: boolean;
   pxMobile?: PX;
   pxSmall?: PX;
@@ -97,13 +96,12 @@ interface Props {
   pyStationary?: PY;
   gapMobile?: Gap;
   gapStationary?: Gap;
-}
+};
 
 const blueBg = `bg-blueberry0 s:rounded-[16px]`;
 
 export const Section: React.FC<PropsWithChildren<Props>> = ({
   children,
-  id,
   solidBg = false,
   pxMobile = "16",
   pxSmall,
@@ -114,6 +112,7 @@ export const Section: React.FC<PropsWithChildren<Props>> = ({
   pxStationary = "156",
   pyStationary = "80",
   gapStationary = "40",
+  ...html
 }) => {
   const className = [
     solidBg ? blueBg : "",
@@ -130,7 +129,7 @@ export const Section: React.FC<PropsWithChildren<Props>> = ({
   ].join(" ");
 
   return (
-    <section id={id} className={className}>
+    <section className={className} {...html}>
       {children}
     </section>
   );

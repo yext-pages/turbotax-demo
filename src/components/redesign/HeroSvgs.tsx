@@ -7,6 +7,7 @@ export const Blob: React.FC = () => (
     // height="460"
     viewBox={"0 0 543 460"}
     fill="none"
+    aria-hidden={true}
     className={"absolute mix-blend-multiply h-auto max-w-[238px] s:max-w-[543px] aspect-[543/460]"}
   >
     <g filter="url(#a)">

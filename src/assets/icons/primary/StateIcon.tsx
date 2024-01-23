@@ -175,6 +175,7 @@ export const StateIcon: React.FC<Props> = (props) => {
       height={60}
       // the funky &_path makes the icons solid
       className={"w-6 h-6 s:w-8 s:h-8 [&_path]:fill-pepper120"}
+      alt={props.state || "United States"}
     />
   );
 };

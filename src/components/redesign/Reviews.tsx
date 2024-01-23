@@ -12,7 +12,14 @@ const Reviews: React.FC = () => {
   if (!pro.reviewGenerationUrl) return null;
 
   return (
-    <Section id={"reviews"} solidBg pyStationary={"80"} pxSmall={"40"} pxLarge={"80"}>
+    <Section
+      id={"reviews"}
+      solidBg
+      pyStationary={"80"}
+      pxSmall={"40"}
+      pxLarge={"80"}
+      aria-labelledby={"what-clients-say"}
+    >
       <ResponsiveTypography
         typescaleMobile={TypeScale.Headline04}
         typescaleStationary={TypeScale.Headline02}
@@ -20,6 +27,7 @@ const Reviews: React.FC = () => {
         weightStationary={"regular"}
         color={TextColor.textPrimary}
         as={"h2"}
+        id={"what-clients-say"}
       >
         What my clients say
       </ResponsiveTypography>

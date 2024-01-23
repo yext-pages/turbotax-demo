@@ -19,6 +19,7 @@ const Location: React.FC = () => {
       pyStationary={"180"}
       pxSmall={"40"}
       pxLarge={"80"}
+      aria-label={"Location and Contact"}
     >
       <div className={"flex flex-col gap-6 m:flex-row s:gap-16"}>
         <Map />
@@ -41,6 +42,7 @@ const Map: React.FC = () => {
     <Link
       href={makeGoogleMapSearchUrl(pro)}
       target={"_blank"}
+      rel={"noopener noreferrer"}
       action={"engaged"}
       object={"google maps image"}
     >
@@ -109,7 +111,9 @@ const Contact: React.FC = () => {
   const pro = useIndependentPro();
   return (
     <div className={"flex flex-col gap-2"}>
-      <H5 weight={"regular"}>Contact</H5>
+      <H5 as={"h3"} weight={"regular"}>
+        Contact
+      </H5>
       {/*<div>{pro.mainPhone && <B1>{formatPhone(pro.mainPhone)}</B1>}</div>*/}
       <div>
         {pro.mainPhone && (
@@ -131,7 +135,7 @@ const Hours: React.FC = () => {
   const { hours } = useIndependentPro();
   return (
     <div>
-      <H5 weight={"regular"} className={"pb-2"}>
+      <H5 as={"h3"} weight={"regular"} className={"pb-2"}>
         Hours
       </H5>
       <B1 as={"div"}>
@@ -180,7 +184,9 @@ const Languages: React.FC = () => {
 
   return (
     <div className={"flex flex-col gap-2"}>
-      <H5 weight={"regular"}>Languages</H5>
+      <H5 as={"h3"} weight={"regular"}>
+        Languages
+      </H5>
       {languages.map((l) => (
         <B1 key={l}>{l}</B1>
       ))}

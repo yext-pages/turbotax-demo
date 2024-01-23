@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   return (
     <header className={"bg-white px-6 py-4 sticky top-0 shadow-elev1 z-10"}>
       <div className={"flex justify-between"}>
-        <div className={"flex gap-6 items-center"}>
+        <nav className={"flex gap-6 items-center"}>
           <Link action={"engaged"} href={"/"} object={"tip_logo"} uiObjectDetail={"tip_logo"}>
             <picture>
               <source srcSet={TIPLogo} width={146} height={24} media={"(min-width: 360px)"} />
@@ -28,7 +28,7 @@ const Header: React.FC = () => {
           <HeaderLink name={"Reviews"} id={"reviews"} className={"hidden m:block"} />
           <HeaderLink name={"About me"} id={"bio"} className={"hidden m:block"} />
           <HeaderLink name={"Location"} id={"location"} className={"hidden m:block"} />
-        </div>
+        </nav>
         <div className={"flex gap-4"}>
           <Button
             as={"a"}

@@ -23,6 +23,7 @@ const Skills: React.FC = () => {
       pxMedium={"40"}
       pxLarge={"120"}
       pxStationary={"156"}
+      aria-label={"Expertise and Experience"}
     >
       <Tagline />
       <div className={"flex flex-wrap gap-10 s:grid grid-cols-2 s:gap-16"}>

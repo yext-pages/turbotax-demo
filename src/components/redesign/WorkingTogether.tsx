@@ -17,6 +17,7 @@ const WorkingTogether: React.FC = () => {
       pyStationary={"180"}
       pxSmall={"40"}
       pxLarge={"80"}
+      aria-labelledby={"work-together"}
     >
       <Title />
       <div className={"flex flex-col gap-10 s:flex-row m:gap-16"}>
@@ -50,6 +51,7 @@ const Title: React.FC = () => {
       weightStationary={"regular"}
       color={TextColor.textPrimary}
       as={"h2"}
+      id={"work-together"}
     >
       How we’ll work together
     </ResponsiveTypography>
@@ -58,6 +60,7 @@ const Title: React.FC = () => {
 
 interface StepProps {
   icon: string;
+  iconAlt: string;
   title: string;
   description: string;
 }
@@ -65,9 +68,12 @@ interface StepProps {
 const Step: React.FC<StepProps> = (props) => {
   return (
     <div className={"flex flex-col gap-4 items-center s:items-start"}>
-      <img src={props.icon} height={60} width={60} />
+      {/* no alt text, as the icons are decorative and the title describes them better */}
+      <img src={props.icon} height={60} width={60} alt={""} />
       <div className={"flex flex-col gap-2 items-center text-center s:items-start s:text-start"}>
-        <H4 weight={"regular"}>{props.title}</H4>
+        <H4 as={"h3"} weight={"regular"}>
+          {props.title}
+        </H4>
         <ResponsiveTypography
           typescaleMobile={TypeScale.Body02}
           typescaleStationary={TypeScale.Body01}

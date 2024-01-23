@@ -18,16 +18,18 @@ const Page: React.FC = () => {
   return (
     <div className={"text-pepper120"}>
       {config.showHeader && <Header />}
-      <Hero />
-      <div className={"max-w-screen-xl s:mx-auto s:px-6"}>
-        {/*<Debug />*/}
-        <Skills />
-        <WorkingTogether />
-        <Bio />
-        <Reviews />
-        <Location />
-        <PoweredBy />
-      </div>
+      <main className={"contents"}>
+        <Hero />
+        <div className={"max-w-screen-xl s:mx-auto s:px-6"}>
+          {/*<Debug />*/}
+          <Skills />
+          <WorkingTogether />
+          <Bio />
+          <Reviews />
+          <Location />
+          <PoweredBy />
+        </div>
+      </main>
       <Spacer size={"80"} stationaryOnly />
       {config.showFooter && (
         <>

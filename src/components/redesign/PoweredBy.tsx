@@ -79,7 +79,13 @@ const Header: React.FC = () => {
         />
         .
       </B1>
-      <Button as={"a"} href={"/"} priority={"secondary"} className={"s:hidden"}>
+      <Button
+        as={"a"}
+        href={"/"}
+        priority={"secondary"}
+        className={"s:hidden"}
+        aria-label={"Learn more about Verified Pro"}
+      >
         Learn more
       </Button>
     </div>
@@ -96,7 +102,14 @@ interface GuaranteeProps {
 const Guarantee: React.FC<GuaranteeProps> = (props) => {
   return (
     <div className={"flex flex-col text-center items-center"}>
-      <img src={props.icon} width={160} height={160} className={"pb-10"} alt={props.iconAlt} />
+      <img
+        src={props.icon}
+        width={160}
+        height={160}
+        className={"pb-10"}
+        alt={props.iconAlt}
+        loading={"lazy"}
+      />
       <H5 as={"h3"} weight={"demi"} className={"pb-2"}>
         {props.title}
       </H5>

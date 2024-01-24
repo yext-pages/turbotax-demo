@@ -2,7 +2,6 @@ import React from "react";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import { B1, H5 } from "../atoms/Typography";
 import { TextColor } from "../atoms/TextColor";
-import { formatPhone } from "../indpro/SkillsAndLinks";
 import { DayHour } from "../../types/autogen";
 import { Section, StationaryBookNow } from "./SharedComponents";
 import ResponsiveTypography from "../atoms/ResponsiveTypography";
@@ -54,6 +53,7 @@ const Map: React.FC = () => {
           "rounded-[16px] shadow-elev2 w-full h-auto aspect-[16/9] object-cover max-w-[460px] self-center m:self-auto"
         }
         alt={"Map showing location of the tax pro"}
+        loading={"lazy"}
       />
     </Link>
   );
@@ -193,6 +193,16 @@ const Languages: React.FC = () => {
     </div>
   );
 };
+
+export function formatPhone(phone: string): string {
+  // our sync service formats phone numbers in the form of +1XXXXXXXXXX
+  // we want to format them as (XXX) XXX-XXXX
+  // if the phone number is not in the expected format, we return it as is (shouldn't happen)
+  if (phone.length === 12 && phone.startsWith("+1")) {
+    return `(${phone.slice(2, 5)}) ${phone.slice(5, 8)}-${phone.slice(8)}`;
+  }
+  return phone;
+}
 
 const Divider: React.FC = () => {
   return <hr className={"hidden s:block border-t-2 border-blueberry10"} />;

@@ -111,8 +111,8 @@ const DynamicPreview: Template<TemplateRenderProps> = () => {
         }`}
       >
         <SpotExpertWorking />
-        <H3 color={TextColor.gray01}>Hang tight</H3>
-        <B1 color={TextColor.gray02}>We’re building your preview</B1>
+        <H3 color={TextColor.textPrimary}>Hang tight</H3>
+        <B1 color={TextColor.textSecondary}>We’re building your preview</B1>
       </div>
 
       {pro && <IndependentProPage config={config} pro={pro} />}

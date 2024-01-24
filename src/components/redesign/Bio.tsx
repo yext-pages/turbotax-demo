@@ -94,6 +94,7 @@ const socialMediaList: Array<{
   type: string;
   field: keyof TaxProsDevExtended;
   base?: string;
+  alt: string;
 }> = [
   /* todo: google, snapchat, yelp */
   {
@@ -101,14 +102,26 @@ const socialMediaList: Array<{
     icon: Instagram,
     field: "instagramHandle",
     base: "https://www.instagram.com/",
+    alt: "Instagram",
   },
-  { type: "facebook", icon: Facebook, field: "facebookPageUrl" },
-  { type: "linkedin", icon: LinkedIn, field: "linkedInUrl" },
-  { type: "twitter", icon: Twitter, field: "twitterHandle", base: "https://twitter.com/" },
-  { type: "youtube", icon: Youtube, field: "youTubeChannelUrl" },
-  { type: "personal_website", icon: GenericWebsite, field: "c_personalWebsiteUrl" },
-  { type: "tiktok", icon: Tiktok, field: "tikTokUrl" },
-  { type: "pinterest", icon: Pinterest, field: "pinterestUrl" },
+  { type: "facebook", icon: Facebook, field: "facebookPageUrl", alt: "Facebook" },
+  { type: "linkedin", icon: LinkedIn, field: "linkedInUrl", alt: "LinkedIn" },
+  {
+    type: "twitter",
+    icon: Twitter,
+    field: "twitterHandle",
+    base: "https://twitter.com/",
+    alt: "Twitter",
+  },
+  { type: "youtube", icon: Youtube, field: "youTubeChannelUrl", alt: "YouTube" },
+  {
+    type: "personal_website",
+    icon: GenericWebsite,
+    field: "c_personalWebsiteUrl",
+    alt: "Personal Website",
+  },
+  { type: "tiktok", icon: Tiktok, field: "tikTokUrl", alt: "TikTok" },
+  { type: "pinterest", icon: Pinterest, field: "pinterestUrl", alt: "Pinterest" },
 ];
 
 const smClass = "w-12 h-12";
@@ -121,7 +134,15 @@ const SocialMedia: React.FC = () => {
       const value = pro[sm.field];
       if (typeof value === "string") {
         const link = sm.base ? sm.base + value : value;
-        nodes.push(<SocialMediaIconLink key={sm.type} Icon={sm.icon} link={link} type={sm.type} />);
+        nodes.push(
+          <SocialMediaIconLink
+            key={sm.type}
+            Icon={sm.icon}
+            link={link}
+            type={sm.type}
+            alt={sm.alt}
+          />
+        );
       }
     }
 
@@ -135,9 +156,10 @@ interface SMILProps {
   Icon: React.FC<IconProps>;
   link: string;
   type: string;
+  alt: string;
 }
 
-const SocialMediaIconLink: React.FC<SMILProps> = ({ Icon, link, type }) => {
+const SocialMediaIconLink: React.FC<SMILProps> = ({ Icon, link, type, alt }) => {
   return (
     <Link
       action={"engaged"}
@@ -146,6 +168,7 @@ const SocialMediaIconLink: React.FC<SMILProps> = ({ Icon, link, type }) => {
       href={link}
       target={"_blank"}
       rel={"noreferrer noopener"}
+      aria-label={alt}
     >
       <Icon className={smClass} />
     </Link>
@@ -163,6 +186,7 @@ const Disclaimer: React.FC = () => {
         objectDetail={"here"}
         className={"text-blueberry80 font-medium hover:underline"}
         href={"/faq#how-does-intuit-verify-these-independent-tax-professionals?"}
+        aria-label={"Intuit's Pro verification program"}
       />{" "}
       for Intuit's Pro verification program.
     </B3>

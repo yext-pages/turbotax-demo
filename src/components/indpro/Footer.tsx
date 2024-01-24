@@ -185,6 +185,8 @@ const Footer: React.FC = () => {
                       <img
                         alt={"Privacy Setting"}
                         className={"w-10"}
+                        width={30}
+                        height={14}
                         src={
                           "https://lib.intuitcdn.net/img/marketingtechnology/icons/1.0/privacy-options.svg"
                         }

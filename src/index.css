@@ -6,12 +6,6 @@ html {
     background: white;
 }
 
-.bg-gradient {
-    background: #008891;
-    background: linear-gradient(180deg, rgba(14, 40, 101, 0), rgba(14, 40, 101, 0.8)),
-    linear-gradient(90deg, #008891, #c90092);
-}
-
 img {
     user-select: none;
     pointer-events: none;
@@ -27,6 +21,7 @@ img {
 
 /*!** Copied from @appfabric/fonts *!*/
 
+/*
 @font-face {
     font-family: "Avenir Next forINTUIT";
     src: url("https://assets.intuitcdn.net/fonts/avenir-100.woff2") format("woff2"),
@@ -134,3 +129,4 @@ img {
     font-style: italic;
     font-display: swap;
 }
+ */

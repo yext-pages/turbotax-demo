@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import type { TaxProsDev } from "../types/autogen";
+import type { TaxProsMain } from "../types/autogen";
 
 export type TaxProsDevExtended = Omit<
-  TaxProsDev,
+  TaxProsMain,
   "c_signedMapUrlPreProd" | "c_signedMapUrlProd"
 > & {
   c_signedMapUrlPreProd?: string;

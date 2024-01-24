@@ -10,33 +10,28 @@ import type {
 import "../index.css";
 import { TaxProsDevExtended } from "../hooks/useIndependentPro";
 import { createConfig } from "../hooks/useConfig";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import IndependentProPage from "../components/pages/IndependentProPage";
-import indProHeader from "../assets/content/indProHeader";
+import hiddenPageTags from "../assets/content/hiddenPageTags";
 import * as indepProPageUtils from "../utils/indepProPageUtils";
 
-export const config: TemplateConfig = indepProPageUtils.makeConfig("main");
+export const config: TemplateConfig = indepProPageUtils.makeConfig("referred");
 
-export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = indepProPageUtils.getPath;
+export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = (args) => {
+  return indepProPageUtils.getPath(args) + "/pro";
+};
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended>> = (data) => {
-  return indepProPageUtils.getHeadConfig(data, "independentPro", indProHeader(data.document));
+  return indepProPageUtils.getHeadConfig(data, "independentPro", hiddenPageTags);
 };
 
 export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> = async (data) => {
   return indepProPageUtils.transformProps(data);
 };
 
+// Template that will show as the page
 const Component: Template<TemplateRenderProps<TaxProsDevExtended>> = ({ document }) => {
   const config = useMemo(() => createConfig("independentPro"), []);
-
-  useEffect(() => {
-    if (!window) return;
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("cid") === "pr" && !window.location.pathname.endsWith("/pro")) {
-      window.location.pathname = window.location.pathname + "/pro";
-    }
-  }, []);
 
   return <IndependentProPage config={config} pro={document} />;
 };

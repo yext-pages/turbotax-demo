@@ -35,6 +35,10 @@ function enrichCtaQueryParams(source: URLSearchParams): URLSearchParams {
     params.set(CID_KEY, currentParams.get(CID_KEY) as string);
   }
 
+  if (window.location.pathname.endsWith("/pro")) {
+    params.set(CID_KEY, "pr");
+  }
+
   const referrer = document.referrer;
   if (referrer) {
     params.set(CHANNEL_URL_KEY, referrer);

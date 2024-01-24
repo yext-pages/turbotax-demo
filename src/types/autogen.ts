@@ -58,7 +58,7 @@ export interface Hours {
 	reopenDate?: string,
 }
 
-export interface TaxProsDev {
+export interface TaxProsMain {
 	description: string,
 	address: Address,
 	addressHidden: boolean,
@@ -102,6 +102,49 @@ export interface TaxProsDev {
 }
 
 export interface TaxProsPreview {
+	description: string,
+	address: Address,
+	addressHidden: boolean,
+	slug: string,
+	geocodedCoordinate: Coordinate,
+	headshot: Image,
+	services: string[],
+	c_advisorBio: string,
+	c_uRLName: string,
+	hours: Hours,
+	c_areasOfExpertise: string[],
+	c_metaDescription: string,
+	c_title: string,
+	c_metaKeywords: string,
+	c_taxProName: string,
+	c_officeLocationName: string,
+	certifications: string[],
+	yearsOfExperience: number,
+	languages: string[],
+	c_jotFormId: string,
+	googlePlaceId: string,
+	c_signedMapUrlPreProd: string,
+	c_signedMapUrlProd: string,
+	id: string,
+	labels: any,
+	c_pseudonymID: string,
+	c_acceptingNewClients: boolean,
+	mainPhone: any,
+	twitterHandle: string,
+	facebookPageUrl: string,
+	instagramHandle: string,
+	linkedInUrl: string,
+	pinterestUrl: string,
+	tikTokUrl: string,
+	youTubeChannelUrl: string,
+	c_tagline: string,
+	c_epsImageUrl: string,
+	c_allowsMeetInPerson: boolean,
+	c_allowsMeetVirtually: boolean,
+	c_personalWebsiteUrl: string,
+}
+
+export interface TaxProsReferred {
 	description: string,
 	address: Address,
 	addressHidden: boolean,

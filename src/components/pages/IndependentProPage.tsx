@@ -1,17 +1,18 @@
 import { AnalyticsScreen } from "../../context/analytics";
 import { Config, ConfigContext } from "../../hooks/useConfig";
 import { IndependentProContext, TaxProsDevExtended } from "../../hooks/useIndependentPro";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { cleanPseudonym } from "../../utils/pseudonym";
 import Page from "../redesign/Page";
 
 interface Props {
   config: Config;
   pro: TaxProsDevExtended;
+  proReferred?: boolean;
 }
 
-const IndependentProPage: React.FC<Props> = ({ config, pro }) => {
-  const isProSourced = useMemo(isProReferred, [globalThis.window]);
+const IndependentProPage: React.FC<Props> = ({ config, pro, proReferred }) => {
+  const isProSourced = proReferred || useMemo(isProReferred, [globalThis.window]);
 
   return (
     <ConfigContext.Provider value={config}>

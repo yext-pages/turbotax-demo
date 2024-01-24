@@ -2,12 +2,13 @@ import { createContext, useContext } from "react";
 import type { TaxProsDevExtended } from "./useIndependentPro";
 
 type Env = "local" | "qa" | "prod";
-export type Page = "independentPro" | "matchingPreview" | "faq" | "dynamicPreview";
+export type Page = "independentPro" | "matchingPreview" | "proReferral" | "faq" | "dynamicPreview";
 
 export interface Config {
   env: Env;
   showWIP: boolean;
   showMatchingCTAs: boolean;
+  referralOverridden?: boolean;
   showHeader: boolean;
   showFooter: boolean;
   loadTealium: boolean;
@@ -100,6 +101,10 @@ function getConfigForEnv(): Config {
 
 export const createConfig = (page: Page = "independentPro"): Config => {
   const config: Config = { ...getConfigForEnv() };
+
+  if (page === "proReferral") {
+    config.referralOverridden = true;
+  }
 
   if (page === "matchingPreview" || page === "dynamicPreview") {
     config.showHeader = false;

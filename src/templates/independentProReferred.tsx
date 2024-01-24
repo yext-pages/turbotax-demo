@@ -22,7 +22,7 @@ export const getPath: GetPath<TemplateProps<TaxProsDevExtended>> = (args) => {
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps<TaxProsDevExtended>> = (data) => {
-  return indepProPageUtils.getHeadConfig(data, "independentPro", hiddenPageTags);
+  return indepProPageUtils.getHeadConfig(data, "proReferral", hiddenPageTags);
 };
 
 export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> = async (data) => {
@@ -31,9 +31,9 @@ export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> =
 
 // Template that will show as the page
 const Component: Template<TemplateRenderProps<TaxProsDevExtended>> = ({ document }) => {
-  const config = useMemo(() => createConfig("independentPro"), []);
+  const config = useMemo(() => createConfig("proReferral"), []);
 
-  return <IndependentProPage config={config} pro={document} />;
+  return <IndependentProPage config={config} pro={document} proReferred />;
 };
 
 export default Component;

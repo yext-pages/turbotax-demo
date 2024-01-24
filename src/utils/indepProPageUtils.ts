@@ -14,7 +14,6 @@ import { createConfig, Page } from "../hooks/useConfig";
 import { createAnalyticsScripts } from "./analytics";
 import { cleanPseudonym } from "./pseudonym";
 import { createLocalBusinessStructuredData } from "./taxProStructuredData";
-import indProHeader from "../assets/content/indProHeader";
 import taxProFields from "./taxProFields";
 import { Tag } from "@yext/pages/dist/types/src";
 

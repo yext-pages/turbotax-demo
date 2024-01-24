@@ -1,4 +1,4 @@
-import useConfig from "./useConfig";
+import useConfig, { Config } from "./useConfig";
 import useIndependentPro from "./useIndependentPro";
 import { useEffect, useState } from "react";
 
@@ -8,13 +8,13 @@ export const useMatchingLink = (): string => {
 
   const [link, setLink] = useState(() => {
     const [url, params] = config.makeMatchingCtaUrl(pro);
-    return url + "?" + params.toString();
+    return url + "?" + enrichCtaQueryParams(params, config).toString();
   });
 
   useEffect(() => {
     if (!globalThis.document) return;
     const [url, params] = config.makeMatchingCtaUrl(pro);
-    const enrichedParams = enrichCtaQueryParams(params);
+    const enrichedParams = enrichCtaQueryParams(params, config);
 
     setLink(url + "?" + enrichedParams.toString());
   }, []);
@@ -25,9 +25,13 @@ export const useMatchingLink = (): string => {
 const CID_KEY = "cid";
 const CHANNEL_URL_KEY = "channelUrl";
 
-function enrichCtaQueryParams(source: URLSearchParams): URLSearchParams {
+function enrichCtaQueryParams(source: URLSearchParams, config: Config): URLSearchParams {
   const params = new URLSearchParams(source);
-  if (!globalThis.document) return params;
+  if (config.referralOverridden) {
+    params.set(CID_KEY, "pr");
+  }
+
+  if (!globalThis.document || !globalThis.window) return params;
 
   const currentParams = new URL(document.URL).searchParams;
 

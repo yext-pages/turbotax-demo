@@ -55,7 +55,7 @@ const FAQ: Template<TemplateRenderProps> = () => {
   return (
     <ConfigContext.Provider value={config}>
       <AnalyticsScreen scopeArea={"faq"} screen={"faq"}>
-        <div className={"text-gray01"}>
+        <div className={"text-pepper120"}>
           {config.showHeader && <Header />}
           <main className={"px-5 pt-5 pb-12 max-w-screen-m mx-auto"}>
             <H1 as={"h1"}>Intuit TurboTax Verified Pro</H1>

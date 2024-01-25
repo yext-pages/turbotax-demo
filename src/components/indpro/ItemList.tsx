@@ -44,7 +44,9 @@ const LineItem: React.FC<ListItem> = ({
           objectDetail={objectDetail}
           target={"_blank"}
           rel={"noreferrer noopener"}
-          className={"text-blue02 hover:underline outline-blue02 outline-offset-2 font-medium"}
+          className={
+            "text-blueberry80 hover:underline outline-blueberry80 outline-offset-2 font-medium"
+          }
         >
           {children}
         </Link>

@@ -183,7 +183,7 @@ const Disclaimer: React.FC = () => {
       <Link
         action={"engaged"}
         object={"faq link"}
-        objectDetail={"for Intuit's Pro verification program"}
+        objectDetail={"here for Intuit's Pro verification program"}
         className={"text-blueberry80 font-medium hover:underline"}
         href={"/faq#how-does-intuit-verify-these-independent-tax-professionals?"}
       />

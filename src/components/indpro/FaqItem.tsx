@@ -118,14 +118,14 @@ const FaqItem: React.FC<FaqItemProps> = (props) => {
   return (
     <details
       ref={detailsRef}
-      className={"group border-b-1 border-b-gray05 last:border-none box-content"}
+      className={"group border-b-1 border-b-pepper30 last:border-none box-content"}
     >
       <summary
         ref={summaryRef}
         onClick={toggle}
         id={props.title.replace(/\s/g, "-").toLowerCase()}
         className={
-          "list-none flex justify-between hover:bg-gray01/10 active:bg-gray01/20 outline-blue02 outline-2 p-4 cursor-pointer scroll-mt-20"
+          "list-none flex justify-between hover:bg-pepper0 active:bg-pepper10 outline-blueberry80 outline-2 p-4 cursor-pointer scroll-mt-20"
         }
       >
         <B2 weight={"demi"}>{props.title}</B2>{" "}

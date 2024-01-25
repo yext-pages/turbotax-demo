@@ -13,7 +13,7 @@ export default function defaultMetaTags(opts: { withRobots: boolean }): Tag[] {
       type: "meta",
       attributes: {
         name: "dcterms.rightsHolder",
-        content: "Copyright 1997–2023 Intuit, Inc. All Rights Reserved.",
+        content: "Copyright 1997–2024 Intuit, Inc. All Rights Reserved.",
       },
     },
     {

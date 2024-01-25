@@ -13,7 +13,7 @@ import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
 import { useMatchingLink } from "../../hooks/useMatchingLink";
 
 type PX = "16" | "40" | "80" | "120" | "156";
-type PY = "40" | "80" | "120" | "180";
+type PY = "40" | "64" | "80" | "120";
 
 type Gap = "0" | "24" | "40" | "64";
 
@@ -27,9 +27,9 @@ const pxMobileClasses: Record<PX, string> = {
 
 const pyMobileClasses: Record<PY, string> = {
   "40": "py-10",
+  "64": "py-16",
   "80": "py-20",
   "120": "py-[120px]",
-  "180": "py-[180px]",
 };
 
 const gapMobileClasses: Record<Gap, string> = {
@@ -73,9 +73,9 @@ const pxExtraLargeClasses: Record<PX, string> = {
 
 const pyStationaryClasses: Record<PY, string> = {
   "40": "s:py-10",
+  "64": "s:py-16",
   "80": "s:py-20",
   "120": "s:py-[120px]",
-  "180": "s:py-[180px]",
 };
 
 const gapStationaryClasses: Record<Gap, string> = {

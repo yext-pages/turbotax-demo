@@ -16,7 +16,7 @@ interface Props {
   proReferred?: boolean;
 }
 
-const newStyle: boolean = false;
+const newStyle: boolean = true;
 
 const IndependentProPage: React.FC<Props> = ({ config, pro, proReferred }) => {
   const isProSourced = proReferred || useMemo(isProReferred, [globalThis.window]);

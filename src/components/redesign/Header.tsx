@@ -38,15 +38,6 @@ const Header: React.FC = () => {
           >
             Find another Verified Pro
           </Button>
-          <Button
-            as={"a"}
-            href={"/pro-matching"}
-            priority={"secondary"}
-            size={"small"}
-            className={"s:hidden"}
-          >
-            Find another Verified Pro
-          </Button>
           <MatchingCtaButton size={"medium"} icon={Call} className={"hidden s:flex"}>
             Book a free call
           </MatchingCtaButton>

@@ -15,7 +15,7 @@ const Location: React.FC = () => {
       id={"location"}
       gapMobile={"24"}
       gapStationary={"64"}
-      pyStationary={"180"}
+      pyStationary={"120"}
       pxSmall={"40"}
       pxLarge={"80"}
       aria-label={"Location and Contact"}

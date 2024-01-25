@@ -14,7 +14,7 @@ const WorkingTogether: React.FC = () => {
       id={"working-together"}
       solidBg
       gapMobile={"24"}
-      pyStationary={"180"}
+      pyStationary={"120"}
       pxSmall={"40"}
       pxLarge={"80"}
       aria-labelledby={"work-together"}

@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { H3 } from "../atoms/Typography";
+import { H4 } from "../atoms/Typography";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import ItemList, { ListItem } from "../indpro/ItemList";
 import ShieldCheck from "../../assets/icons/ShieldCheck";
@@ -17,7 +17,7 @@ const Skills: React.FC = () => {
       id={"skills"}
       gapMobile={"40"}
       gapStationary={"40"}
-      pyStationary={"120"}
+      pyStationary={"64"}
       pxMobile={"16"}
       pxSmall={"16"}
       pxMedium={"40"}
@@ -41,7 +41,7 @@ const Tagline: React.FC = () => {
   return (
     <ResponsiveTypography
       typescaleMobile={TypeScale.Headline03}
-      typescaleStationary={TypeScale.Headline01}
+      typescaleStationary={TypeScale.Headline02}
       weightMobile={"regular"}
       weightStationary={"regular"}
       color={TextColor.textPrimary}
@@ -56,9 +56,16 @@ const Expertise: React.FC = () => {
   const pro = useIndependentPro();
   return (
     <div className={"max-w-[500px]"}>
-      <H3 weight={"regular"} className={"pb-4"}>
+      <ResponsiveTypography
+        typescaleMobile={TypeScale.Headline03}
+        typescaleStationary={TypeScale.Headline04}
+        weightMobile={"regular"}
+        weightStationary={"regular"}
+        as={"h3"}
+        className={"pb-6"}
+      >
         Expertise
-      </H3>
+      </ResponsiveTypography>
       <PillBox>
         {pro.c_areasOfExpertise?.map((skill) => (
           <SkillPill key={skill} children={skill} />
@@ -140,9 +147,16 @@ const Experience = () => {
 
   return (
     <div className={"max-w-[500px]"}>
-      <H3 weight={"regular"} className={"pb-6"}>
+      <ResponsiveTypography
+        typescaleMobile={TypeScale.Headline03}
+        typescaleStationary={TypeScale.Headline04}
+        weightMobile={"regular"}
+        weightStationary={"regular"}
+        as={"h3"}
+        className={"pb-6"}
+      >
         Experience
-      </H3>
+      </ResponsiveTypography>
       <ItemList items={items} />
     </div>
   );

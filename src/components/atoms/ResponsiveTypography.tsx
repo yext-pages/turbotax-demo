@@ -7,14 +7,14 @@ import {
   TypeScale,
 } from "./TypeScale";
 import React, { PropsWithChildren } from "react";
-import type { TextColor } from "./TextColor";
+import { TextColor } from "./TextColor";
 
 type Props = {
   typescaleMobile: TypeScale;
   typescaleStationary: TypeScale;
   weightMobile: FontWeight;
   weightStationary: FontWeight;
-  color: TextColor;
+  color?: TextColor;
   as: "div" | "span" | "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "a";
   style?: React.CSSProperties;
   className?: string;
@@ -26,7 +26,7 @@ const ResponsiveTypography: React.FC<PropsWithChildren<Props>> = ({
   typescaleStationary,
   weightMobile,
   weightStationary,
-  color,
+  color = TextColor.textPrimary,
   as,
   className,
   ...html

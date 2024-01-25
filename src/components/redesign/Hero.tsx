@@ -17,11 +17,11 @@ const Hero: React.FC = () => {
     <section className={"bg-blueberry0 px-4 py-6"} aria-labelledby={"taxProName"}>
       <div
         className={
-          "flex flex-col gap-8 s:flex-row-reverse s:gap-10 justify-between s:items-center s:px-6 m:px-20 l:px-[140px] s:max-w-screen-xl mx-auto"
+          "flex flex-col gap-8 s:flex-row-reverse s:gap-6 justify-between s:items-center s:px-6 m:px-20 l:px-[140px] s:max-w-screen-xl mx-auto"
         }
       >
         <Headshot />
-        <div className={"contents s:flex flex-col gap-10 s:max-w-[480px] items-start s:py-20"}>
+        <div className={"contents s:flex flex-col gap-10 s:max-w-[480px] items-start s:py-14"}>
           <Name />
           <Reviews />
           <Details />
@@ -40,7 +40,7 @@ const Headshot: React.FC = () => {
   return (
     <div
       className={
-        "flex flex-col gap-4 self-center items-center relative w-full max-w-[238px] s:max-w-[400px] l:max-w-[543px] aspect-[543/460] h-auto z-[0] mb-10 s:mb-0"
+        "flex flex-col gap-4 self-center items-center relative w-full max-w-[200px] s:max-w-[350px] l:max-w-[450px] aspect-[543/460] h-auto z-[0] mb-10 s:mb-0"
       }
     >
       <Clippy />
@@ -56,7 +56,7 @@ const Headshot: React.FC = () => {
         src={TIPLogo}
         width={146}
         height={24}
-        className={"absolute bottom-[-40px] m:bottom-2 m:right-4  l:bottom-4 l:right-8"}
+        className={"absolute bottom-[-40px] m:bottom-1 m:right-0 l:bottom-4 l:right-8"}
         alt={"Intuit TurboTax Verified Pro"}
       />
     </div>

@@ -4,12 +4,19 @@ import { IndependentProContext, TaxProsDevExtended } from "../../hooks/useIndepe
 import React, { useMemo } from "react";
 import { cleanPseudonym } from "../../utils/pseudonym";
 import Page from "../redesign/Page";
+import BackgroundBanner from "../indpro/BackgroundBanner";
+import Footer from "../indpro/Footer";
+import Header from "../indpro/Header";
+import MainContent from "../indpro/MainContent";
+import Sidebar from "../indpro/Sidebar";
 
 interface Props {
   config: Config;
   pro: TaxProsDevExtended;
   proReferred?: boolean;
 }
+
+const newStyle: boolean = false;
 
 const IndependentProPage: React.FC<Props> = ({ config, pro, proReferred }) => {
   const isProSourced = proReferred || useMemo(isProReferred, [globalThis.window]);
@@ -23,7 +30,19 @@ const IndependentProPage: React.FC<Props> = ({ config, pro, proReferred }) => {
         screenObjectStatus={isProSourced ? "pro_sourced" : "intuit_sourced"}
       >
         <IndependentProContext.Provider value={pro}>
-          <Page />
+          {newStyle ? (
+            <Page />
+          ) : (
+            <div className={"text-gray01"}>
+              {config.showHeader && <Header />}
+              <BackgroundBanner />
+              <main className="flex flex-col s:flex-row gap-12 px-5">
+                <Sidebar />
+                <MainContent />
+              </main>
+              {config.showFooter && <Footer />}
+            </div>
+          )}
         </IndependentProContext.Provider>
       </AnalyticsScreen>
     </ConfigContext.Provider>

@@ -21,7 +21,9 @@ const Hero: React.FC = () => {
         }
       >
         <Headshot />
-        <div className={"contents s:flex flex-col gap-10 s:max-w-[480px] items-start s:py-14"}>
+        <div
+          className={"contents s:flex flex-col s:gap-6 gap-8 s:max-w-[600px] items-start s:py-14"}
+        >
           <Name />
           <Reviews />
           <Details />
@@ -40,7 +42,7 @@ const Headshot: React.FC = () => {
   return (
     <div
       className={
-        "flex flex-col gap-4 self-center items-center relative w-full max-w-[200px] s:max-w-[350px] l:max-w-[450px] aspect-[543/460] h-auto z-[0] mb-10 s:mb-0"
+        "flex flex-col gap-4 self-center items-center relative w-full max-w-[200px] s:max-w-[300px] m:max-w-[325px] l:max-w-[350px] xl:max-w-[450px] aspect-[543/460] h-auto z-[0] mb-10 s:mb-0"
       }
     >
       <Clippy />
@@ -56,7 +58,9 @@ const Headshot: React.FC = () => {
         src={TIPLogo}
         width={146}
         height={24}
-        className={"absolute bottom-[-40px] m:bottom-1 m:right-0 l:bottom-4 l:right-8"}
+        className={
+          "absolute bottom-[-40px] m:bottom-0 m:right-[-4px] l:bottom-0 l:right-0 xl:bottom-4 xl:right-4"
+        }
         alt={"Intuit TurboTax Verified Pro"}
       />
     </div>
@@ -83,7 +87,7 @@ const Name: React.FC = () => {
       </ResponsiveTypography>
       <ResponsiveTypography
         typescaleMobile={TypeScale.Headline01}
-        typescaleStationary={TypeScale.Display03}
+        typescaleStationary={TypeScale.Display04}
         weightMobile={"regular"}
         weightStationary={"medium"}
         color={TextColor.textPrimary}

@@ -11,13 +11,18 @@ import { Spacer } from "./SharedComponents";
 import Header from "./Header";
 import StickyMatchingFooter from "./StickyMatchingFooter";
 import useConfig from "../../hooks/useConfig";
+import ErrorBoundary from "../ErrorBoundary";
 
 const Page: React.FC = () => {
   const config = useConfig();
 
   return (
     <div className={"text-pepper120"}>
-      {config.showHeader && <Header />}
+      {config.showHeader && (
+        <ErrorBoundary fallback={null}>
+          <Header />
+        </ErrorBoundary>
+      )}
       <main className={"contents"}>
         <Hero />
         <div className={"max-w-screen-xl s:mx-auto s:px-6"}>
@@ -34,7 +39,11 @@ const Page: React.FC = () => {
       {config.showFooter && (
         <>
           <Footer />
-          {config.showMatchingCTAs && <StickyMatchingFooter />}
+          {config.showMatchingCTAs && (
+            <ErrorBoundary fallback={null}>
+              <StickyMatchingFooter />
+            </ErrorBoundary>
+          )}
         </>
       )}
     </div>

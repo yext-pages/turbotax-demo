@@ -6,6 +6,9 @@ const StickyMatchingFooter: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const element = document.getElementById("primary-cta");
+    if (!element || !globalThis.IntersectionObserver) return;
+
     let options = {
       rootMargin: "0px",
       threshold: 1.0,
@@ -18,7 +21,7 @@ const StickyMatchingFooter: React.FC = () => {
     };
 
     const observer = new IntersectionObserver(callback, options);
-    observer.observe(document.getElementById("primary-cta")!!);
+    observer.observe(element);
 
     return () => observer.disconnect();
   }, []);

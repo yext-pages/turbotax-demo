@@ -294,7 +294,7 @@ export const MatchingCtaButton: React.FC<MatchingCtaProps> = (props) => {
       iconBefore={props.icon ? <props.icon /> : undefined}
       href={matchingLink}
       className={props.className}
-      objectDetail={props.section}
+      pageExperience={props.section}
       size={props.size || "large"}
     >
       {props.children}

@@ -131,6 +131,7 @@ interface Window {
               ui_object: string;
               ui_object_detail?: string;
               custom_properties?: Record<string, any>;
+              page_experience?: string;
             },
             event?: {
               targetElement: HTMLElement;

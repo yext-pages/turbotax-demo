@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect, useRef } from "react";
 import Button from "../atoms/Button";
 import StarFill from "../../assets/icons/StarFill";
 import StarHalf from "../../assets/icons/StarHalf";
@@ -11,6 +11,7 @@ import { IconProps } from "../../assets/icons";
 import useConfig from "../../hooks/useConfig";
 import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
 import { useMatchingLink } from "../../hooks/useMatchingLink";
+import { useAnalytics } from "../../context/analytics";
 
 type PX = "16" | "40" | "80" | "120" | "156";
 type PY = "40" | "64" | "80" | "120";
@@ -86,6 +87,7 @@ const gapStationaryClasses: Record<Gap, string> = {
 };
 
 type Props = React.ComponentPropsWithoutRef<"section"> & {
+  id: string;
   solidBg?: boolean;
   pxMobile?: PX;
   pxSmall?: PX;
@@ -112,6 +114,7 @@ export const Section: React.FC<PropsWithChildren<Props>> = ({
   pxStationary = "156",
   pyStationary = "80",
   gapStationary = "40",
+  id,
   ...html
 }) => {
   const className = [
@@ -128,8 +131,42 @@ export const Section: React.FC<PropsWithChildren<Props>> = ({
     gapStationaryClasses[gapStationary],
   ].join(" ");
 
+  const ref = useRef<HTMLDivElement>(null);
+  const analytics = useAnalytics();
+
+  useEffect(() => {
+    const elem = ref.current;
+    if (!elem || !globalThis.IntersectionObserver) return;
+
+    let options: IntersectionObserverInit = {
+      threshold: 0.333,
+    };
+
+    let beaconed = false;
+
+    const callback: IntersectionObserverCallback = (entries, self) => {
+      const entry = entries[0];
+      if (!entry || beaconed || !entry.isIntersecting) return;
+
+      beaconed = true;
+      analytics.track({
+        action: "viewed",
+        object: "section",
+        uiAction: "viewed",
+        uiObject: "section",
+        uiObjectDetail: id || "section",
+      });
+      self.disconnect();
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(elem);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={className} {...html}>
+    <section className={className} {...html} id={id} ref={ref}>
       {children}
     </section>
   );

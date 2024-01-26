@@ -32,7 +32,7 @@ const Header: React.FC = () => {
         <div className={"flex gap-4"}>
           <Button
             as={"a"}
-            href={"/pro-matching"}
+            href={"https://pros-turbotax.app.intuit.com/pro-matching"}
             priority={"secondary"}
             className={"hidden s:block"}
           >

@@ -6,6 +6,7 @@ import { TypeScale } from "../atoms/TypeScale";
 import { TextColor } from "../atoms/TextColor";
 import { B2, B3, H6 } from "../atoms/Typography";
 import useIndependentPro from "../../hooks/useIndependentPro";
+import { PageSection } from "./constants";
 
 const Reviews: React.FC = () => {
   const pro = useIndependentPro();
@@ -13,7 +14,7 @@ const Reviews: React.FC = () => {
 
   return (
     <Section
-      id={"reviews"}
+      id={PageSection.Reviews}
       solidBg
       pyStationary={"80"}
       pxSmall={"40"}

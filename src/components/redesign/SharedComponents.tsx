@@ -12,6 +12,7 @@ import useConfig from "../../hooks/useConfig";
 import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
 import { useMatchingLink } from "../../hooks/useMatchingLink";
 import { useAnalytics } from "../../context/analytics";
+import { PageSection } from "./constants";
 
 type PX = "16" | "40" | "80" | "120" | "156";
 type PY = "40" | "64" | "80" | "120";
@@ -87,7 +88,7 @@ const gapStationaryClasses: Record<Gap, string> = {
 };
 
 type Props = React.ComponentPropsWithoutRef<"section"> & {
-  id: string;
+  id: PageSection;
   solidBg?: boolean;
   pxMobile?: PX;
   pxSmall?: PX;
@@ -129,6 +130,7 @@ export const Section: React.FC<PropsWithChildren<Props>> = ({
     "flex flex-col",
     gapMobileClasses[gapMobile],
     gapStationaryClasses[gapStationary],
+    "scroll-mt-20",
   ].join(" ");
 
   const ref = useRef<HTMLDivElement>(null);
@@ -173,7 +175,7 @@ export const Section: React.FC<PropsWithChildren<Props>> = ({
 };
 
 interface StationaryBookNowProps {
-  section: string;
+  section: PageSection;
 }
 
 export const StationaryBookNow: React.FC<StationaryBookNowProps> = (props) => {
@@ -273,7 +275,7 @@ interface MatchingCtaProps {
   children: string;
   className?: string;
   id?: string;
-  section: string;
+  section: PageSection;
 }
 
 export const MatchingCtaButton: React.FC<MatchingCtaProps> = (props) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { B2, H4 } from "../atoms/Typography";
+import { H4 } from "../atoms/Typography";
 import ExpertIcon from "../../assets/icons/primary/expert.svg";
 import IncomeSummaryIcon from "../../assets/icons/primary/income-summary.svg";
 import WebPageIcon from "../../assets/icons/primary/web-page.svg";
@@ -7,11 +7,12 @@ import { Section, StationaryBookNow } from "./SharedComponents";
 import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import { TextColor } from "../atoms/TextColor";
+import { PageSection } from "./constants";
 
 const WorkingTogether: React.FC = () => {
   return (
     <Section
-      id={"working-together"}
+      id={PageSection.WorkingTogether}
       solidBg
       gapMobile={"24"}
       pyStationary={"120"}
@@ -37,7 +38,7 @@ const WorkingTogether: React.FC = () => {
           description={"After you review, I’ll file you taxes for you. And you’re done!"}
         />
       </div>
-      <StationaryBookNow section={"working-together"} />
+      <StationaryBookNow section={PageSection.WorkingTogether} />
     </Section>
   );
 };
@@ -60,7 +61,6 @@ const Title: React.FC = () => {
 
 interface StepProps {
   icon: string;
-  iconAlt: string;
   title: string;
   description: string;
 }

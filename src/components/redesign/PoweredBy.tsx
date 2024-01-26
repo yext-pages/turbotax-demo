@@ -10,11 +10,12 @@ import { Section } from "./SharedComponents";
 import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import { TextColor } from "../atoms/TextColor";
+import { PageSection } from "./constants";
 
 const PoweredBy: React.FC = () => {
   return (
     <Section
-      id={"powered-by"}
+      id={PageSection.PoweredBy}
       solidBg
       pyStationary={"80"}
       pxSmall={"40"}

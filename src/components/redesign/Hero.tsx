@@ -9,8 +9,9 @@ import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import { StateIcon } from "../../assets/icons/primary/StateIcon";
 import Calendar from "../../assets/icons/Calendar";
-import { Clippy, Blob } from "./HeroSvgs";
+import { Blob, Clippy } from "./HeroSvgs";
 import { MatchingCtaButton } from "./SharedComponents";
+import { PageSection } from "./constants";
 
 const Hero: React.FC = () => {
   return (
@@ -149,7 +150,7 @@ const Details: React.FC = () => {
 
 const Booking: React.FC = () => {
   return (
-    <MatchingCtaButton size={"large"} icon={Calendar} id={"primary-cta"} section={"hero"}>
+    <MatchingCtaButton size={"large"} icon={Calendar} id={"primary-cta"} section={PageSection.Hero}>
       Book a free call
     </MatchingCtaButton>
   );

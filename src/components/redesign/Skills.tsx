@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import { H4 } from "../atoms/Typography";
 import useIndependentPro from "../../hooks/useIndependentPro";
 import ItemList, { ListItem } from "../indpro/ItemList";
 import ShieldCheck from "../../assets/icons/ShieldCheck";
@@ -10,11 +9,12 @@ import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import { TextColor } from "../atoms/TextColor";
 import { StateIcon } from "../../assets/icons/primary/StateIcon";
+import { PageSection } from "./constants";
 
 const Skills: React.FC = () => {
   return (
     <Section
-      id={"skills"}
+      id={PageSection.Skills}
       gapMobile={"40"}
       gapStationary={"40"}
       pyStationary={"64"}
@@ -30,7 +30,7 @@ const Skills: React.FC = () => {
         <Expertise />
         <Experience />
       </div>
-      <StationaryBookNow section={"skills"} />
+      <StationaryBookNow section={PageSection.Skills} />
     </Section>
   );
 };

@@ -8,11 +8,12 @@ import ResponsiveTypography from "../atoms/ResponsiveTypography";
 import { TypeScale } from "../atoms/TypeScale";
 import Link from "../atoms/Link";
 import { makeGoogleMapSearchUrl } from "../../utils/googleMaps";
+import { PageSection } from "./constants";
 
 const Location: React.FC = () => {
   return (
     <Section
-      id={"location"}
+      id={PageSection.Location}
       gapMobile={"24"}
       gapStationary={"64"}
       pyStationary={"120"}
@@ -30,7 +31,7 @@ const Location: React.FC = () => {
         <Hours />
         <Languages />
       </div>
-      <StationaryBookNow section={"location"} />
+      <StationaryBookNow section={PageSection.Location} />
     </Section>
   );
 };

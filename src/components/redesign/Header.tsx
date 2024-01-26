@@ -5,6 +5,7 @@ import Link from "../atoms/Link";
 import { TypeScale } from "../atoms/TypeScale";
 import Call from "../../assets/icons/Call";
 import { MatchingCtaButton } from "./SharedComponents";
+import { PageSection } from "./constants";
 
 const Header: React.FC = () => {
   return (
@@ -23,11 +24,11 @@ const Header: React.FC = () => {
               />
             </picture>
           </Link>
-          <HeaderLink name={"Expertise"} id={"skills"} className={"hidden m:block"} />
-          <HeaderLink name={"Experience"} id={"skills"} className={"hidden l:block"} />
-          <HeaderLink name={"Reviews"} id={"reviews"} className={"hidden m:block"} />
-          <HeaderLink name={"About me"} id={"bio"} className={"hidden m:block"} />
-          <HeaderLink name={"Location"} id={"location"} className={"hidden m:block"} />
+          <HeaderLink name={"Expertise"} id={PageSection.Skills} className={"hidden m:block"} />
+          <HeaderLink name={"Experience"} id={PageSection.Skills} className={"hidden l:block"} />
+          <HeaderLink name={"Reviews"} id={PageSection.Reviews} className={"hidden m:block"} />
+          <HeaderLink name={"About me"} id={PageSection.Bio} className={"hidden m:block"} />
+          <HeaderLink name={"Location"} id={PageSection.Location} className={"hidden m:block"} />
         </nav>
         <div className={"flex gap-4"}>
           <Button
@@ -41,7 +42,7 @@ const Header: React.FC = () => {
           <MatchingCtaButton
             size={"medium"}
             icon={Call}
-            section={"header"}
+            section={PageSection.Header}
             className={"hidden s:flex"}
           >
             Book a free call
@@ -54,7 +55,7 @@ const Header: React.FC = () => {
 
 interface HeaderLinkProps {
   name: string;
-  id: string;
+  id: PageSection;
   className?: string;
 }
 
@@ -72,7 +73,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = (props) => {
         e.preventDefault();
         const target = document.getElementById(props.id);
         if (!target) return;
-        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        target.scrollIntoView({ behavior: "smooth" });
       }}
     />
   );

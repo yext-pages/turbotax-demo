@@ -12,12 +12,10 @@ import Twitter from "../../assets/icons/social/Twitter";
 import LinkedIn from "../../assets/icons/social/LinkedIn";
 import Youtube from "../../assets/icons/social/Youtube";
 import GenericWebsite from "../../assets/icons/social/GenericWebsite";
-import Google from "../../assets/icons/social/Google";
 import Pinterest from "../../assets/icons/social/Pinterest";
-import Snapchat from "../../assets/icons/social/Snapchat";
 import Tiktok from "../../assets/icons/social/Tiktok";
-import Yelp from "../../assets/icons/social/Yelp";
 import { IconProps } from "../../assets/icons";
+import { PageSection } from "./constants";
 
 const Bio: React.FC = () => {
   return (
@@ -39,7 +37,7 @@ const Bio: React.FC = () => {
           <AboutMe />
           <SocialMedia />
           <Disclaimer />
-          <StationaryBookNow section={"bio"} />
+          <StationaryBookNow section={PageSection.Bio} />
         </div>
       </div>
     </Section>

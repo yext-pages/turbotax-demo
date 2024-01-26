@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MatchingCtaButton } from "./SharedComponents";
+import { PageSection } from "./constants";
 
 const StickyMatchingFooter: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -29,7 +30,7 @@ const StickyMatchingFooter: React.FC = () => {
         (visible ? "opacity-100" : "opacity-0")
       }
     >
-      <MatchingCtaButton className={"w-full"} size={"medium"} section={"sticky-footer"}>
+      <MatchingCtaButton className={"w-full"} size={"medium"} section={PageSection.StickyFooter}>
         Book a free call
       </MatchingCtaButton>
     </div>

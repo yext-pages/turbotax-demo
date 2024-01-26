@@ -12,6 +12,7 @@ import Calendar from "../../assets/icons/Calendar";
 import { Blob, Clippy } from "./HeroSvgs";
 import { MatchingCtaButton } from "./SharedComponents";
 import { PageSection } from "./constants";
+import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
 
 const Hero: React.FC = () => {
   return (
@@ -108,6 +109,7 @@ const Reviews: React.FC = () => {
 
 const Details: React.FC = () => {
   const pro = useIndependentPro();
+  const isOffboarding = useProHasLabel(Label.OffboardInProgress);
 
   let certification: string;
   if (pro.certifications && pro.certifications.length > 0) {
@@ -138,10 +140,12 @@ const Details: React.FC = () => {
     weightStationary: "regular",
   });
 
+  const acceptingClients = pro.c_acceptingNewClients && !isOffboarding;
+
   return (
     <div className={"flex flex-col gap-4 items-start"}>
-      <Badge variant={pro.c_acceptingNewClients ? "success" : "critical"}>
-        {pro.c_acceptingNewClients ? "Accepting new clients" : "Not accepting new clients"}
+      <Badge variant={acceptingClients ? "success" : "critical"}>
+        {acceptingClients ? "Accepting new clients" : "Not accepting new clients"}
       </Badge>
       <ItemList items={items} />
     </div>

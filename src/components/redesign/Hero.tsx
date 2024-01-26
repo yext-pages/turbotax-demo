@@ -149,7 +149,7 @@ const Details: React.FC = () => {
 
 const Booking: React.FC = () => {
   return (
-    <MatchingCtaButton size={"large"} icon={Calendar} id={"primary-cta"}>
+    <MatchingCtaButton size={"large"} icon={Calendar} id={"primary-cta"} section={"hero"}>
       Book a free call
     </MatchingCtaButton>
   );

@@ -29,7 +29,7 @@ const StickyMatchingFooter: React.FC = () => {
         (visible ? "opacity-100" : "opacity-0")
       }
     >
-      <MatchingCtaButton className={"w-full"} size={"medium"}>
+      <MatchingCtaButton className={"w-full"} size={"medium"} section={"sticky-footer"}>
         Book a free call
       </MatchingCtaButton>
     </div>

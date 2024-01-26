@@ -38,7 +38,12 @@ const Header: React.FC = () => {
           >
             Find another Verified Pro
           </Button>
-          <MatchingCtaButton size={"medium"} icon={Call} className={"hidden s:flex"}>
+          <MatchingCtaButton
+            size={"medium"}
+            icon={Call}
+            section={"header"}
+            className={"hidden s:flex"}
+          >
             Book a free call
           </MatchingCtaButton>
         </div>

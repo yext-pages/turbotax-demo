@@ -172,9 +172,17 @@ export const Section: React.FC<PropsWithChildren<Props>> = ({
   );
 };
 
-export const StationaryBookNow: React.FC = () => {
+interface StationaryBookNowProps {
+  section: string;
+}
+
+export const StationaryBookNow: React.FC<StationaryBookNowProps> = (props) => {
   return (
-    <MatchingCtaButton className={"hidden s:block self-start"} size={"large"}>
+    <MatchingCtaButton
+      className={"hidden s:block self-start"}
+      size={"large"}
+      section={props.section}
+    >
       Book a free call
     </MatchingCtaButton>
   );
@@ -265,6 +273,7 @@ interface MatchingCtaProps {
   children: string;
   className?: string;
   id?: string;
+  section: string;
 }
 
 export const MatchingCtaButton: React.FC<MatchingCtaProps> = (props) => {
@@ -283,6 +292,7 @@ export const MatchingCtaButton: React.FC<MatchingCtaProps> = (props) => {
       iconBefore={props.icon ? <props.icon /> : undefined}
       href={matchingLink}
       className={props.className}
+      objectDetail={props.section}
       size={props.size || "large"}
     >
       {props.children}

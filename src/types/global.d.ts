@@ -134,7 +134,7 @@ interface Window {
             },
             event?: {
               targetElement: HTMLElement;
-              clickEvent: React.MouseEvent<any, MouseEvent>;
+              clickEvent: MouseEvent;
             }
           ) => void;
           constants: TrackingConstants;

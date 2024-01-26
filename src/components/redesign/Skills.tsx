@@ -30,7 +30,7 @@ const Skills: React.FC = () => {
         <Expertise />
         <Experience />
       </div>
-      <StationaryBookNow />
+      <StationaryBookNow section={"skills"} />
     </Section>
   );
 };

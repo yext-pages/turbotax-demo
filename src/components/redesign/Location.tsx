@@ -30,7 +30,7 @@ const Location: React.FC = () => {
         <Hours />
         <Languages />
       </div>
-      <StationaryBookNow />
+      <StationaryBookNow section={"location"} />
     </Section>
   );
 };

@@ -39,7 +39,7 @@ const Bio: React.FC = () => {
           <AboutMe />
           <SocialMedia />
           <Disclaimer />
-          <StationaryBookNow />
+          <StationaryBookNow section={"bio"} />
         </div>
       </div>
     </Section>

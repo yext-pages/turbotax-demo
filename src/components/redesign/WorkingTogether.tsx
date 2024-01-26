@@ -37,7 +37,7 @@ const WorkingTogether: React.FC = () => {
           description={"After you review, I’ll file you taxes for you. And you’re done!"}
         />
       </div>
-      <StationaryBookNow />
+      <StationaryBookNow section={"working-together"} />
     </Section>
   );
 };

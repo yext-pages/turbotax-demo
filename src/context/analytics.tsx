@@ -34,7 +34,7 @@ export const useAnalytics = () => {
       if (props.event) {
         clickEvent = {
           targetElement: props.event.currentTarget,
-          clickEvent: props.event,
+          clickEvent: props.event.nativeEvent,
         };
       }
 
@@ -43,6 +43,7 @@ export const useAnalytics = () => {
           ...analyticsScreen,
           action: props.action,
           object: props.object,
+          object_detail: props.objectDetail,
           ui_action: props.uiAction,
           ui_object: props.uiObject,
           ui_object_detail: props.uiObjectDetail,

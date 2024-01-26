@@ -67,14 +67,19 @@ export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> =
   params.set("fields", "reviewGenerationUrl");
   params.set("v", "20240117");
   params.set("api_key", YEXT_PUBLIC_REVIEWS_API_KEY);
-  const response = await fetch(
-    "https://cdn.yextapis.com/v2/accounts/me/entities/prd-" +
-      data.document.c_pseudonymID +
-      "?" +
-      params
-  );
-  const respJson = await response.json();
-  data.document.reviewGenerationUrl = respJson.response.reviewGenerationUrl;
+  try {
+    const response = await fetch(
+      "https://cdn.yextapis.com/v2/accounts/me/entities/" + data.document.id + "?" + params
+    );
+    const respJson = await response.json();
+    data.document.reviewGenerationUrl = respJson.response.reviewGenerationUrl;
+
+    if (!data.document.reviewGenerationUrl) {
+      console.log("No reviewGenerationUrl found: " + JSON.stringify(respJson));
+    }
+  } catch (err) {
+    console.error(err);
+  }
 
   const doc = data.document;
   if (isQA) {

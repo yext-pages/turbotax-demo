@@ -28,9 +28,7 @@ const Header: React.FC = () => {
           </Link>
           <HeaderLink name={"Expertise"} id={PageSection.Skills} className={"hidden m:block"} />
           <HeaderLink name={"Experience"} id={PageSection.Skills} className={"hidden l:block"} />
-          {pro.reviewGenerationUrl && (
-            <HeaderLink name={"Reviews"} id={PageSection.Reviews} className={"hidden m:block"} />
-          )}
+          <HeaderLink name={"Reviews"} id={PageSection.Reviews} className={"hidden m:block"} />
           <HeaderLink name={"About me"} id={PageSection.Bio} className={"hidden m:block"} />
           <HeaderLink name={"Location"} id={PageSection.Location} className={"hidden m:block"} />
         </nav>

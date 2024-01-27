@@ -1,7 +1,6 @@
 import type {
   GetHeadConfig,
   GetPath,
-  Template,
   TemplateConfig,
   TemplateProps,
   TemplateRenderProps,
@@ -16,6 +15,7 @@ import { cleanPseudonym } from "./pseudonym";
 import { createLocalBusinessStructuredData } from "./taxProStructuredData";
 import taxProFields from "./taxProFields";
 import { Tag } from "@yext/pages/dist/types/src";
+import { fetchReviewUrl } from "./yextApi";
 
 export const makeConfig = (streamId: string): TemplateConfig => {
   return {
@@ -63,25 +63,8 @@ export const getHeadConfig = (
 export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> = async (data) => {
   const isQA = YEXT_PUBLIC_ENVIRONMENT !== "prod";
 
-  const params = new URLSearchParams();
-  params.set("fields", "reviewGenerationUrl");
-  params.set("v", "20240117");
-  params.set("api_key", YEXT_PUBLIC_REVIEWS_API_KEY);
-  try {
-    const response = await fetch(
-      "https://cdn.yextapis.com/v2/accounts/me/entities/" + data.document.id + "?" + params
-    );
-    const respJson = await response.json();
-    data.document.reviewGenerationUrl = respJson.response.reviewGenerationUrl;
-
-    if (!data.document.reviewGenerationUrl) {
-      console.log("No reviewGenerationUrl found: " + JSON.stringify(respJson));
-    }
-  } catch (err) {
-    console.error(err);
-  }
-
   const doc = data.document;
+  doc.reviewGenerationUrl = await fetchReviewUrl(doc);
   if (isQA) {
     doc.c_signedMapUrl = doc.c_signedMapUrlPreProd;
   } else {

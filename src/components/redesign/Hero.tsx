@@ -50,7 +50,7 @@ const Headshot: React.FC = () => {
       <Clippy />
       <img
         src={pro.c_epsImageUrl || pro.headshot?.url}
-        className={"bg-wintermint120 w-full h-full object-cover object-top"}
+        className={"bg-wintermint120 w-full h-full object-cover object-center"}
         style={{ clipPath: "url(#my-clip-path)" }}
         alt={pro.c_taxProName}
       />

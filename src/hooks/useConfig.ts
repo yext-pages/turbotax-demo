@@ -21,6 +21,7 @@ export interface Config {
     src: string;
     loadAdobeVisitorAPI: boolean;
   };
+  proMatchingIntroUrl: string;
   makeMatchingCtaUrl: (pro: TaxProsDevExtended) => [string, URLSearchParams];
 }
 
@@ -48,6 +49,7 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/staging/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
+    proMatchingIntroUrl: "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro",
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
       makeCtaUrl(pro, "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro"),
   },
@@ -66,6 +68,7 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/staging/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
+    proMatchingIntroUrl: "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro",
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
       makeCtaUrl(pro, "https://pros-turbotax-e2e.app.intuit.com/pro-matching-intro"),
   },
@@ -84,6 +87,7 @@ const ConfigsByEnv: Record<Env, Config> = {
       src: "//uxfabric.intuitcdn.net/analytics/prod/track-event-lib-init.min.js",
       loadAdobeVisitorAPI: false,
     },
+    proMatchingIntroUrl: "https://pros-turbotax.app.intuit.com/pro-matching-intro",
     makeMatchingCtaUrl: (pro: TaxProsDevExtended) =>
       makeCtaUrl(pro, "https://pros-turbotax.app.intuit.com/pro-matching-intro"),
   },

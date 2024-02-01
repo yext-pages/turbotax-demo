@@ -10,6 +10,8 @@ import "../index.css";
 import PageLayout from "../components/PageLayout";
 import CenteredContainer from "../components/CenteredContainer";
 import { B2, H6 } from "../components/atoms/Typography";
+import {useEffect} from "react";
+import useConfig from "../hooks/useConfig";
 
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
@@ -31,6 +33,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
 
 // Template that will show as the page
 const FourOhFour: Template<TemplateRenderProps> = () => {
+  const config = useConfig();
+  useEffect(() => {
+    global.window.location.href = config.proMatchingIntroUrl;
+  }, []);
   return (
     <PageLayout>
       <CenteredContainer>

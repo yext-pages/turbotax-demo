@@ -35,7 +35,7 @@ const WorkingTogether: React.FC = () => {
         <Step
           icon={IncomeSummaryIcon}
           title={"Review and file"}
-          description={"After you review, I’ll file you taxes for you. And you’re done!"}
+          description={"After you review, I’ll file your taxes for you. And you’re done!"}
         />
       </div>
       <StationaryBookNow section={PageSection.WorkingTogether} />

@@ -99,12 +99,13 @@ const SkillPill: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 const Experience = () => {
   const pro = useIndependentPro();
   const items: ListItem[] = [];
+  const yearsOfExperienceText = pro.yearsOfExperience > 0 ? `with ${pro.yearsOfExperience} ${
+      pro.yearsOfExperience === 1 ? "year" : "years"
+  } of experience` : 'just starting out';
 
   items.push({
     icon: <ShieldCheck className={"w-6 h-6 s:w-8 s:h-8"} />,
-    children: `Verified Pro with ${pro.yearsOfExperience} ${
-      pro.yearsOfExperience === 1 ? "year" : "years"
-    } of experience`,
+    children: `Verified Pro ${yearsOfExperienceText}`,
     typescaleMobile: TypeScale.Body02,
     weightMobile: "regular",
     typescaleStationary: TypeScale.Body01,

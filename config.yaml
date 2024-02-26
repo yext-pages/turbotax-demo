@@ -6,9 +6,6 @@ buildConfiguration:
       - package.json
       - package-lock.json
       - .npmrc
-livePreviewConfiguration:
-  setupCommand: ":"
-  serveCommand: npm run studio
 sitemap:
   disableSitemapGeneration: false
   fileName: expert-profile-sitemap

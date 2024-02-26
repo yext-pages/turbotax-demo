@@ -7,7 +7,6 @@ import Breadcrumbs from "../directory/Breadcrumbs";
 import DirectoryList from "../directory/DirectoryList";
 import DirectoryHero from "../directory/DirectoryHero";
 import DirectoryGrid from '../directory/DirectoryGrid';
-import StateLinks from '../directory/StateLinks';
 import Onramp from '../directory/Onramp';
 import Footer from "../indpro/Footer";
 import Header from "../indpro/Header";
@@ -65,8 +64,7 @@ const DirectoryPage = (props: DirectoryProps) => {
               relativePrefixToRoot={data.relativePrefixToRoot}
             />
           </main>
-          {config.showFooter && <Footer />}
-          <StateLinks relativePrefixToRoot={data.relativePrefixToRoot} />
+          {config.showFooter && <Footer baseUrl={data.relativePrefixToRoot} />}
         </div>
       </DirectoryContext.Provider>
       {/* </AnalyticsScreen> */}

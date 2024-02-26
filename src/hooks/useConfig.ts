@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import type { TaxProsDevExtended } from "./useIndependentPro";
 
 type Env = "local" | "qa" | "prod";
-export type Page = "independentPro" | "matchingPreview" | "proReferral" | "faq" | "dynamicPreview";
+export type Page = "independentPro" | "matchingPreview" | "proReferral" | "faq" | "dynamicPreview" | "directory" | "directory_region" | "directory_city";
 
 export interface Config {
   env: Env;

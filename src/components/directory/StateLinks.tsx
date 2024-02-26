@@ -8,11 +8,11 @@ export type RegionEntitiesResponse = {
 };
 
 interface StateLinksProps {
-  relativePrefixToRoot: string;
+  baseUrl: string;
 };
 
 const StateLinks = (props: StateLinksProps) => {
-  const { relativePrefixToRoot } = props;
+  const { baseUrl } = props;
   const title = "Find a TurboTax Verified Pro in Another State";
 
   const [regionEntities, setRegionEntities] = useState<RegionEntitiesResponse>();  
@@ -28,13 +28,14 @@ const StateLinks = (props: StateLinksProps) => {
 
   return regionEntities ? (
     <div className="flex flex-col bg-pepper0">
-      <div className="font-normal text-pepper110 text-[20px] leading-[28px] px-[24px] pb-[16px] s:text-[24px] s:leading-[30px] s:px-[150px] s:pb-[32px]">
+      <div className="font-normal text-pepper110 text-[20px] leading-[28px] pb-[16px] s:text-[24px] s:leading-[30px] s:pb-[32px]">
         {title}
       </div>
       <div className="">
         <DirectoryList
           directoryChildren={regionEntities.docs}
-          relativePrefixToRoot={relativePrefixToRoot}
+          relativePrefixToRoot={baseUrl}
+          isFooter={true}
         />
       </div>
     </div>

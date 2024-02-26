@@ -2,10 +2,12 @@ import type { DirectoryProfile } from "../../types/entities";
 import Link from "../atoms/Link";
 import { stateAbbrToName } from "../../utils/helpers";
 import ArrowRightIcon from "../../assets/images/arrow-right.svg";
+import classNames from "classnames";
 
 interface DirectoryListProps {
   directoryChildren: DirectoryProfile<never>[];
   relativePrefixToRoot: string;
+  isFooter?: boolean;
 }
 
 // Skip directory levels that would only render one option.
@@ -17,7 +19,7 @@ const getSkipLevelSlug = (child: DirectoryProfile<never>): string => {
 };
 
 const DirectoryList = (props: DirectoryListProps) => {
-  const { directoryChildren, relativePrefixToRoot } = props;
+  const { directoryChildren, relativePrefixToRoot, isFooter } = props;
   const directoryChildrenSorted = directoryChildren.slice().sort((a, b) => {
     const nameA = a.name || '';
     const nameB = b.name || '';
@@ -26,7 +28,7 @@ const DirectoryList = (props: DirectoryListProps) => {
 
   return (
     <div className="flex flex-col">
-      <ul className="flex flex-wrap s:px-[150px] s:py-[50px] s:gap-y-6">
+      <ul className={classNames("flex flex-wrap s:py-[50px] s:gap-y-6", !isFooter ? "s:px-[150px]" : "")} >
         {directoryChildrenSorted.map((child, idx) => (
           <li
             className="w-full border-b border-tofu110 s:w-1/2 s:p-0 s:border-0 m:w-1/3 l:w-1/4"

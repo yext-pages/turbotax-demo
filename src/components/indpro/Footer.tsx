@@ -14,8 +14,14 @@ import {
 } from "./FooterIcons";
 import Link from "../atoms/Link";
 import { TypeScale } from "../atoms/TypeScale";
+import StateLinks from '../directory/StateLinks';
 
-const Footer: React.FC = () => {
+interface FooterGlobalProps {
+  baseUrl?: string;
+}
+
+const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
+  const baseUrl = props.baseUrl ?? 'https://pros.turbotax.intuit.com/';
   const [isInCalifornia, setIsInCalifornia] = useState(
     globalThis.document?.cookie.includes("AKES_GEO=US~CA")
   );
@@ -206,6 +212,9 @@ const Footer: React.FC = () => {
             <CLevelSecurity />
           </div>
         </div>
+      </FooterSection>
+      <FooterSection>
+        <StateLinks baseUrl={baseUrl} />
       </FooterSection>
     </footer>
   );

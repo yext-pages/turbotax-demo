@@ -1,21 +1,21 @@
 import type {
   GetHeadConfig,
   GetPath,
+  HeadConfig,
   TemplateConfig,
   TemplateProps,
   TemplateRenderProps,
   TransformProps,
-  HeadConfig,
 } from "@yext/pages";
 
-import { TaxProsDevExtended } from "../hooks/useIndependentPro";
-import { createConfig, Page } from "../hooks/useConfig";
-import { createAnalyticsScripts } from "./analytics";
-import { cleanPseudonym } from "./pseudonym";
-import { createLocalBusinessStructuredData } from "./taxProStructuredData";
+import {TaxProsDevExtended} from "../hooks/useIndependentPro";
+import {createConfig, Page} from "../hooks/useConfig";
+import {createAnalyticsScripts} from "./analytics";
+import {cleanPseudonym} from "./pseudonym";
+import {createLocalBusinessStructuredData} from "./taxProStructuredData";
 import taxProFields from "./taxProFields";
-import { Tag } from "@yext/pages/dist/types/src";
-import { fetchReviewUrl } from "./yextApi";
+import {Tag} from "@yext/pages/dist/types/src";
+import {fetchReviewUrl, getReviews, getReviewsAggregate} from "./yextApi";
 
 export const makeConfig = (streamId: string): TemplateConfig => {
   return {
@@ -65,6 +65,8 @@ export const transformProps: TransformProps<TemplateProps<TaxProsDevExtended>> =
 
   const doc = data.document;
   doc.reviewGenerationUrl = await fetchReviewUrl(doc);
+  doc.reviews = await getReviews(doc);
+  doc.reviewsAggregate = await getReviewsAggregate(doc);
   if (isQA) {
     doc.c_signedMapUrl = doc.c_signedMapUrlPreProd;
   } else {

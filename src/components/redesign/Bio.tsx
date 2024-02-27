@@ -60,7 +60,7 @@ const Title: React.FC = () => {
   );
 };
 
-const Headshot: React.FC = () => {
+export const Headshot: React.FC = () => {
   const pro = useIndependentPro();
   return (
     <img

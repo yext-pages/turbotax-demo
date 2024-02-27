@@ -13,6 +13,7 @@ import { Blob, Clippy } from "./HeroSvgs";
 import { MatchingCtaButton } from "./SharedComponents";
 import { PageSection } from "./constants";
 import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
+import {Headshot} from "./Bio";
 
 const Hero: React.FC = () => {
   return (
@@ -35,41 +36,6 @@ const Hero: React.FC = () => {
     </section>
   );
 };
-
-/* Start cursed black magic */
-
-const Headshot: React.FC = () => {
-  const pro = useIndependentPro();
-
-  return (
-    <div
-      className={
-        "flex flex-col gap-4 self-center items-center relative w-full max-w-[200px] s:max-w-[300px] m:max-w-[325px] l:max-w-[350px] xl:max-w-[450px] aspect-[543/460] h-auto z-[0] mb-10 s:mb-0"
-      }
-    >
-      <Clippy />
-      <img
-        src={pro.c_epsImageUrl || pro.headshot?.url}
-        className={"bg-wintermint120 w-full h-full object-cover object-center"}
-        style={{ clipPath: "url(#my-clip-path)" }}
-        alt={pro.c_taxProName}
-      />
-      <Blob />
-
-      <img
-        src={TIPLogo}
-        width={146}
-        height={24}
-        className={
-          "absolute bottom-[-40px] m:bottom-0 m:right-[-4px] l:bottom-0 l:right-0 xl:bottom-4 xl:right-4"
-        }
-        alt={"Intuit TurboTax Verified Pro"}
-      />
-    </div>
-  );
-};
-
-/* End cursed black magic */
 
 const Name: React.FC = () => {
   const pro = useIndependentPro();

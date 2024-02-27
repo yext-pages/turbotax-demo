@@ -37,6 +37,7 @@ const DirectoryPage = (props: DirectoryProps) => {
             <DirectoryHero
               name={data.document.name}
               title={data.document.c_heroTitle}
+              // TODO: update this to RTF and add handling
               description={data.document.c_heroDescription}
               imageUrl={data.document.c_directoryHeroImage?.url}
               imageAlt={data.document.c_directoryHeroImage?.alternateText}
@@ -59,7 +60,7 @@ const DirectoryPage = (props: DirectoryProps) => {
             )}
             <Onramp />
             <Breadcrumbs
-              className="flex justify-start s:hidden px-[16px]"
+              className="flex justify-start px-[16px] border border-tofu110 s:hidden"
               breadcrumbs={dm_directoryParents_directory || []}
               relativePrefixToRoot={data.relativePrefixToRoot}
             />

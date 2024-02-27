@@ -75,7 +75,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
   if (slug) {
     return (
       <Link
-        className={"text-blueberry80 text-[14px] leading-[20px] font-medium hover:underline"}
+        className={"text-blueberry80 text-[14px] leading-[20px] font-medium underline s:no-underline hover:underline"}
         href={slug}
       >
         <span>{nameCleaned}</span>

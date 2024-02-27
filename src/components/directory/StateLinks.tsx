@@ -28,7 +28,7 @@ const StateLinks = (props: StateLinksProps) => {
 
   return regionEntities ? (
     <div className="flex flex-col bg-pepper0">
-      <div className="font-normal text-pepper110 text-[20px] leading-[28px] pb-[16px] s:text-[24px] s:leading-[30px] s:pb-[32px]">
+      <div className="font-normal text-pepper110 text-[20px] leading-[28px] px-4 pb-[16px] s:text-[24px] s:leading-[30px] s:px-0 s:pb-[32px]">
         {title}
       </div>
       <div className="">

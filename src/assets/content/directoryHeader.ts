@@ -45,12 +45,18 @@ export default function directoryHeader(data: TemplateRenderProps): Tag[] {
         href: canonicalUrl(data),
       },
     },
-    // TODO: check if they want these:
-    // ...logoTags,
-    // ...defaultHeadTags,
-    // ...geoTags,
-    // ...addressTags,
   ];
+
+  const heroImageUrl = getHeroImageUrl(data);
+  if (heroImageUrl) {
+    metaTags.push({
+      type: "meta",
+      attributes: {
+        name: "og:image",
+        content: heroImageUrl,
+      },
+    });
+  }
 
   return [...defaultMetaTags({ withRobots: true }), ...metaTags];
 }
@@ -92,4 +98,10 @@ function canonicalUrl(data: TemplateRenderProps, locale?: string): string {
   }
 
   return `https://pros.turbotax.intuit.com/${pagePath}`;
+}
+
+function getHeroImageUrl(data: TemplateRenderProps): string | undefined {
+  if (!data.document.c_directoryHeroImage?.url) return undefined;
+  const imageUrl = data.document.c_directoryHeroImage.url;
+  return imageUrl;
 }

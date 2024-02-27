@@ -1,11 +1,11 @@
-import { B1, B3, H5 } from "../atoms/Typography";
-import React, { useMemo } from "react";
-import useIndependentPro, { TaxProsDevExtended } from "../../hooks/useIndependentPro";
+import {B1, B3, H5} from "../atoms/Typography";
+import React, {useMemo} from "react";
+import useIndependentPro, {TaxProsDevExtended} from "../../hooks/useIndependentPro";
 import Link from "../atoms/Link";
-import { Section, StationaryBookNow } from "./SharedComponents";
+import {Section, StationaryBookNow} from "./SharedComponents";
 import ResponsiveTypography from "../atoms/ResponsiveTypography";
-import { TypeScale } from "../atoms/TypeScale";
-import { TextColor } from "../atoms/TextColor";
+import {TypeScale} from "../atoms/TypeScale";
+import {TextColor} from "../atoms/TextColor";
 import Facebook from "../../assets/icons/social/Facebook";
 import Instagram from "../../assets/icons/social/Instagram";
 import Twitter from "../../assets/icons/social/Twitter";
@@ -14,8 +14,9 @@ import Youtube from "../../assets/icons/social/Youtube";
 import GenericWebsite from "../../assets/icons/social/GenericWebsite";
 import Pinterest from "../../assets/icons/social/Pinterest";
 import Tiktok from "../../assets/icons/social/Tiktok";
-import { IconProps } from "../../assets/icons";
-import { PageSection } from "./constants";
+import {IconProps} from "../../assets/icons";
+import {PageSection} from "./constants";
+import TIPLogo from "../../assets/logos/5050_horizontal.svg";
 
 const Bio: React.FC = () => {
   return (
@@ -60,16 +61,31 @@ const Title: React.FC = () => {
   );
 };
 
-export const Headshot: React.FC = () => {
+interface Props {
+  includeLogo?: boolean
+}
+
+export const Headshot: React.FC<Props> = ({includeLogo}) => {
   const pro = useIndependentPro();
   return (
-    <img
-      src={pro.c_epsImageUrl || pro.headshot?.url}
-      alt={pro.c_taxProName}
-      height={330}
-      width={"auto"}
-      className={"bg-wintermint120 rounded-[16px] object-cover shadow-elev2 w-full max-w-[440px]"}
-    />
+      <div className={"flex flex-col gap-3 justify-items-center"}>
+        <img
+            src={pro.c_epsImageUrl || pro.headshot?.url}
+            alt={pro.c_taxProName}
+            height={330}
+            width={"auto"}
+            className={"bg-wintermint120 rounded-[16px] object-cover shadow-elev2 w-full max-w-[440px]"}
+        />
+        <span className={"flex flex-row justify-center"}>
+        {includeLogo && (
+            <img
+                src={TIPLogo}
+                width={146}
+                height={24}
+                alt={"Intuit TurboTax Verified Pro"}
+            />)}
+        </span>
+      </div>
   );
 };
 

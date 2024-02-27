@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           "flex flex-col gap-8 s:flex-row-reverse s:gap-6 justify-between s:items-center s:px-6 m:px-20 l:px-[140px] s:max-w-screen-xl mx-auto"
         }
       >
-        <Headshot />
+        <Headshot includeLogo />
         <div
           className={"contents s:flex flex-col s:gap-6 gap-8 s:max-w-[600px] items-start s:py-14"}
         >

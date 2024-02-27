@@ -1,5 +1,5 @@
 import { B2, B3 } from "../atoms/Typography";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { TextColor } from "../atoms/TextColor";
 import {
   Blog,
@@ -15,6 +15,7 @@ import {
 import Link from "../atoms/Link";
 import { TypeScale } from "../atoms/TypeScale";
 import StateLinks from '../directory/StateLinks';
+import classNames from "classnames";
 
 interface FooterGlobalProps {
   baseUrl?: string;
@@ -213,7 +214,7 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
           </div>
         </div>
       </FooterSection>
-      <FooterSection>
+      <FooterSection noMobileVerticalPadding={true}>
         <StateLinks baseUrl={baseUrl} />
       </FooterSection>
     </footer>
@@ -279,8 +280,13 @@ const FooterLink: React.FC<FooterProps> = ({ children, href, openInNewWindow }) 
   );
 };
 
-const FooterSection: React.FC = ({ children }) => {
-  return <section className={"max-w-[1200px] px-10 py-5 mx-auto"}>{children}</section>;
+interface FooterSectionProps {
+  children: ReactNode;
+  noMobileVerticalPadding?: boolean;
+}
+
+const FooterSection: React.FC<FooterSectionProps> = ({ children, noMobileVerticalPadding }) => {
+  return <section className={classNames("max-w-[1200px] py-5 mx-auto", !noMobileVerticalPadding ? "px-10" : "s:px-10")}>{children}</section>;
 };
 
 export default Footer;

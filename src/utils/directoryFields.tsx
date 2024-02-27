@@ -34,6 +34,7 @@ const taxProsMainFields: string[] = [
   "dm_directoryChildren.c_taxProName",
   "dm_directoryParents_directory.slug",
   "dm_directoryParents_directory.name",
+  "dm_directoryChildren.googlePlaceId",
   "dm_directoryChildren.c_directoryLocationTeaser",
   "dm_directoryChildren.dm_baseEntityCount",
   "dm_directoryChildren.dm_directoryChildren.slug",

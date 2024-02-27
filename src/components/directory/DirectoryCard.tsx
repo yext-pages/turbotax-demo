@@ -16,7 +16,7 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
   return (
     <div className="h-full p-6 s:px-10">
       <div className="flex justify-start mb-2">
-        {profile.headshot && (
+        {profile.headshot ? (
           <div className="mr-2">
             <img
               className={"w-[60px] h-[60px] min-w-[60px] s:w-[75px] s:h-[75px] s:min-w-[75px] rounded-[100px] object-cover"}
@@ -25,6 +25,8 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
               loading={"lazy"}
             />
           </div>
+        ) : (
+          <div className="h-[60px] s:h-[75px]" />
         )}
         {profile.c_taxProName && (
           <div className="flex justify-center items-center text-pepper120 text-[20px] leading-[28px] font-normal s:text-[24px] s:leading-[30px]">
@@ -66,8 +68,11 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
           />
           <Link
             className="text-sm text-blueberry80 font-medium underline hover:no-underline"
+            // Listings will pass through for agents opted in for Google Business Profile
             href={`${getDirections(
-              profile.address as AddressType
+              profile.address as AddressType,
+              undefined,
+              profile.googlePlaceId ?? ""
             )}`}
           >
             <Address

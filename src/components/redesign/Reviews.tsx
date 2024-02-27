@@ -197,6 +197,7 @@ const SubmitReview: React.FC = () => {
           priority={"secondary"}
           className={"s:self-start"}
           uiObjectDetail={"yext_review_generation_url"}
+          target="_blank"
         >
           Leave a review
         </Button>

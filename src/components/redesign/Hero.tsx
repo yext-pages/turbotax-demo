@@ -1,18 +1,16 @@
 import React from "react";
 import useIndependentPro from "../../hooks/useIndependentPro";
-import TIPLogo from "../../assets/logos/5050_horizontal.svg";
-import { TextColor } from "../atoms/TextColor";
+import {TextColor} from "../atoms/TextColor";
 import Badge from "../atoms/Badge";
-import ItemList, { ListItem } from "../indpro/ItemList";
+import ItemList, {ListItem} from "../indpro/ItemList";
 import ShieldCheck from "../../assets/icons/ShieldCheck";
 import ResponsiveTypography from "../atoms/ResponsiveTypography";
-import { TypeScale } from "../atoms/TypeScale";
-import { StateIcon } from "../../assets/icons/primary/StateIcon";
+import {TypeScale} from "../atoms/TypeScale";
+import {StateIcon} from "../../assets/icons/primary/StateIcon";
 import Calendar from "../../assets/icons/Calendar";
-import { Blob, Clippy } from "./HeroSvgs";
-import { MatchingCtaButton } from "./SharedComponents";
-import { PageSection } from "./constants";
-import { Label, useProHasLabel } from "../../hooks/useProHasLabel";
+import {MatchingCtaButton} from "./SharedComponents";
+import {PageSection} from "./constants";
+import {Label, useProHasLabel} from "../../hooks/useProHasLabel";
 import {Headshot} from "./Bio";
 
 const Hero: React.FC = () => {

@@ -1,9 +1,11 @@
 import DirectoryHeroImage from "../../assets/images/directory_hero.jpg";
+import { LexicalRichText } from "@yext/pages-components";
+import { RTF2 } from "../../types/entities";
 
 interface DirectoryHeroProps {
   name: string;
   title?: string;
-  description?: string;
+  description?: string | RTF2;
   imageUrl?: string;
   imageAlt?: string;
 }
@@ -19,8 +21,11 @@ const DirectoryHero = (props: DirectoryHeroProps) => {
           {titleText}
         </h1>
         <div className="text-base pepper120 font-normal">
-          {description ? (
-            description
+          {description ?
+            typeof description === "string" ? (
+              description
+              ) : (
+              <LexicalRichText serializedAST={JSON.stringify(description.json)} />
           ) : (
             <span>
               Find an independent tax pro who’s got your back— they’ll only sign and file your return when it’s <strong className="font-medium">100% accurate</strong>.

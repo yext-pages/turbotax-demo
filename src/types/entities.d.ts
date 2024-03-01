@@ -22,6 +22,10 @@ interface Meta {
   description: string;
 }
 
+export interface RTF2 {
+  readonly json: object;
+}
+
 export type DirectoryProfile<T> = BaseProfile & {
   readonly name: string;
   readonly slug: string;
@@ -29,6 +33,7 @@ export type DirectoryProfile<T> = BaseProfile & {
   readonly c_heroTitle: string;
   readonly c_heroDescription: string;
   readonly c_directoryHeroImage: Image,
+  readonly c_onrampCTAURL: string;
   readonly dm_baseEntityCount: number;
   readonly dm_directoryChildren?: T[];
   readonly dm_directoryParents_directory?: Array<{ slug: string; name: string }>;

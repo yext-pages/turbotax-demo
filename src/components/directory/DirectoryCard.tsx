@@ -30,7 +30,12 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
         )}
         {profile.c_taxProName && (
           <div className="flex justify-center items-center text-pepper120 text-[20px] leading-[28px] font-normal s:text-[24px] s:leading-[30px]">
-            {profile.c_taxProName}
+            <Link
+              className={"no-underline s:hover:underline"}
+              href={relativePrefixToRoot + profile.slug}
+            >
+              {profile.c_taxProName}
+            </Link>
           </div>
         )}
       </div>

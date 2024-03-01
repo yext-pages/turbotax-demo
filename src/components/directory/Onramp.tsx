@@ -1,11 +1,15 @@
 import OnrampImage from "../../assets/images/onramp.svg";
 import Button from "../atoms/Button";
 
-const Onramp = () => {
+interface OnrampProps {
+  ctaUrl: string;
+};
+
+const Onramp = (props: OnrampProps) => {
   const title = "Match with a Verified Pro";
   const description = "Tell us a bit about you and your taxes to match with a pro who specializes in your tax situation.";
   const ctaText = "Get Started";
-  const ctaUrl = "https://pros.turbotax.intuit.com/pro-matching";
+  const ctaUrl = props.ctaUrl ?? "https://pros.turbotax.intuit.com/pro-matching-intro";
 
   return (
     <div className="flex flex-col m-6 px-4 py-6 bg-tofu110 rounded-[16px] s:mx-[150px] s:my-[50px] m:flex-row m:justify-between m:px-[50px] m:py-[50px] l:px-[100px] xl:px-[150px]">

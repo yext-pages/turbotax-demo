@@ -68,13 +68,13 @@ interface Props {
 export const Headshot: React.FC<Props> = ({includeLogo}) => {
   const pro = useIndependentPro();
   return (
-      <div className={"flex flex-col gap-3 justify-items-center"}>
+      <div className={"flex flex-col gap-4 justify-items-center"}>
         <img
             src={pro.c_epsImageUrl || pro.headshot?.url}
             alt={pro.c_taxProName}
-            height={330}
+            height={380}
             width={"auto"}
-            className={"bg-wintermint120 rounded-[16px] object-cover shadow-elev2 w-full max-w-[440px]"}
+            className={"bg-wintermint120 rounded-[16px] object-cover shadow-elev2 w-full max-w-[440px] max-h-[320px] l:max-h-[380px]"}
         />
         <span className={"flex flex-row justify-center"}>
         {includeLogo && (

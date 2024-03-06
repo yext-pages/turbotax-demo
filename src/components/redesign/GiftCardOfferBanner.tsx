@@ -30,7 +30,6 @@ const GiftCardOfferBanner: FC = () => {
               File with me, Get $100
             </ResponsiveTypography>
           </div>
-
           <div className={"flex justify-center items-center flex-row gap-2"}>
               <ResponsiveTypography
                 typescaleMobile={TypeScale.Body04}
@@ -41,7 +40,6 @@ const GiftCardOfferBanner: FC = () => {
               >
                 as a gift card, must file by 3/31
               </ResponsiveTypography>
-
             <Link action={"engaged"}
                   object={"link"}
                   href={"https://promos.mardenkane.com/intuit/intuitincentive/"}

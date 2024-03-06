@@ -12,6 +12,7 @@ import Header from "./Header";
 import StickyMatchingFooter from "./StickyMatchingFooter";
 import useConfig from "../../hooks/useConfig";
 import ErrorBoundary from "../ErrorBoundary";
+import GiftCardOfferBanner from "./GiftCardOfferBanner";
 
 const Page: React.FC = () => {
   const config = useConfig();
@@ -24,6 +25,7 @@ const Page: React.FC = () => {
         </ErrorBoundary>
       )}
       <main className={"contents"}>
+        <GiftCardOfferBanner />
         <Hero />
         <div className={"max-w-screen-xl s:mx-auto s:px-6"}>
           {/*<Debug />*/}

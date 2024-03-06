@@ -14,7 +14,8 @@ const GiftCardOfferBanner: FC = () => {
           <img
                src={pro.c_epsImageUrl || pro.headshot?.url}
                alt={pro.c_taxProName}
-               height={"100%"}
+               height={64}
+               width={"auto"}
                className={"border-solid border-pepper100 border-1 rounded-full object-contain max-w-full max-h-full"}
           />
         </div>

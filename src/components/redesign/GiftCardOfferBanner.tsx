@@ -6,7 +6,7 @@ import useIndependentPro from "../../hooks/useIndependentPro";
 
 const GiftCardOfferBannerWrapper = 'bg-tofu120';
 const GiftCardOfferBannerWrapper2 = 'flex justify-center items-center flex-row gap-4 px-2';
-const GiftCardOfferBannerImg = 'max-w-full hidden min-[375px]:block';
+const GiftCardOfferBannerImg = 'w-16 hidden min-[375px]:block py-2';
 const GiftCardOfferBannerContent = 'text-gray-700 flex flex-col justify-center items-start';
 const GiftCardOfferBannerTitle = 'text-2xl font-extrabold leading-7 md:text-6xl md:leading-14';
 const GiftCardOfferBannerSubTitleWrapper = 'flex justify-center items-center flex-row gap-2';
@@ -22,9 +22,8 @@ const GiftCardOfferBanner: FC = () => {
           <img
                src={pro.c_epsImageUrl || pro.headshot?.url}
                alt={pro.c_taxProName}
-               height={32}
-               width={"auto"}
-               className={"border-solid border-pepper100 border-1 rounded-full object-contain max-h-[32px] max-w-[32px] l:max-h-[64px] l:max-w-[64px]"}
+               height={"100%"}
+               className={"border-solid border-pepper100 border-1 rounded-full object-contain max-w-full max-h-full"}
           />
         </div>
         <div className={GiftCardOfferBannerContent}>

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect, useRef } from "react";
+import React, {PropsWithChildren, useEffect, useReducer, useRef} from "react";
 import Button from "../atoms/Button";
 import StarFill from "../../assets/icons/StarFill";
 import StarHalf from "../../assets/icons/StarHalf";
@@ -281,11 +281,18 @@ interface MatchingCtaProps {
 export const MatchingCtaButton: React.FC<MatchingCtaProps> = (props) => {
   const config = useConfig();
   const matchingLink = useMatchingLink();
-
   const isOffboarding = useProHasLabel(Label.OffboardInProgress);
-  const showCTAs = config.showMatchingCTAs && !isOffboarding;
+  const [_, forceRender] = useReducer((val) => val + 1, 0);
 
+  const showCTAs = config.showMatchingCTAs && !isOffboarding;
   if (!showCTAs) return null;
+
+  useEffect(() => {
+    // The MatchingCtaButton won't have the correct matchingLink based on the url params
+    // since the initial render is server side. We need to trigger a re-render that updates
+    // the matchingLink based on the url params once we are on the client browser
+    setTimeout(() => {forceRender();}, 200);
+  }, []);
 
   return (
     <Button

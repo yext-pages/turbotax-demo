@@ -8,7 +8,7 @@ const GiftCardOfferBanner: FC = () => {
   const pro = useIndependentPro();
 
   return (
-    <div className={"bg-tofu120"}>
+    <div className={"bg-watermelon50"}>
       <div className={"flex justify-center items-center flex-row gap-4 px-2"}>
         <div className={"w-16 hidden min-[375px]:block py-2"}>
           <img

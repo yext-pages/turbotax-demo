@@ -45,6 +45,14 @@ export default function directoryHeader(data: TemplateRenderProps): Tag[] {
         href: canonicalUrl(data),
       },
     },
+    {
+      type: "link",
+      attributes: {
+        rel: "shortcut icon",
+        type: "image/ico",
+        href: "https://lib.intuitcdn.net/img/tto/fav-icons/tt-fav-icon.ico",
+      },
+    },
   ];
 
   const heroImageUrl = getHeroImageUrl(data);

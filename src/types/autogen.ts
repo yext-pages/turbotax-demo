@@ -74,7 +74,6 @@ export interface TaxProsMain {
 	c_title: string,
 	c_metaKeywords: string,
 	c_taxProName: string,
-	c_directoryLocationTeaser: string,
 	c_officeLocationName: string,
 	certifications: string[],
 	yearsOfExperience: number,

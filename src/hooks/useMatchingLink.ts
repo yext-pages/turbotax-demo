@@ -24,7 +24,7 @@ export const useMatchingLink = (): string => {
 
 const CID_KEY = "cid";
 const CHANNEL_URL_KEY = "channelUrl";
-const REFERRAL_CODE = "referralCode";
+const REFERRAL_CODE = "referral_code";
 
 function enrichCtaQueryParams(source: URLSearchParams, config: Config): URLSearchParams {
   const params = new URLSearchParams(source);

@@ -31,7 +31,7 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
         {profile.c_taxProName && (
           <div className="flex justify-center items-center text-pepper120 text-[20px] leading-[28px] font-normal s:text-[24px] s:leading-[30px]">
             <Link
-              className={"no-underline s:hover:underline"}
+              className={"text-blueberry80 underline hover:no-underline"}
               href={relativePrefixToRoot + profile.slug}
             >
               {profile.c_taxProName}
@@ -39,9 +39,19 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
           </div>
         )}
       </div>
-      {profile.c_directoryLocationTeaser && (
+      {profile.c_tagline && profile.c_tagline.length > 200 ? (
         <div className="text-pepper120 text-[14px] leading-[20px] font-normal italic mb-2">
-          {profile.c_directoryLocationTeaser}
+          {profile.c_tagline.slice(0, 200)}...
+          <Link
+            className={"ml-1 text-blueberry80 underline hover:no-underline"}
+            href={relativePrefixToRoot + profile.slug}
+          >
+            Learn More
+          </Link>
+        </div>
+      ) : (
+        <div className="text-pepper120 text-[14px] leading-[20px] font-normal italic mb-2">
+          {profile.c_tagline}
         </div>
       )}
       {(profile.mainPhone || profile.address) && (

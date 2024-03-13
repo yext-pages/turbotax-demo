@@ -28,7 +28,7 @@ const DirectoryList = (props: DirectoryListProps) => {
 
   return (
     <div className="flex flex-col">
-      <ul className={classNames("flex flex-wrap s:py-[50px] s:gap-y-6", !isFooter ? "s:px-[150px]" : "")} >
+      <ul className={classNames("flex flex-wrap s:py-[50px] s:gap-y-6", !isFooter ? "s:px-[150px]" : "s:pt-[32px]")} >
         {directoryChildrenSorted.map((child, idx) => (
           <li
             className="w-full border-b border-tofu110 s:w-1/2 s:p-0 s:border-0 m:w-1/3 l:w-1/4"
@@ -42,10 +42,10 @@ const DirectoryList = (props: DirectoryListProps) => {
               objectDetail={""}
             >
               <div>
-                <span className="text-base text-blueberry80 font-medium mr-2 s:hover:underline">
+                <span className={classNames("text-blueberry80 font-medium mr-2 s:hover:underline", isFooter ? "text-2" : "text-base")}>
                   {stateAbbrToName(child.name)}
                 </span>
-                <span className="text-base text-pepper120 font-normal">
+                <span className={classNames("text-pepper120 font-normal", isFooter ? "text-2" : "text-base")}>
                   ({child.dm_baseEntityCount})
                 </span>
               </div>

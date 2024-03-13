@@ -71,7 +71,7 @@ function stateAbbrToName(abbr: string): string {
 function formatUSPhoneNumber(phoneNumber: string): string {
   const numericOnly = phoneNumber.replace(/\D/g, '');
   if (numericOnly.length === 11) {
-    return numericOnly.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    return numericOnly.substring(1).replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
   } else {
     return phoneNumber;
   }

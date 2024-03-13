@@ -21,7 +21,7 @@ const Onramp = (props: OnrampProps) => {
           {description}
         </div>
         <Button
-          className={"text-[14px] leading-[20px] font-medium mb-6 m:w-[130px]"}
+          className={"text-[14px] leading-[20px] font-medium h-[42px] mb-6 m:w-[130px]"}
           priority={"primary"}
           as={"a"}
           href={ctaUrl}

@@ -26,12 +26,26 @@ export interface RTF2 {
   readonly json: object;
 }
 
+export enum LinkType {
+  URL = 'URL',
+  Email = 'Email',
+  Phone = 'Phone',
+}
+
+export interface CTA {
+  link: string
+  label: string
+  linkType?: LinkType
+}
+
 export type DirectoryProfile<T> = BaseProfile & {
   readonly name: string;
   readonly slug: string;
   readonly c_meta: Meta;
   readonly c_heroTitle: string;
   readonly c_heroDescription: string;
+  readonly c_findAVerifiedPro: CTA,
+  readonly c_findAVerifiedProHeroText: string,
   readonly c_directoryHeroImage: Image,
   readonly c_onrampCTAURL: string;
   readonly dm_baseEntityCount: number;

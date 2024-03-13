@@ -11,6 +11,7 @@ import type { DirectoryProfile } from "../types/entities";
 import { createConfig, Page } from "../hooks/useConfig";
 import { Tag } from "@yext/pages/dist/types/src";
 import { createBreadcrumbsStructuredData } from "../utils/breadcrumbsStructuredData"
+import { createAnalyticsScripts } from "./analytics";
 
 export const makeConfig = (streamId: string, savedFilterId: string, streamFields: string[]): TemplateConfig => {
   return {
@@ -48,19 +49,15 @@ export const getHeadConfig = (
   tags: Tag[],
   title: string,
 ): ReturnType<GetHeadConfig<TemplateRenderProps<DirectoryProfile<never>>>> => {
-  // const config = createConfig(configVariant);
+  const config = createConfig(configVariant);
 
-  // TODO: check if they want their custom analytics on directory pages
-  // let scripts = createAnalyticsScripts({
-  //   scopeArea: "tip_profile_landing_pages",
-  //   screen: "tip_pro_profile_modal_landing_page",
-  //   options: {
-  //     object_detail: cleanPseudonym(data.document.c_pseudonymID || data.document.id), // pseudonym ID,
-  //   },
-  //   config,
-  // });
+  let scripts = createAnalyticsScripts({
+    scopeArea: "directory",
+    screen: "directory",
+    config,
+  });
 
-  const scripts = `<script type="application/ld+json">${JSON.stringify(
+  scripts += `<script type="application/ld+json">${JSON.stringify(
     createBreadcrumbsStructuredData(data)
   )}</script>`;
 

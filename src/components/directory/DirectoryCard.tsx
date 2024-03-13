@@ -1,5 +1,6 @@
 import { TaxProsMain } from "../../types/autogen";
-import { Link, Address, AddressType, getDirections } from "@yext/pages-components";
+import { Address, AddressType, getDirections } from "@yext/pages-components";
+import Link from "../atoms/Link";
 import { formatUSPhoneNumber } from "../../utils/helpers";
 import PhoneIcon from "../../assets/images/phone.svg";
 import PinIcon from "../../assets/images/pin.svg";
@@ -33,6 +34,9 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
             <Link
               className={"text-blueberry80 underline hover:no-underline"}
               href={relativePrefixToRoot + profile.slug}
+              action={"engaged"}
+              object={"directory teaser pro name"}
+              objectDetail={profile.c_taxProName}
             >
               {profile.c_taxProName}
             </Link>
@@ -45,6 +49,9 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
           <Link
             className={"ml-1 text-blueberry80 underline hover:no-underline"}
             href={relativePrefixToRoot + profile.slug}
+            action={"engaged"}
+            object={"directory teaser tagline learn more"}
+            objectDetail={"Learn More"}
           >
             Learn More
           </Link>
@@ -68,6 +75,8 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
           <Link
             className={""}
             href={`tel:${profile.mainPhone}`}
+            action={"engaged"}
+            object={"directory teaser phone"}
           >
             {formatUSPhoneNumber(profile.mainPhone)}
           </Link>
@@ -89,6 +98,8 @@ const DirectoryCard: React.FC<DirectoryCardProps> = (props) => {
               undefined,
               profile.googlePlaceId ?? ""
             )}`}
+            action={"engaged"}
+            object={"directory teaser address"}
           >
             <Address
               address={profile.address as AddressType}

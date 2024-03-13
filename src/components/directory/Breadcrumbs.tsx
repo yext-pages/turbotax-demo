@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import classNames from "classnames";
-import { Link } from "@yext/pages-components";
+import Link from "../atoms/Link";
 import { stateAbbrToName } from "../../utils/helpers";
 
 interface BreadcrumbsPropsDefault {
@@ -77,6 +77,9 @@ const Breadcrumb = (props: BreadcrumbProps) => {
       <Link
         className={"text-blueberry80 text-[14px] leading-[20px] font-medium underline s:no-underline hover:underline"}
         href={slug}
+        action={"engaged"}
+        object={"directory breadcrumb link"}
+        objectDetail={nameCleaned}
       >
         <span>{nameCleaned}</span>
       </Link>

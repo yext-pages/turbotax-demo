@@ -37,9 +37,9 @@ const DirectoryList = (props: DirectoryListProps) => {
             <Link
               className={"flex justify-between p-4 s:inline-block s:p-0"}
               action={"engaged"}
-              object={"link"}
+              object={"directory list link"}
               href={relativePrefixToRoot + getSkipLevelSlug(child)}
-              objectDetail={""}
+              objectDetail={stateAbbrToName(child.name)}
             >
               <div>
                 <span className={classNames("text-blueberry80 font-medium mr-2 s:hover:underline", isFooter ? "text-2" : "text-base")}>

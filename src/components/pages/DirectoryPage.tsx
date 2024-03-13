@@ -38,6 +38,8 @@ const DirectoryPage = (props: DirectoryProps) => {
               name={data.document.name}
               title={data.document.c_heroTitle}
               description={data.document.c_heroDescription}
+              FindProCTA={data.document.c_findAVerifiedPro}
+              FindProText={data.document.c_findAVerifiedProHeroText}
               imageUrl={data.document.c_directoryHeroImage?.url}
               imageAlt={data.document.c_directoryHeroImage?.alternateText}
             />

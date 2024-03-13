@@ -43,10 +43,10 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
     <footer className={"w-full bg-pepper0"}>
       <FooterSection>
         <B3 color={TextColor.pepper110} className={"italic py-2"}>
-          "Local" for the purposes of virtual meetings with Intuit TurboTax Verified Pros, shall
-          mean that the pro is in the same state as the customer. "Local" for the purposes of
-          in-person meeting with Intuit TurboTax Verified Pros shall mean that the pro is within 50
-          miles of the consumers. Local pros are not available in all states or all locations.
+          *Not all feature combinations are available for all locations.
+          "Local" experts are defined as being located within the same state as the consumer for virtual meetings.
+          In-person meetings with local pros are available in some locations, but not available in all States or locations.
+          "Local" pros for the purpose of in-person meetings are defined as being located within 50 miles of the consumer's zip code.
         </B3>
       </FooterSection>
       <hr className={"border-pepper30"} />

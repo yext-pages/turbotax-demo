@@ -43,10 +43,13 @@ const Footer: React.FC<FooterGlobalProps> = (props: FooterGlobalProps) => {
     <footer className={"w-full bg-pepper0"}>
       <FooterSection>
         <B3 color={TextColor.pepper110} className={"italic py-2"}>
+          TurboTax offers or discounts don’t apply to TurboTax Verified Pro services.
+          Your independent tax pro will work with you to set the final price before preparing your return, based on your tax situation.
+          <br/><br/>
           *Not all feature combinations are available for all locations.
-          "Local" experts are defined as being located within the same state as the consumer for virtual meetings.
-          In-person meetings with local pros are available in some locations, but not available in all States or locations.
-          "Local" pros for the purpose of in-person meetings are defined as being located within 50 miles of the consumer's zip code.
+          In-person meetings with a local tax pro are available in some locations, but not available in all states or locations.
+          "Local" tax pro is defined as being located within the same state as the client for virtual meetings.
+          "Local" tax pro, for the purpose of in-person meetings, is defined as being located within 50 miles of the consumer's zip code.
         </B3>
       </FooterSection>
       <hr className={"border-pepper30"} />

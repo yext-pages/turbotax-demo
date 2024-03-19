@@ -67,7 +67,7 @@ const Breadcrumb = (props: BreadcrumbProps) => {
 
   let nameCleaned = name;
   if (nameCleaned === "Directory") {
-    nameCleaned = "TurboTax Verified Tax Pro Hub";
+    nameCleaned = "TurboTax Verified Pros";
   } else if (stateAbbrToName(nameCleaned)) {
     nameCleaned = stateAbbrToName(nameCleaned);
   }

@@ -12,6 +12,8 @@ livePreviewConfiguration:
 sitemap:
   disableSitemapGeneration: false
   fileName: expert-profile-sitemap
+serving:
+  reverseProxyPrefix: https://pros.turbotax.intuit.com/
 staticRouting:
   - from: "/"
     to: https://pros-turbotax.app.intuit.com/pro-matching-intro
